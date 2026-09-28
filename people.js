@@ -1,819 +1,693 @@
 /* =========================================================
-   HIDDEN LEGENDS — PEOPLE PAGE
-   PREMIUM INTERACTIVE JAVASCRIPT
+   HIDDEN LEGENDS — INTRO LIGHT REVEAL
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+const introScreen = document.getElementById("introScreen");
+const introSparrow = document.getElementById("introSparrow");
+const introPrompt = document.querySelector(".intro-prompt");
 
+let introStarted = false;
 
-    /* =====================================================
-       PARTICLES
-    ===================================================== */
 
-    const particleCount = 70;
+/* ENTER HIDDEN LEGENDS */
 
-    for (let i = 0; i < particleCount; i++) {
+function enterHiddenLegends() {
 
-        const particle =
-            document.createElement("div");
+    if (introStarted) return;
 
-        particle.classList.add(
-            "people-particle"
-        );
+    introStarted = true;
 
-        const size =
-            Math.random() * 3 + 1;
+    /* Start the light coming from the sparrow */
+    introScreen.classList.add("light-reveal");
 
-        particle.style.width =
-            size + "px";
+    /*
+       Wait until the light has completely covered
+       the screen before removing the intro.
+    */
+    setTimeout(() => {
 
-        particle.style.height =
-            size + "px";
+        introScreen.classList.add("finished");
 
-        particle.style.left =
-            Math.random() * 100 + "%";
+    }, 1750);
 
-        particle.style.top =
-            Math.random() * 100 + "%";
-
-        particle.style.opacity =
-            Math.random() * 0.6 + 0.2;
-
-        document.body.appendChild(
-            particle
-        );
-
-        particle.animate(
-            [
-                {
-                    transform:
-                        "translateY(0px)",
-                    opacity:
-                        0
-                },
-
-                {
-                    transform:
-                        `
-                        translate(
-                            ${Math.random() * 100 - 50}px,
-                            ${Math.random() * -150 - 50}px
-                        )
-                        `,
-                    opacity:
-                        0.7
-                },
-
-                {
-                    transform:
-                        `
-                        translate(
-                            ${Math.random() * 200 - 100}px,
-                            ${Math.random() * -350 - 100}px
-                        )
-                        `,
-                    opacity:
-                        0
-                }
-            ],
-            {
-                duration:
-                    7000 +
-                    Math.random() * 9000,
-
-                iterations:
-                    Infinity,
-
-                delay:
-                    Math.random() * 7000,
-
-                easing:
-                    "ease-in-out"
-            }
-        );
-    }
-
-
-    /* =====================================================
-       CURSOR GLOW
-    ===================================================== */
-
-    const cursorGlow =
-        document.createElement("div");
-
-    cursorGlow.className =
-        "people-cursor-glow";
-
-    document.body.appendChild(
-        cursorGlow
-    );
-
-    let mouseX = 0;
-    let mouseY = 0;
-
-    let glowX = 0;
-    let glowY = 0;
-
-    document.addEventListener(
-        "mousemove",
-        (event) => {
-
-            mouseX =
-                event.clientX;
-
-            mouseY =
-                event.clientY;
-        }
-    );
-
-    function animateCursor() {
-
-        glowX +=
-            (mouseX - glowX) *
-            0.12;
-
-        glowY +=
-            (mouseY - glowY) *
-            0.12;
-
-        cursorGlow.style.left =
-            glowX + "px";
-
-        cursorGlow.style.top =
-            glowY + "px";
-
-        requestAnimationFrame(
-            animateCursor
-        );
-    }
-
-    animateCursor();
-
-
-    /* =====================================================
-       CARD 3D EFFECT
-       Exact HTML class: .person
-    ===================================================== */
-
-    const cards =
-        document.querySelectorAll(
-            ".person"
-        );
-
-    cards.forEach(
-        (card, index) => {
-
-            card.addEventListener(
-                "mousemove",
-                (event) => {
-
-                    const rect =
-                        card.getBoundingClientRect();
-
-                    const x =
-                        event.clientX -
-                        rect.left;
-
-                    const y =
-                        event.clientY -
-                        rect.top;
-
-                    const centerX =
-                        rect.width / 2;
-
-                    const centerY =
-                        rect.height / 2;
-
-                    const rotateX =
-                        (y - centerY) /
-                        25;
-
-                    const rotateY =
-                        (centerX - x) /
-                        25;
-
-                    card.style.transform =
-                        `
-                        perspective(1200px)
-                        rotateX(${rotateX}deg)
-                        rotateY(${rotateY}deg)
-                        translateY(-15px)
-                        scale(1.015)
-                        `;
-
-                    card.style.setProperty(
-                        "--mouse-x",
-                        `${x}px`
-                    );
-
-                    card.style.setProperty(
-                        "--mouse-y",
-                        `${y}px`
-                    );
-                }
-            );
-
-
-            card.addEventListener(
-                "mouseleave",
-                () => {
-
-                    card.style.transform =
-                        "";
-
-                }
-            );
-        }
-    );
-
-
-    /* =====================================================
-       IMAGE PARALLAX
-    ===================================================== */
-
-    cards.forEach((card) => {
-
-        const image =
-            card.querySelector("img");
-
-        if (!image) return;
-
-        card.addEventListener(
-            "mousemove",
-            (event) => {
-
-                const rect =
-                    card.getBoundingClientRect();
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-                const moveX =
-                    ((x / rect.width) - 0.5) *
-                    12;
-
-                const moveY =
-                    ((y / rect.height) - 0.5) *
-                    12;
-
-                image.style.transform =
-                    `
-                    scale(1.04)
-                    translate(
-                        ${moveX}px,
-                        ${moveY}px
-                    )
-                    `;
-            }
-        );
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-                image.style.transform =
-                    "";
-            }
-        );
-    });
-
-
-    /* =====================================================
-       BUTTON MAGNET EFFECT
-       Exact HTML class: .read-more
-    ===================================================== */
-
-    const buttons =
-        document.querySelectorAll(
-            ".read-more"
-        );
-
-    buttons.forEach((button) => {
-
-        button.addEventListener(
-            "mousemove",
-            (event) => {
-
-                const rect =
-                    button.getBoundingClientRect();
-
-                const x =
-                    event.clientX -
-                    rect.left -
-                    rect.width / 2;
-
-                const y =
-                    event.clientY -
-                    rect.top -
-                    rect.height / 2;
-
-                button.style.transform =
-                    `
-                    translate(
-                        ${x * 0.15}px,
-                        ${y * 0.15}px
-                    )
-                    `;
-            }
-        );
-
-        button.addEventListener(
-            "mouseleave",
-            () => {
-
-                button.style.transform =
-                    "";
-            }
-        );
-    });
-
-
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
-
-    const revealElements =
-        document.querySelectorAll(
-            ".person, .category-title, .section-heading"
-        );
-
-    const revealObserver =
-        new IntersectionObserver(
-            (entries) => {
-
-                entries.forEach(
-                    (entry) => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            entry.target.classList.add(
-                                "reveal",
-                                "active"
-                            );
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-                        }
-                    }
-                );
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-    revealElements.forEach(
-        (element, index) => {
-
-            element.classList.add(
-                "reveal"
-            );
-
-            element.style.transitionDelay =
-                `${(index % 3) * 0.08}s`;
-
-            revealObserver.observe(
-                element
-            );
-        }
-    );
-
-
-    /* =====================================================
-       SCROLL PROGRESS
-    ===================================================== */
-
-    const progress =
-        document.createElement("div");
-
-    progress.className =
-        "people-scroll-progress";
-
-    document.body.appendChild(
-        progress
-    );
-
-    function updateProgress() {
-
-        const scrollTop =
-            window.scrollY;
-
-        const pageHeight =
-            document.documentElement
-                .scrollHeight;
-
-        const windowHeight =
-            window.innerHeight;
-
-        const scrollable =
-            pageHeight -
-            windowHeight;
-
-        const percentage =
-            scrollable > 0
-                ? (scrollTop / scrollable) * 100
-                : 0;
-
-        progress.style.width =
-            percentage + "%";
-    }
-
-    window.addEventListener(
-        "scroll",
-        updateProgress,
-        {
-            passive: true
-        }
-    );
-
-    updateProgress();
-
-
-    /* =====================================================
-       NAVBAR SCROLL
-    ===================================================== */
-
-    const nav =
-        document.querySelector("nav");
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (!nav) return;
-
-            if (window.scrollY > 80) {
-
-                nav.style.background =
-                    "rgba(3, 6, 18, 0.95)";
-
-                nav.style.boxShadow =
-                    `
-                    0 15px 50px
-                    rgba(0,0,0,0.4)
-                    `;
-
-            } else {
-
-                nav.style.background =
-                    "rgba(5, 8, 22, 0.72)";
-
-                nav.style.boxShadow =
-                    "none";
-            }
-        },
-        {
-            passive: true
-        }
-    );
-
-
-/* =====================================================
-   HERO PARALLAX
-   Keep the BIG TITLE stable
-===================================================== */
-
-const hero =
-    document.querySelector(
-        ".people-hero"
-    );
-
-const heroContent =
-    document.querySelector(
-        ".people-hero .hero-content"
-    );
-
-const heroTitle =
-    document.querySelector(
-        ".people-hero .hero-content h1"
-    );
-
-if (hero && heroContent) {
-
-    hero.addEventListener(
-        "mousemove",
-        (event) => {
-
-            const rect =
-                hero.getBoundingClientRect();
-
-            const x =
-                event.clientX -
-                rect.left;
-
-            const y =
-                event.clientY -
-                rect.top;
-
-            const moveX =
-                ((x / rect.width) - 0.5) *
-                10;
-
-            const moveY =
-                ((y / rect.height) - 0.5) *
-                10;
-
-            /*
-               Move ONLY the background layer.
-               Do NOT transform the title.
-            */
-
-            hero.style.setProperty(
-                "--hero-x",
-                `${moveX}px`
-            );
-
-            hero.style.setProperty(
-                "--hero-y",
-                `${moveY}px`
-            );
-
-            /*
-               Keep the title completely stable.
-            */
-
-            if (heroTitle) {
-                heroTitle.style.transform =
-                    "translate3d(0, 0, 0)";
-            }
-        }
-    );
-
-    hero.addEventListener(
-        "mouseleave",
-        () => {
-
-            hero.style.setProperty(
-                "--hero-x",
-                "0px"
-            );
-
-            hero.style.setProperty(
-                "--hero-y",
-                "0px"
-            );
-
-            if (heroTitle) {
-                heroTitle.style.transform =
-                    "translate3d(0, 0, 0)";
-            }
-        }
-    );
 }
 
 
-    /* =====================================================
-       CLICK RIPPLE
-    ===================================================== */
+/* CLICK SPARROW */
 
-    document.addEventListener(
+if (introSparrow) {
+
+    introSparrow.addEventListener(
         "click",
-        (event) => {
-
-            const ripple =
-                document.createElement(
-                    "div"
-                );
-
-            ripple.style.position =
-                "fixed";
-
-            ripple.style.left =
-                event.clientX + "px";
-
-            ripple.style.top =
-                event.clientY + "px";
-
-            ripple.style.width =
-                "10px";
-
-            ripple.style.height =
-                "10px";
-
-            ripple.style.borderRadius =
-                "50%";
-
-            ripple.style.border =
-                "2px solid #22d3ee";
-
-            ripple.style.boxShadow =
-                `
-                0 0 15px #22d3ee,
-                0 0 35px #8b5cf6,
-                0 0 55px #ec4899
-                `;
-
-            ripple.style.pointerEvents =
-                "none";
-
-            ripple.style.zIndex =
-                "10000";
-
-            ripple.style.transform =
-                "translate(-50%, -50%)";
-
-            document.body.appendChild(
-                ripple
-            );
-
-            ripple.animate(
-                [
-                    {
-                        width: "10px",
-                        height: "10px",
-                        opacity: 1
-                    },
-
-                    {
-                        width: "120px",
-                        height: "120px",
-                        opacity: 0
-                    }
-                ],
-                {
-                    duration: 750,
-                    easing: "ease-out"
-                }
-            );
-
-            setTimeout(
-                () => {
-                    ripple.remove();
-                },
-                800
-            );
-        }
+        enterHiddenLegends
     );
 
+}
 
-    /* =====================================================
-       RANDOM LIGHTS
-    ===================================================== */
 
-    const colors = [
-        "#22d3ee",
-        "#3b82f6",
-        "#8b5cf6",
-        "#ec4899",
-        "#f4c542"
-    ];
+/* CLICK "CLICK TO ENTER" */
 
-    for (let i = 0; i < 20; i++) {
+if (introPrompt) {
 
-        const light =
-            document.createElement(
-                "div"
-            );
+    introPrompt.addEventListener(
+        "click",
+        enterHiddenLegends
+    );
 
-        const color =
-            colors[
-                Math.floor(
-                    Math.random() *
-                    colors.length
-                )
-            ];
+}
 
-        light.style.position =
-            "fixed";
+/* =========================================================
+   HIDDEN LEGENDS — BOOK NAVIGATION
+   people.js
+========================================================= */
 
-        light.style.width =
-            Math.random() * 4 + 2 + "px";
 
-        light.style.height =
-            light.style.width;
+const spreads = document.querySelectorAll(".book-spread");
 
-        light.style.left =
-            Math.random() * 100 + "%";
+const previousButton = document.getElementById("previousPage");
+const nextButton = document.getElementById("nextPage");
+const bookPosition = document.getElementById("bookPosition");
 
-        light.style.top =
-            Math.random() * 100 + "%";
 
-        light.style.borderRadius =
-            "50%";
+/* =========================================================
+   PAGE NAMES
+========================================================= */
 
-        light.style.background =
-            color;
+const pageNames = [
+    "CONTENTS",
+    "CHRISTIAN",
+    "COURAGE & RESCUE",
+    "HUMANITARIANS",
+    "EXPLORERS",
+    "SPACE",
+    "SCIENCE & DISCOVERY"
+];
 
-        light.style.boxShadow =
-            `
-            0 0 12px ${color},
-            0 0 30px ${color}
-            `;
 
-        light.style.pointerEvents =
-            "none";
+/* =========================================================
+   SETTINGS
+========================================================= */
 
-        light.style.zIndex =
-            "0";
+const TURN_DURATION = 900;
 
-        document.body.appendChild(
-            light
+let currentPage = 0;
+let isTurning = false;
+
+
+/* =========================================================
+   UPDATE BUTTONS / POSITION
+========================================================= */
+
+function updateControls() {
+
+    bookPosition.textContent = pageNames[currentPage];
+
+    previousButton.disabled = currentPage === 0;
+    nextButton.disabled = currentPage === spreads.length - 1;
+}
+
+
+/* =========================================================
+   CLEAR ANIMATION CLASSES
+========================================================= */
+
+function clearAnimationClasses() {
+
+    spreads.forEach((spread) => {
+
+        spread.classList.remove(
+            "turn-next",
+            "turn-prev",
+            "enter-next",
+            "enter-prev"
         );
 
-        light.animate(
-            [
-                {
-                    transform:
-                        "translate(0, 0)"
-                },
+        spread.style.zIndex = "";
 
-                {
-                    transform:
-                        `
-                        translate(
-                            ${Math.random() * 120 - 60}px,
-                            ${Math.random() * 120 - 60}px
-                        )
-                        `
-                },
+        if (index === 0) {
+            spread.classList.add("active");
+        }
 
-                {
-                    transform:
-                        "translate(0, 0)"
-                }
-            ],
-            {
-                duration:
-                    5000 +
-                    Math.random() * 7000,
+    });
 
-                iterations:
-                    Infinity,
+    currentPage = 0;
 
-                easing:
-                    "ease-in-out"
-            }
-        );
+    updateControls();
+
+}
+
+
+/* =========================================================
+   4. UPDATE BUTTONS / PAGE NAME
+========================================================= */
+
+function updateControls() {
+
+    if (bookPosition) {
+        bookPosition.textContent =
+            pageNames[currentPage] || "CONTENTS";
+    }
+
+    if (previousButton) {
+        previousButton.disabled =
+            currentPage === 0;
+    }
+
+    if (nextButton) {
+        nextButton.disabled =
+            currentPage === spreads.length - 1;
+    }
+
+}
+
+
+/* =========================================================
+   5. PAGE TURN
+========================================================= */
+
+function turnPage(targetPage) {
+
+    /*
+       Don't allow:
+       - clicking the current page
+       - turning beyond the book
+       - another turn while animation is running
+    */
+
+    if (isTurning) {
+        return;
+    }
+
+    if (
+        targetPage < 0 ||
+        targetPage >= spreads.length ||
+        targetPage === currentPage
+    ) {
+        return;
     }
 
 
+    isTurning = true;
+
+
+    const oldPage = spreads[currentPage];
+    const newPage = spreads[targetPage];
+
+    const movingForward = targetPage > currentPage;
+
+
     /* =====================================================
-       CATEGORY TITLE GLOW
+       PREPARE NEW PAGE
     ===================================================== */
 
-    const categoryTitles =
-        document.querySelectorAll(
-            ".category-title"
+    newPage.classList.remove(
+        "active",
+        "turn-next",
+        "turn-prev",
+        "enter-next",
+        "enter-prev"
+    );
+
+    oldPage.classList.remove(
+        "turn-next",
+        "turn-prev",
+        "enter-next",
+        "enter-prev"
+    );
+
+
+    /*
+       Put the new page underneath the page being turned.
+    */
+
+    newPage.style.zIndex = "1";
+    oldPage.style.zIndex = "5";
+
+
+    newPage.classList.add(
+        movingForward ? "enter-next" : "enter-prev"
+    );
+
+
+    /*
+       Force the browser to register the starting
+       animation state before starting the turn.
+    */
+
+    void newPage.offsetWidth;
+
+
+    oldPage.classList.add(
+        movingForward ? "turn-next" : "turn-prev"
+    );
+
+
+    /*
+       The new page becomes active during the animation.
+    */
+
+    newPage.classList.add("active");
+
+
+    currentPage = targetPage;
+
+    updateControls();
+
+
+    /* =====================================================
+       FINISH ANIMATION
+    ===================================================== */
+
+    setTimeout(() => {
+
+        oldPage.classList.remove(
+            "active",
+            "turn-next",
+            "turn-prev",
+            "enter-next",
+            "enter-prev"
         );
 
-    categoryTitles.forEach(
-        (title, index) => {
+        newPage.classList.remove(
+            "turn-next",
+            "turn-prev",
+            "enter-next",
+            "enter-prev"
+        );
 
-            const colors =
-                [
-                    "#22d3ee",
-                    "#3b82f6",
-                    "#8b5cf6",
-                    "#ec4899",
-                    "#f97316",
-                    "#f4c542"
-                ];
+        newPage.classList.add("active");
 
-            title.style.textShadow =
-                `
-                0 0 25px
-                ${colors[index % colors.length]}
-                20
-                `;
+        oldPage.style.zIndex = "";
+        newPage.style.zIndex = "";
+
+        isTurning = false;
+
+        /*
+           Keep the book at the top after turning.
+        */
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }, 760);
+
+}
+
+
+/* =========================================================
+   6. NEXT BUTTON
+========================================================= */
+
+if (nextButton) {
+
+    nextButton.addEventListener("click", () => {
+
+        turnPage(currentPage + 1);
+
+    });
+
+}
+
+
+/* =========================================================
+   7. PREVIOUS BUTTON
+========================================================= */
+
+if (previousButton) {
+
+    previousButton.addEventListener("click", () => {
+
+        turnPage(currentPage - 1);
+
+    });
+
+}
+
+
+/* =========================================================
+   8. CONTENTS CATEGORY LINKS
+========================================================= */
+
+const pageLinks = document.querySelectorAll("[data-go-to]");
+
+pageLinks.forEach(link => {
+
+    link.addEventListener("click", event => {
+
+        event.preventDefault();
+
+        const targetPage = Number(
+            link.getAttribute("data-go-to")
+        );
+
+        if (!Number.isNaN(targetPage)) {
+
+            turnPage(targetPage);
+
         }
-    );
 
-
-    /* =====================================================
-       CONSOLE
-    ===================================================== */
-
-    console.log(
-        "%c HIDDEN LEGENDS ",
-        `
-        background:
-            linear-gradient(
-                90deg,
-                #22d3ee,
-                #3b82f6,
-                #8b5cf6,
-                #ec4899
-            );
-
-        color: white;
-
-        font-size: 18px;
-
-        font-weight: bold;
-
-        padding: 10px 20px;
-
-        border-radius: 10px;
-        `
-    );
+    });
 
 });
+
+
+/* =========================================================
+   9. KEYBOARD CONTROLS
+========================================================= */
+
+document.addEventListener("keydown", event => {
+
+    /*
+       Don't interfere with typing into an input.
+    */
+
+    const activeElement = document.activeElement;
+
+    if (
+        activeElement &&
+        (
+            activeElement.tagName === "INPUT" ||
+            activeElement.tagName === "TEXTAREA" ||
+            activeElement.isContentEditable
+        )
+    ) {
+        return;
+    }
+
+
+    if (event.key === "ArrowRight") {
+
+        event.preventDefault();
+
+        turnPage(currentPage + 1);
+
+    }
+
+
+    if (event.key === "ArrowLeft") {
+
+        event.preventDefault();
+
+        turnPage(currentPage - 1);
+
+    }
+
+});
+
+
+/* =========================================================
+   10. URL HASH
+========================================================= */
+
+const hashPages = {
+
+    christian: 1,
+    courage: 2,
+    humanitarians: 3,
+    explorers: 4,
+    space: 5,
+    science: 6
+
+};
+
+
+function openHashPage() {
+
+    const hash = window.location.hash
+        .replace("#", "")
+        .toLowerCase();
+
+
+    if (
+        hash &&
+        Object.prototype.hasOwnProperty.call(
+            hashPages,
+            hash
+        )
+    ) {
+
+        const targetPage = hashPages[hash];
+
+        /*
+           Start directly on the requested category
+           when the page first loads.
+        */
+
+        spreads.forEach((spread, index) => {
+
+            spread.classList.remove(
+                "active",
+                "turn-next",
+                "turn-prev",
+                "enter-next",
+                "enter-prev"
+            );
+
+            spread.style.zIndex = "";
+
+            if (index === targetPage) {
+                spread.classList.add("active");
+            }
+
+        });
+
+        currentPage = targetPage;
+
+        updateControls();
+
+    }
+
+}
+
+
+/* =========================================================
+   11. UPDATE HASH WHEN TURNING
+========================================================= */
+
+function updateHash(pageNumber) {
+
+    const hashNames = [
+        "",
+        "christian",
+        "courage",
+        "humanitarians",
+        "explorers",
+        "space",
+        "science"
+    ];
+
+    const hash = hashNames[pageNumber];
+
+    if (!hash) {
+
+        history.replaceState(
+            null,
+            "",
+            window.location.pathname +
+            window.location.search
+        );
+
+        return;
+    }
+
+
+    history.replaceState(
+        null,
+        "",
+        "#" + hash
+    );
+
+}
+
+
+/* =========================================================
+   12. WRAP PAGE TURN TO UPDATE HASH
+========================================================= */
+
+const originalTurnPage = turnPage;
+
+
+/*
+   Replace the function behavior so the URL changes
+   when the user turns the page.
+*/
+
+function goToPage(targetPage) {
+
+    if (isTurning) {
+        return;
+    }
+
+    if (
+        targetPage < 0 ||
+        targetPage >= spreads.length ||
+        targetPage === currentPage
+    ) {
+        return;
+    }
+
+    originalTurnPage(targetPage);
+
+    updateHash(targetPage);
+
+}
+
+
+/* =========================================================
+   13. RECONNECT BUTTONS TO HASH-AWARE TURNING
+========================================================= */
+
+if (nextButton) {
+
+    nextButton.onclick = () => {
+
+        goToPage(currentPage + 1);
+
+    };
+
+}
+
+
+if (previousButton) {
+
+    previousButton.onclick = () => {
+
+        goToPage(currentPage - 1);
+
+    };
+
+}
+
+
+pageLinks.forEach(link => {
+
+    link.onclick = event => {
+
+        event.preventDefault();
+
+        const targetPage = Number(
+            link.getAttribute("data-go-to")
+        );
+
+        if (!Number.isNaN(targetPage)) {
+
+            goToPage(targetPage);
+
+        }
+
+    };
+
+});
+
+
+/* =========================================================
+   14. KEYBOARD — HASH AWARE
+========================================================= */
+
+document.addEventListener("keydown", event => {
+
+    const activeElement = document.activeElement;
+
+    if (
+        activeElement &&
+        (
+            activeElement.tagName === "INPUT" ||
+            activeElement.tagName === "TEXTAREA" ||
+            activeElement.isContentEditable
+        )
+    ) {
+        return;
+    }
+
+
+    if (event.key === "ArrowRight") {
+
+        event.preventDefault();
+
+        goToPage(currentPage + 1);
+
+    }
+
+
+    if (event.key === "ArrowLeft") {
+
+        event.preventDefault();
+
+        goToPage(currentPage - 1);
+
+    }
+
+});
+
+
+/* =========================================================
+   15. BROWSER BACK / FORWARD
+========================================================= */
+
+window.addEventListener("hashchange", () => {
+
+    const hash = window.location.hash
+        .replace("#", "")
+        .toLowerCase();
+
+    if (
+        hash &&
+        Object.prototype.hasOwnProperty.call(
+            hashPages,
+            hash
+        )
+    ) {
+
+        const targetPage = hashPages[hash];
+
+        /*
+           If already on the requested page,
+           do nothing.
+        */
+
+        if (targetPage === currentPage) {
+            return;
+        }
+
+
+        /*
+           For browser navigation, switch pages
+           without creating another history entry.
+        */
+
+        spreads.forEach((spread, index) => {
+
+            spread.classList.remove(
+                "active",
+                "turn-next",
+                "turn-prev",
+                "enter-next",
+                "enter-prev"
+            );
+
+            spread.style.zIndex = "";
+
+            if (index === targetPage) {
+                spread.classList.add("active");
+            }
+
+        });
+
+        currentPage = targetPage;
+
+        updateControls();
+
+    }
+
+});
+
+
+/* =========================================================
+   16. START BOOK
+========================================================= */
+
+initializeBook();
+
+openHashPage();
