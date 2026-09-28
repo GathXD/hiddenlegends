@@ -2,17 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================================================
        HIDDEN LEGENDS
-       PERSON PAGE — 3D ANIMATION SYSTEM
+       PERSON PAGE — OLD MANUSCRIPT ANIMATION SYSTEM
     ========================================================= */
 
 
     /* =========================================================
-       CREATE BACKGROUND
+       CREATE MANUSCRIPT BACKGROUND
     ========================================================= */
 
     var background = document.createElement("div");
 
-    background.className = "person-3d-background";
+    background.className =
+        "person-3d-background";
 
     background.innerHTML = `
         <div class="three-d-grid"></div>
@@ -23,15 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <div class="star-field"></div>
 
-        <div class="planet planet-one">
-            
-        </div>
-
+        <div class="planet planet-one"></div>
         <div class="planet planet-two"></div>
-
-        <div class="planet planet-three">
-            
-        </div>
+        <div class="planet planet-three"></div>
 
         <div class="orb orb-one"></div>
         <div class="orb orb-two"></div>
@@ -59,18 +54,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================================
-       CREATE STARS
+       CREATE PAPER DUST
     ========================================================= */
 
     var starField =
         background.querySelector(".star-field");
 
-    for (var i = 0; i < 220; i++) {
+    for (var i = 0; i < 110; i++) {
 
         var star =
             document.createElement("span");
 
-        star.className = "space-star";
+        star.className =
+            "space-star";
 
         var size =
             Math.random() * 2.5 + 0.5;
@@ -88,21 +84,22 @@ document.addEventListener("DOMContentLoaded", function () {
             Math.random() * 100 + "%";
 
         star.style.animationDelay =
-            Math.random() * 5 + "s";
+            Math.random() * 7 + "s";
 
         star.style.animationDuration =
-            Math.random() * 4 + 2 + "s";
+            Math.random() * 5 + 4 + "s";
 
         starField.appendChild(star);
     }
 
 
     /* =========================================================
-       SHOOTING STARS
+       CREATE GOLD / INK STREAKS
     ========================================================= */
 
     var shootingContainer =
         background.querySelector(".shooting-stars");
+
 
     function createShootingStar() {
 
@@ -116,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             Math.random() * 100 + "%";
 
         star.style.top =
-            Math.random() * 65 + "%";
+            Math.random() * 70 + "%";
 
         shootingContainer.appendChild(star);
 
@@ -127,13 +124,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 2200);
     }
 
+
     setInterval(function () {
 
-        if (Math.random() > 0.2) {
+        if (Math.random() > 0.45) {
+
             createShootingStar();
+
         }
 
-    }, 1600);
+    }, 2200);
 
 
     /* =========================================================
@@ -146,36 +146,37 @@ document.addEventListener("DOMContentLoaded", function () {
     var smoothX = 0;
     var smoothY = 0;
 
+
     document.addEventListener(
         "mousemove",
         function (event) {
 
             mouseX =
                 (event.clientX /
-                    window.innerWidth -
-                    0.5) * 2;
+                    window.innerWidth - 0.5) * 2;
 
             mouseY =
                 (event.clientY /
-                    window.innerHeight -
-                    0.5) * 2;
+                    window.innerHeight - 0.5) * 2;
 
         }
     );
 
 
     /* =========================================================
-       BACKGROUND PARALLAX
+       MANUSCRIPT PARALLAX
     ========================================================= */
 
     function animate3D() {
 
         smoothX +=
-            (mouseX - smoothX) * 0.035;
+            (mouseX - smoothX) * 0.025;
 
         smoothY +=
-            (mouseY - smoothY) * 0.035;
+            (mouseY - smoothY) * 0.025;
 
+
+        /* PAPER LINES */
 
         var grid =
             background.querySelector(
@@ -185,12 +186,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (grid) {
 
             grid.style.marginLeft =
-                smoothX * 20 + "px";
+                smoothX * 12 + "px";
 
             grid.style.marginTop =
-                smoothY * 15 + "px";
+                smoothY * 8 + "px";
         }
 
+
+        /* MEDALLIONS */
 
         var planets =
             background.querySelectorAll(
@@ -201,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
             function (planet, index) {
 
                 var depth =
-                    (index + 1) * 10;
+                    (index + 1) * 6;
 
                 planet.style.marginLeft =
                     smoothX * depth + "px";
@@ -212,6 +215,8 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
+        /* DUST */
+
         var orbs =
             background.querySelectorAll(
                 ".orb"
@@ -221,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
             function (orb, index) {
 
                 var depth =
-                    (index + 1) * 5;
+                    (index + 1) * 3;
 
                 orb.style.marginLeft =
                     smoothX * depth + "px";
@@ -238,7 +243,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     animate3D();
-
 
 
     /* =========================================================
@@ -267,7 +271,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             setTimeout(
                 function () {
+
                     ripple.remove();
+
                 },
                 900
             );
@@ -281,6 +287,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var nav =
         document.querySelector("nav");
+
 
     function updateNav() {
 
@@ -301,6 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
             );
         }
     }
+
 
     window.addEventListener(
         "scroll",
@@ -328,12 +336,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateProgress() {
 
         var total =
-            document.documentElement
-                .scrollHeight -
+            document.documentElement.scrollHeight -
             window.innerHeight;
 
         if (total <= 0) {
-            progress.style.width = "0%";
+
+            progress.style.width =
+                "0%";
+
             return;
         }
 
@@ -343,6 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
         progress.style.width =
             amount + "%";
     }
+
 
     window.addEventListener(
         "scroll",
@@ -362,10 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
+    if ("IntersectionObserver" in window) {
 
         var paragraphObserver =
             new IntersectionObserver(
@@ -378,13 +386,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                 entry.isIntersecting
                             ) {
 
-                                entry.target
-                                    .classList
-                                    .add(
-                                        "story-visible"
-                                    );
+                                entry.target.classList.add(
+                                    "story-visible"
+                                );
                             }
-
                         }
                     );
 
@@ -401,7 +406,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 paragraphObserver.observe(
                     paragraph
                 );
-
             }
         );
 
@@ -413,14 +417,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 paragraph.classList.add(
                     "story-visible"
                 );
-
             }
         );
     }
 
 
     /* =========================================================
-       REVEAL ELEMENTS
+       GENERAL REVEAL ELEMENTS
     ========================================================= */
 
     var reveals =
@@ -429,10 +432,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
+    if ("IntersectionObserver" in window) {
 
         var revealObserver =
             new IntersectionObserver(
@@ -445,13 +445,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                 entry.isIntersecting
                             ) {
 
-                                entry.target
-                                    .classList
-                                    .add(
-                                        "active"
-                                    );
+                                entry.target.classList.add(
+                                    "active"
+                                );
                             }
-
                         }
                     );
 
@@ -468,7 +465,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 revealObserver.observe(
                     element
                 );
-
             }
         );
 
@@ -480,7 +476,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 element.classList.add(
                     "active"
                 );
-
             }
         );
     }
@@ -522,11 +517,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     var rotateX =
                         ((y - centerY) /
-                            centerY) * -7;
+                            centerY) * -3;
 
                     var rotateY =
                         ((x - centerX) /
-                            centerX) * 7;
+                            centerX) * 3;
 
                     card.style.transform =
                         "perspective(1000px) " +
@@ -536,8 +531,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "rotateY(" +
                         rotateY +
                         "deg) " +
-                        "translateY(-10px)";
-
+                        "translateY(-5px)";
                 }
             );
 
@@ -551,10 +545,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         "rotateX(0deg) " +
                         "rotateY(0deg) " +
                         "translateY(0)";
-
                 }
             );
-
         }
     );
 
@@ -594,11 +586,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 var rotateX =
                     ((y - centerY) /
-                        centerY) * -4;
+                        centerY) * -1.5;
 
                 var rotateY =
                     ((x - centerX) /
-                        centerX) * 4;
+                        centerX) * 1.5;
 
                 storyInfo.style.transform =
                     "perspective(1200px) " +
@@ -608,7 +600,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     "rotateY(" +
                     rotateY +
                     "deg)";
-
             }
         );
 
@@ -621,7 +612,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     "perspective(1200px) " +
                     "rotateX(0deg) " +
                     "rotateY(0deg)";
-
             }
         );
     }
@@ -662,11 +652,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 var rotateX =
                     ((y - centerY) /
-                        centerY) * -2;
+                        centerY) * -1;
 
                 var rotateY =
                     ((x - centerX) /
-                        centerX) * 2;
+                        centerX) * 1;
 
                 hero.style.transform =
                     "perspective(1200px) " +
@@ -676,7 +666,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     "rotateY(" +
                     rotateY +
                     "deg)";
-
             }
         );
 
@@ -689,14 +678,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     "perspective(1200px) " +
                     "rotateX(0deg) " +
                     "rotateY(0deg)";
-
             }
         );
     }
 
 
     /* =========================================================
-       HEADING GLOW
+       HEADING HOVER
     ========================================================= */
 
     var headings =
@@ -717,7 +705,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     heading.classList.add(
                         "heading-glow"
                     );
-
                 }
             );
 
@@ -729,10 +716,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     heading.classList.remove(
                         "heading-glow"
                     );
-
                 }
             );
-
         }
     );
 
@@ -769,11 +754,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     button.style.transform =
                         "translate(" +
-                        x * 0.15 +
+                        x * 0.08 +
                         "px, " +
-                        y * 0.15 +
+                        y * 0.08 +
                         "px)";
-
                 }
             );
 
@@ -784,10 +768,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     button.style.transform =
                         "translate(0, 0)";
-
                 }
             );
-
         }
     );
 
@@ -808,53 +790,54 @@ document.addEventListener("DOMContentLoaded", function () {
                     ".space-glow"
                 );
 
+
             glows.forEach(
                 function (glow, index) {
 
                     glow.style.marginTop =
                         scroll *
-                        (0.015 + index * 0.008) +
+                        (0.008 +
+                            index * 0.004) +
                         "px";
-
                 }
             );
-
         }
     );
 
 
     /* =========================================================
-       FALLBACK — MAKE STORY VISIBLE
-       AFTER PAGE LOAD
+       FALLBACK
     ========================================================= */
 
     setTimeout(
         function () {
 
-            document.querySelectorAll(
-                ".story-text p"
-            ).forEach(
-                function (paragraph) {
+            document
+                .querySelectorAll(
+                    ".story-text p"
+                )
+                .forEach(
+                    function (paragraph) {
 
-                    paragraph.classList.add(
-                        "story-visible"
-                    );
+                        paragraph.classList.add(
+                            "story-visible"
+                        );
+                    }
+                );
 
-                }
-            );
 
+            document
+                .querySelectorAll(
+                    ".reveal"
+                )
+                .forEach(
+                    function (element) {
 
-            document.querySelectorAll(
-                ".reveal"
-            ).forEach(
-                function (element) {
-
-                    element.classList.add(
-                        "active"
-                    );
-
-                }
-            );
+                        element.classList.add(
+                            "active"
+                        );
+                    }
+                );
 
         },
         1800
@@ -871,7 +854,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     console.log(
-        "Hidden Legends 3D system loaded successfully."
+        "Hidden Legends — Old Manuscript system loaded successfully."
     );
 
 });
