@@ -7,258 +7,92 @@
     <title>Hidden Legends</title>
 
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Navigation -->
-<!-- Navigation -->
-<nav>
-    <div class="logo">HIDDEN LEGENDS</div>
+    <nav class="navbar">
+        <div class="logo">HIDDEN LEGENDS</div>
 
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="people.html">Legends</a>
-        <a href="#about">About</a>
-    </div>
-</nav>
-
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-
-        <div class="background"></div>
-
-        <div class="hero-content">
-
-            <p class="small-title">THE STORIES WE FORGOT</p>
-
-            <h1>
-                Hidden<br>
-                Legends            
-            </h1>
-
-            <p class="description">
-                These are the stories of the people who may have made history
-                but were barely known, and the people who risked their lives to save others.
-            </p>
-
-            <a href="people.html" class="explore-btn">
-                EXPLORE
-            </a>
-
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="people.html">Legends</a>
         </div>
-
-    </section>
-
-
-    <!-- Legends Section -->
-    <section class="legends" id="legends">
-
-        <div class="section-title">
-            <h2>The People Behind<br>History</h2>
-        </div>
+    </nav>
 
 
-        <div class="cards">
+    <main>
 
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8YOhuJT8KJ84UekRuqVqfpD9YcIv-ZtSr5hh7a_iFig&s=10">
-    <div class="card-text">
-        <h3>Rosalind Franklin</h3>
+        <section class="biblical-intro" id="home">
 
-        <p>
-            Her research and famous Photo 51 helped reveal the structure of DNA.
-        </p>
+            <div class="intro-sky"></div>
 
-        <button onclick="window.location.href='rosalind-franklin.html'" class="read-more-btn">
-            Read their story
-        </button>
-    </div>
-</div>
+            <div class="intro-stars"></div>
 
+            <div class="divine-glow"></div>
 
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPQmw8oPiYvXe-zUCA1OEmA50e49Q5rKhtYtjo2DQl5g&s=10">
-    <div class="card-text">
-        <h3>Katherine Johnson</h3>
+            <div class="sun-rays"></div>
 
-        <p>
-            She calculated the trajectories for the early space missions
-        </p>
+            <div class="distant-hills hills-back"></div>
+            <div class="distant-hills hills-middle"></div>
+            <div class="distant-hills hills-front"></div>
 
-        <button onclick="window.location.href='katherine-johnson.html'" class="read-more-btn">
-            Read their story
-        </button>
-    </div>
-</div>
+            <div class="floating-dust"></div>
 
 
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN_u-PF4_klv1BMKpnclcQO4bxnE9TDSdsFJtPAm4uxQ&s=10">
-    <div class="card-text">
-        <h3>Norman Borlaug</h3>
+            <div class="sparrow-container">
+              <img
+                class="sparrow"
+                src="c:\Users\ACER\Downloads\825261518_1744133673477890_4268768855446721179_n-removebg-preview.png"
+                alt="golden-sparrow"
+                aria-hidden="true"
+            >
+            </div>
 
-        <p>
-            He is known as the "Father of the Green Revolution" for his work in developing high-yield wheat varieties
-        </p>
+            <div class="intro-content">
 
-        <button onclick="window.location.href='norman-borlaug.html'" class="read-more-btn">
-            Read their story
-        </button>
-    </div>
-</div>
+                <div class="intro-line intro-line-one">
+                    THE WORLD REMEMBERS THE FAMOUS.
+                </div>
 
-
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStfrznakTbNfC6yd0OrG_GDcp2SwEXoc2B35JqJFz51w&s=10">
-    <div class="card-text">
-        <h3>Subrahmanyan Chandrasekhar</h3>
-
-        <p>
-            His discoveries helped scientists understand how stars live and die.
-        </p>
-
-        <button onclick="window.location.href='subrahmanyan-chandrasekhar.html'" class="read-more-btn">
-            Read their story
-        </button>
-    </div>
-</div>
+                <div class="intro-line intro-line-two">
+                    WE REMEMBER THE FORGOTTEN.
+                </div>
 
 
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq0_1iuzN0_d0GHk0n48vPHJYdMSmivAmXP4Aych4vEA&s=10">
-    <div class="card-text">
-        <h3>Sacagawea</h3>
+                <div class="intro-verse">
 
-        <p>
-            She served as a guide and interpreter for the Lewis and Clark expedition
-        </p>
+                    <p>“Not one of them is forgotten.”</p>
 
-        <button onclick="window.location.href='sacagawea.html'" class="read-more-btn">
-            Read their story
-        </button>
-    </div>
-</div>
+                    <span>LUKE 12:6</span>
+
+                </div>
 
 
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCUEJwxjXwY0tphiHCQVfQANER6SulQVNWhxEb8e3DdA&s=10">
-    <div class="card-text">
-        <h3>Truus Wijsmuller</h3>
+                <a href="people.html" class="intro-explore">
+                    <span>EXPLORE THE HIDDEN LEGENDS</span>
+                    <strong>→</strong>
+                </a>
 
-        <p>
-            She was a Dutch resistance fighter that helped save Jewish children from Nazi persecution
-        </p>
-
-        <button onclick="window.location.href='truus-wijsmuller.html'" class="read-more-btn">
-            Read their story
-        </button>
-    </div>
-</div>
+            </div>
 
 
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwoaB4-2kHmBdSxuw_n3XQBhov1tuP-eX5BXV1zg-Rsw&s=10">
-    <div class="card-text">
-        <h3>Frank Foley</h3>
+            <div class="scroll-indicator">
+                <span>DISCOVER</span>
+                <div></div>
+            </div>
 
-        <p>
-            He was a British intelligence officer that helped thousands of Jewish people escape Nazi persecution
-        </p>
+        </section>
 
-        <button onclick="window.location.href='frank-foley.html'" class="read-more-btn">
-            Read their story
-        </button>
-    </div>
-</div>
-
-
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgmwlN-5N6W1pirdCjXq3dwrCByBOH39Mi2_c-OvuOtg&s=10">
-    <div class="card-text">
-        <h3>The Ładoś Group</h3>
-
-        <p>
-            Their group of Polish diplomats and Jewish activists helped save thousands of Jews during the Holocaust
-        </p>
-
-        <button onclick="window.location.href='the-lados-group.html'" class="read-more-btn">
-            Read their story
-        </button>
-    </div>
-</div>
-
-
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTztwHvBoHtoC7QxxcksgyVg4Jgg0vrLsVj0aQHEX2feQ&s=10">
-    <div class="card-text">
-        <h3>Johan van Hulst</h3>
-
-        <p>
-            He was a Dutch politician and educator that helped save hundreds of Jewish children during the Holocaust
-        </p>
-
-        <button onclick="window.location.href='johan-van-hulst.html'" class="read-more-btn">
-            Read their story
-        </button>
-    </div>
-</div>
-
-    </section>
-
-
-    <!-- Quote Section -->
-    <section class="quote">
-
-        <div class="quote-background"></div>
-
-        <div class="quote-content">
-
-            <p class="small-title">
-                Everyone has a story
-            </p>
-
-            <h2>
-                These people helped<br>
-                shape the world
-            </h2>
-
-            <p>
-                But their stories were unknown.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- About -->
-    <section class="about" id="about">
-
-        <p class="small-title">HIDDEN LEGENDS</p>
-
-        <h2>
-            The world remembers<br>
-            the famous
-        </h2>
-
-        <p>
-            We remember the forgotten
-        </p>
-
-    </section>
-
-
-    <footer>
-        <p>© 2026 Hidden Legends</p>
-    </footer>
+    </main>
 
 
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
