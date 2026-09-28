@@ -1,38 +1,35 @@
 /* =========================================================
-   HIDDEN LEGENDS — PEOPLE PAGE
-   FULL PEOPLE.CSS
+   HIDDEN LEGENDS — PEOPLE / BOOK PAGE
+   people.css
 ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 
 /* =========================================================
-   ROOT COLORS
+   VARIABLES
 ========================================================= */
 
 :root {
-    --navy: #050816;
-    --navy2: #080d20;
-    --navy3: #111936;
 
-    --white: #f8fafc;
-    --text: #dbe4f0;
-    --muted: #94a3b8;
+    --gold: #d8b56a;
+    --gold-light: #f4dfaa;
+    --gold-bright: #ffe9a8;
+    --gold-dark: #8b6b34;
+    --gold-faint: rgba(216, 181, 106, 0.22);
 
-    --cyan: #22d3ee;
-    --cyan-light: #67e8f9;
+    --paper: #eee4cc;
+    --paper-light: #f6efdd;
+    --paper-dark: #d8c9a9;
 
-    --blue: #3b82f6;
-    --blue-light: #60a5fa;
+    --ink: #302719;
+    --ink-light: #5c503c;
 
-    --purple: #8b5cf6;
-    --purple-light: #a78bfa;
+    --dark: #030712;
+    --dark-2: #070b14;
+    --dark-3: #0c111d;
 
-    --pink: #ec4899;
-    --pink-light: #f472b6;
-
-    --orange: #f97316;
-
-    --gold: #f4c542;
-    --gold-light: #ffeaa0;
+    --muted: #b7a681;
 }
 
 
@@ -46,109 +43,83 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-    width: 100%;
     min-height: 100vh;
 
     background:
-        var(--navy);
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(75, 58, 24, 0.16),
+            transparent 40%
+        ),
+        linear-gradient(
+            180deg,
+            #030712 0%,
+            #050812 50%,
+            #02050b 100%
+        );
 
-    color:
-        var(--white);
+    color: #e8dfcc;
 
     font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+        "Libre Baskerville",
+        Georgia,
+        serif;
 
     overflow-x: hidden;
 }
 
 
-/* IMPORTANT:
-   Prevent text from overflowing */
-   
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    max-width: 100%;
-
-    overflow-wrap: break-word;
-
-    word-wrap: break-word;
-
-}
-
-
-img {
-    max-width: 100%;
-}
-
-
 /* =========================================================
-   SCROLLBAR
+   NAVBAR — HIDDEN LEGENDS
 ========================================================= */
 
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-
-::-webkit-scrollbar-track {
-    background: #030510;
-}
-
-
-::-webkit-scrollbar-thumb {
-    background:
-        linear-gradient(
-            180deg,
-            var(--cyan),
-            var(--purple),
-            var(--pink)
-        );
-
-    border-radius: 20px;
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-nav {
+.navbar {
     position: fixed;
 
     top: 0;
     left: 0;
 
     width: 100%;
-
     height: 78px;
-
-    padding:
-        0 6%;
 
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
+
+    padding: 0 6vw;
 
     z-index: 1000;
 
     background:
-        rgba(5, 8, 22, 0.72);
+        linear-gradient(
+            to bottom,
+            rgba(3, 3, 2, 0.72),
+            rgba(3, 3, 2, 0)
+        );
+
+    border-bottom: 1px solid transparent;
+
+    transition:
+        background 0.5s ease,
+        backdrop-filter 0.5s ease,
+        border-color 0.5s ease;
+}
+
+
+/* =========================================================
+   NAVBAR WHEN SCROLLED
+========================================================= */
+
+.navbar.nav-scrolled {
+
+    background:
+        rgba(8, 7, 4, 0.78);
 
     backdrop-filter:
         blur(18px);
@@ -158,21 +129,7 @@ nav {
 
     border-bottom:
         1px solid
-        rgba(255,255,255,0.08);
-
-    transition:
-        background 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-
-nav.scrolled {
-    background:
-        rgba(5,8,22,0.94);
-
-    box-shadow:
-        0 10px 40px
-        rgba(0,0,0,0.35);
+        rgba(216, 181, 106, 0.12);
 }
 
 
@@ -181,59 +138,53 @@ nav.scrolled {
 ========================================================= */
 
 .logo {
+    position: relative;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 21px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.22em;
+
+    color:
+        var(--gold-light);
+
     text-decoration: none;
 
+    text-shadow:
+        0 0 15px
+        rgba(216, 181, 106, 0.2);
+
     white-space: nowrap;
-
-    font-size: 1.15rem;
-
-    font-weight: 900;
-
-    letter-spacing: 3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--gold),
-            var(--orange),
-            var(--pink),
-            var(--purple),
-            var(--cyan)
-        );
-
-    background-size:
-        300% 300%;
-
-    -webkit-background-clip: text;
-
-    background-clip: text;
-
-    color: transparent;
-
-    animation:
-        peopleLogoGradient
-        7s ease infinite;
 }
 
 
-@keyframes peopleLogoGradient {
+/* Small gold line underneath */
 
-    0% {
-        background-position: 0% 50%;
-    }
+.logo::after {
+    content: "";
 
-    50% {
-        background-position: 100% 50%;
-    }
+    position: absolute;
 
-    100% {
-        background-position: 0% 50%;
-    }
+    left: 0;
+    bottom: -7px;
+
+    width: 28px;
+    height: 1px;
+
+    background:
+        var(--gold);
+
+    opacity: 0.7;
 }
 
 
 /* =========================================================
-   NAV LINKS
+   NAVIGATION LINKS
 ========================================================= */
 
 .nav-links {
@@ -241,1150 +192,1312 @@ nav.scrolled {
 
     align-items: center;
 
-    gap: 36px;
+    gap: 38px;
 }
-
 
 .nav-links a {
     position: relative;
 
-    color: var(--text);
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(
+            245,
+            239,
+            223,
+            0.72
+        );
 
     text-decoration: none;
 
-    font-size: 0.85rem;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
     transition:
-        color 0.3s ease;
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 
-.nav-links a:hover {
-    color: white;
-}
-
+/* Gold underline */
 
 .nav-links a::after {
     content: "";
 
     position: absolute;
 
-    left: 0;
-    bottom: -8px;
+    left: 50%;
+
+    bottom: -9px;
 
     width: 0;
-    height: 2px;
+    height: 1px;
 
     background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            var(--purple),
-            var(--pink)
-        );
+        var(--gold);
+
+    transform:
+        translateX(-50%);
 
     transition:
         width 0.3s ease;
 }
 
 
-.nav-links a:hover::after {
-    width: 100%;
+/* Hover + active */
+
+.nav-links a:hover,
+.nav-links a.active {
+    color:
+        var(--gold-light);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 22px;
 }
 
 
 /* =========================================================
-   PEOPLE HERO
+   NAVBAR MOBILE
 ========================================================= */
 
-.people-hero {
-    position: relative;
+@media (max-width: 700px) {
 
-    width: 100%;
+    .navbar {
+        height: 68px;
 
-    min-height: 92vh;
+        padding:
+            0 5vw;
+    }
+
+    .logo {
+        font-size: 16px;
+
+        letter-spacing:
+            0.16em;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+
+        letter-spacing:
+            0.12em;
+    }
+}
+
+
+/* =========================================================
+   BOOK WORLD
+========================================================= */
+
+.book-world {
+
+    min-height:
+        calc(100vh - 76px);
+
+    padding:
+        110px
+        30px
+        130px;
 
     display: flex;
 
-    align-items: center;
-
     justify-content: center;
+
+    align-items: flex-start;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   BOOK
+========================================================= */
+
+.book {
+
+    width:
+        min(
+            1240px,
+            96vw
+        );
+
+    max-width: 1240px;
+
+    position: relative;
+
+    display: block;
+
+    background: transparent;
+
+    transform-style:
+        preserve-3d;
+}
+
+
+/* =========================================================
+   BOOK SPREAD
+========================================================= */
+
+.book-spread {
+
+    width: 100%;
+
+    min-height: 900px;
+
+    position: absolute;
+
+    inset: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        perspective(2200px)
+        rotateY(0deg);
+
+    transform-origin:
+        center;
+
+    transform-style:
+        preserve-3d;
+
+    backface-visibility:
+        hidden;
+
+    z-index: 1;
+}
+
+.book-spread.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   SOFT PAGE-TURN ANIMATION
+========================================================= */
+
+.book-spread.turn-next {
+
+    animation:
+        turnNext
+        0.65s
+        ease-in-out
+        forwards;
+
+    transform-origin:
+        left center;
+
+    z-index: 5;
+}
+
+.book-spread.enter-next {
+
+    animation:
+        enterNext
+        0.65s
+        ease-out
+        forwards;
+
+    z-index: 2;
+}
+
+.book-spread.turn-prev {
+
+    animation:
+        turnPrev
+        0.65s
+        ease-in-out
+        forwards;
+
+    transform-origin:
+        right center;
+
+    z-index: 5;
+}
+
+.book-spread.enter-prev {
+
+    animation:
+        enterPrev
+        0.65s
+        ease-out
+        forwards;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   NEXT — OLD PAGE LEAVES
+========================================================= */
+
+@keyframes turnNext {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            perspective(2200px)
+            rotateY(0deg)
+            translateX(0);
+
+        filter:
+            brightness(1);
+    }
+
+    45% {
+
+        opacity: 0.7;
+
+        transform:
+            perspective(2200px)
+            rotateY(-7deg)
+            translateX(-8px);
+
+        filter:
+            brightness(0.92);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            perspective(2200px)
+            rotateY(-12deg)
+            translateX(-18px);
+
+        filter:
+            brightness(0.82);
+    }
+}
+
+
+/* =========================================================
+   NEXT — NEW PAGE ENTERS
+========================================================= */
+
+@keyframes enterNext {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            perspective(2200px)
+            rotateY(8deg)
+            translateX(18px);
+
+        filter:
+            brightness(0.88);
+    }
+
+    50% {
+
+        opacity: 0.7;
+
+        transform:
+            perspective(2200px)
+            rotateY(3deg)
+            translateX(7px);
+
+        filter:
+            brightness(0.95);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            perspective(2200px)
+            rotateY(0deg)
+            translateX(0);
+
+        filter:
+            brightness(1);
+    }
+}
+
+
+/* =========================================================
+   PREVIOUS — OLD PAGE LEAVES
+========================================================= */
+
+@keyframes turnPrev {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            perspective(2200px)
+            rotateY(0deg)
+            translateX(0);
+
+        filter:
+            brightness(1);
+    }
+
+    45% {
+
+        opacity: 0.7;
+
+        transform:
+            perspective(2200px)
+            rotateY(7deg)
+            translateX(8px);
+
+        filter:
+            brightness(0.92);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            perspective(2200px)
+            rotateY(12deg)
+            translateX(18px);
+
+        filter:
+            brightness(0.82);
+    }
+}
+
+
+/* =========================================================
+   PREVIOUS — NEW PAGE ENTERS
+========================================================= */
+
+@keyframes enterPrev {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            perspective(2200px)
+            rotateY(-8deg)
+            translateX(-18px);
+
+        filter:
+            brightness(0.88);
+    }
+
+    50% {
+
+        opacity: 0.7;
+
+        transform:
+            perspective(2200px)
+            rotateY(-3deg)
+            translateX(-7px);
+
+        filter:
+            brightness(0.95);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            perspective(2200px)
+            rotateY(0deg)
+            translateX(0);
+
+        filter:
+            brightness(1);
+    }
+}
+
+
+/* =========================================================
+   BOOK CENTER SPINE
+========================================================= */
+
+.book-spread::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 5px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(60, 43, 18, 0.18),
+            rgba(255, 244, 207, 0.65),
+            rgba(76, 55, 22, 0.25)
+        );
+
+    opacity: 0.75;
+
+    z-index: 30;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BOOK PAGES
+========================================================= */
+
+.book-page {
+
+    width: 100% !important;
+
+    min-height: 900px;
+
+    position: relative;
 
     overflow: hidden;
 
     background:
-
         radial-gradient(
-            circle at 20% 30%,
-            rgba(34,211,238,0.17),
-            transparent 32%
+            circle at 50% 30%,
+            rgba(255, 255, 255, 0.35),
+            transparent 45%
         ),
-
-        radial-gradient(
-            circle at 80% 25%,
-            rgba(139,92,246,0.18),
-            transparent 32%
-        ),
-
-        radial-gradient(
-            circle at 70% 80%,
-            rgba(236,72,153,0.14),
-            transparent 32%
-        ),
-
         linear-gradient(
             135deg,
-            #050816,
-            #080d20 50%,
-            #0b1028
+            var(--paper-light),
+            var(--paper)
         );
+
+    color:
+        var(--ink);
+
+    box-shadow:
+        inset 0 0 45px
+        rgba(90, 63, 22, 0.12),
+
+        inset 0 0 5px
+        rgba(80, 54, 18, 0.25);
+}
+
+
+.left-page {
+
+    border-radius:
+        8px 0 0 8px;
+
+    border-right:
+        1px solid
+        rgba(92, 70, 32, 0.2);
+}
+
+
+.right-page {
+
+    border-radius:
+        0 8px 8px 0;
+
+    border-left:
+        1px solid
+        rgba(92, 70, 32, 0.12);
 }
 
 
 /* =========================================================
-   HERO GRID
+   PAPER TEXTURE
 ========================================================= */
 
-.people-hero::before {
+.book-page::after {
+
     content: "";
 
     position: absolute;
 
     inset: 0;
 
+    pointer-events: none;
+
+    opacity: 0.12;
+
     background-image:
-
-        linear-gradient(
-            rgba(255,255,255,0.035) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.035) 1px,
-            transparent 1px
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 3px,
+            rgba(80, 60, 30, 0.06) 4px
         );
 
-    background-size:
-        70px 70px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent
-        );
-
-    pointer-events: none;
+    z-index: 1;
 }
 
 
 /* =========================================================
-   HERO ORBS
+   PAGE CONTENT
 ========================================================= */
 
-.people-hero::after {
-    content: "";
+.page-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    min-height: 100%;
+
+    padding: 70px;
+}
+
+
+.page-number {
 
     position: absolute;
 
-    width: 600px;
-    height: 600px;
+    bottom: 30px;
 
-    right: -250px;
-    top: 10%;
+    font-family:
+        "Cinzel",
+        serif;
 
-    border-radius: 50%;
+    font-size: 0.65rem;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(139,92,246,0.2),
-            transparent 65%
+    letter-spacing: 0.18em;
+
+    color:
+        rgba(
+            74,
+            58,
+            34,
+            0.6
         );
-
-    filter:
-        blur(20px);
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
-.people-hero .hero-content {
-    position: relative;
 
     z-index: 5;
+}
 
-    width:
-        min(
-            1100px,
-            90%
-        );
 
-    padding:
-        150px 20px
-        100px;
+.left-page .page-number {
+    left: 45px;
+}
 
-    text-align: center;
+.right-page .page-number {
+    right: 45px;
 }
 
 
 /* =========================================================
-   SMALL TITLE
+   CONTENTS
 ========================================================= */
 
-.people-hero .small-title {
-    margin-bottom: 24px;
-
-    color:
-        var(--cyan);
-
-    font-size: 0.75rem;
-
-    font-weight: 900;
-
-    letter-spacing: 4px;
-
-    line-height: 1.5;
-
-    text-transform: uppercase;
-
-    text-shadow:
-        0 0 20px
-        rgba(34,211,238,0.6);
-
-   overflow-wrap:
-        break-word;
-}
-
-
-/* =========================================================
-   HERO H1
-========================================================= */
-
-.people-hero h1 {
-    width: 100%;
-
-    margin:
-        0 auto 30px;
-
-    font-size:
-        clamp(
-            3.5rem,
-            9vw,
-            8rem
-        );
-
-    font-weight: 900;
-
-    line-height:
-        0.96;
-
-    letter-spacing:
-        -5px;
-
-    overflow-wrap:
-        break-word;
-
-    background:
-        linear-gradient(
-            90deg,
-            white,
-            var(--cyan-light),
-            var(--blue-light),
-            var(--purple-light),
-            var(--pink-light),
-            var(--gold-light)
-        );
-
-    background-size:
-        400% 400%;
-
-    -webkit-background-clip:
-        text;
-
-    background-clip:
-        text;
-
-    color:
-        transparent;
-
-    animation:
-        peopleTitleGradient
-        10s ease infinite;
-}
-
-
-@keyframes peopleTitleGradient {
-
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-/* =========================================================
-   HERO DESCRIPTION
-========================================================= */
-
-.hero-description {
-    width:
-        min(
-            700px,
-            100%
-        );
-
-    margin:
-        0 auto;
-
-    color:
-        var(--text);
-
-    font-size:
-        clamp(
-            1rem,
-            2vw,
-            1.2rem
-        );
-
-    line-height:
-        1.8;
-
-    overflow-wrap:
-        break-word;
-}
-
-
-/* =========================================================
-   PEOPLE SECTION
-========================================================= */
-
-.people-section {
-    position: relative;
-
-    width: 100%;
-
-    padding:
-        120px 6%
-        140px;
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--navy),
-            var(--navy2)
-        );
-
-    overflow: hidden;
-}
-
-
-/* =========================================================
-   SECTION HEADING
-========================================================= */
-
-.section-heading {
-    width:
-        min(
-            1000px,
-            100%
-        );
-
-    margin:
-        0 auto 100px;
-
-    text-align:
-        center;
-}
-
-
-.section-heading > p:first-child {
-    margin-bottom:
-        18px;
-
-    color:
-        var(--cyan);
-
-    font-size:
-        0.75rem;
-
-    font-weight:
-        900;
-
-    letter-spacing:
-        3px;
-
-    line-height:
-        1.5;
-}
-
-
-.section-heading h2 {
-    margin-bottom:
-        25px;
-
-    font-size:
-        clamp(
-            2.6rem,
-            6vw,
-            5.5rem
-        );
-
-    line-height:
-        1.05;
-
-    letter-spacing:
-        -2px;
-
-    overflow-wrap:
-        break-word;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            var(--blue),
-            var(--purple),
-            var(--pink),
-            var(--orange)
-        );
-
-    -webkit-background-clip:
-        text;
-
-    background-clip:
-        text;
-
-    color:
-        transparent;
-}
-
-
-.intro-text {
-    width:
-        min(
-            750px,
-            100%
-        );
-
-    margin:
-        0 auto;
-
-    color:
-        var(--muted);
-
-    font-size:
-        1.05rem;
-
-    line-height:
-        1.8;
-
-    overflow-wrap:
-        break-word;
-}
-
-
-/* =========================================================
-   CATEGORY SECTION
-========================================================= */
-
-.category-section {
-    position: relative;
-
-    width: 100%;
-
-    margin-bottom:
-        110px;
-}
-
-
-.category-section:last-child {
-    margin-bottom:
-        0;
-}
-
-
-/* =========================================================
-   CATEGORY TITLE
-========================================================= */
-
-.category-title {
-    position: relative;
-
-    margin-bottom:
-        35px;
-
-    padding-left:
-        22px;
-
-    color:
-        white;
-
-    font-size:
-        clamp(
-            1.7rem,
-            3vw,
-            2.5rem
-        );
-
-    font-weight:
-        900;
-
-    line-height:
-        1.25;
-
-    overflow-wrap:
-        break-word;
-}
-
-
-.category-title::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 8px;
-
-    width: 5px;
-
-    height:
-        calc(
-            100% - 16px
-        );
-
-    min-height:
-        25px;
-
-    border-radius:
-        20px;
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--cyan),
-            var(--purple),
-            var(--pink)
-        );
-
-    box-shadow:
-        0 0 20px
-        rgba(34,211,238,0.5);
-}
-
-
-.category-title::after {
-    content: "";
-
-    display: block;
-
-    width: 120px;
-
-    height: 2px;
-
-    margin-top: 16px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            var(--purple),
-            transparent
-        );
-}
-
-
-/* =========================================================
-   PEOPLE GRID
-========================================================= */
-
-.people-grid {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            3,
-            minmax(
-                0,
-                1fr
-            )
-        );
-
-    gap:
-        32px;
-
-    align-items:
-        stretch;
-}
-
-
-/* =========================================================
-   PERSON CARD
-========================================================= */
-
-.person {
-    position: relative;
-
-    min-width: 0;
-
-    width: 100%;
-
-    /*
-       IMPORTANT FIX:
-       Do NOT use a fixed height.
-    */
-
-    min-height:
-        560px;
-
-    height:
-        auto;
-
-    display: flex;
-
-    flex-direction:
-        column;
-
-    overflow:
-        hidden;
-
-    border-radius:
-        24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(17,25,54,0.96),
-            rgba(5,8,22,0.99)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,0.09);
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,0.35);
-
-    transform-style:
-        preserve-3d;
-
-    transition:
-        transform 0.45s ease,
-        box-shadow 0.45s ease,
-        border-color 0.45s ease;
-}
-
-
-/* =========================================================
-   COLOR TOP LINE
-========================================================= */
-
-.person::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-
-    height: 4px;
-
-    z-index: 10;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            var(--blue),
-            var(--purple),
-            var(--pink),
-            var(--orange),
-            var(--gold)
-        );
-}
-
-
-/* =========================================================
-   CARD HOVER
-========================================================= */
-
-.person:hover {
-    transform:
-        translateY(-12px);
-
-    border-color:
-        rgba(103,232,249,0.35);
-
-    box-shadow:
-        0 35px 90px
-        rgba(0,0,0,0.55),
-
-        0 0 40px
-        rgba(34,211,238,0.1);
-}
-
-
-/* =========================================================
-   PERSON IMAGE
-========================================================= */
-
-.person > img {
-    width: 100%;
-    height: 400px;
-    flex-shrink: 0;
-    display: block;
-    object-fit: cover;
-    object-position: center top;
-}
-
-
-
-/* =========================================================
-   IMAGE OVERLAY
-========================================================= */
-
-
-
-/* =========================================================
-   PERSON INFO
-========================================================= */
-
-.person-info {
-    position: relative;
-
-    z-index: 5;
-
-    flex: 1;
-
-    min-width: 0;
-
-    width: 100%;
+.contents-page {
 
     display: flex;
 
     flex-direction: column;
 
-    padding:
-        26px 26px 28px;
-
-    overflow:
-        visible;
+    justify-content: center;
 }
 
 
-/* =========================================================
-   CATEGORY LABEL
-========================================================= */
-
-.person-info .category {
-    margin:
-        0 0 10px;
-
-    color:
-        var(--cyan);
-
-    font-size:
-        0.72rem;
-
-    font-weight:
-        900;
-
-    letter-spacing:
-        2.5px;
-
-    line-height:
-        1.5;
-
-    text-transform:
-        uppercase;
-
-    overflow-wrap:
-        break-word;
-
-    text-shadow:
-        0 0 12px
-        rgba(34,211,238,0.45);
+.contents-page:first-child {
+    text-align: center;
 }
 
 
-/* =========================================================
-   PERSON NAME
-========================================================= */
+/* More breathing room on the right Contents page */
 
-.person-info h2 {
-    width: 100%;
+.contents-page.right-page {
 
-    margin:
-        0 0 14px;
+    padding-left: 85px;
+
+    padding-right: 85px;
+}
+
+
+.contents-page .book-kicker {
+
+    margin-bottom: 25px;
 
     color:
-        var(--white);
+        #7d673f;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.7rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3em;
+}
+
+
+.book-title {
+
+    margin-bottom: 12px;
+
+    color:
+        #302719;
+
+    font-family:
+        "Cinzel",
+        serif;
 
     font-size:
         clamp(
-            1.4rem,
-            2vw,
-            1.95rem
+            3.5rem,
+            6vw,
+            5.8rem
         );
 
-    font-weight:
-        800;
+    font-weight: 500;
 
-    line-height:
-        1.2;
+    line-height: 0.95;
 
-    letter-spacing:
-        -0.5px;
-
-    /*
-       IMPORTANT FIX:
-       Long names can wrap.
-    */
-
-    white-space:
-        normal;
-
-    overflow:
-        visible;
-
-    text-overflow:
-        clip;
-
-    overflow-wrap:
-        anywhere;
-
-    word-break:
-        normal;
-
-    hyphens:
-        auto;
+    letter-spacing: -0.04em;
 }
 
 
-/* =========================================================
-   DESCRIPTION
-========================================================= */
-
-.person-info > p:not(.category) {
-    width: 100%;
-
-    margin:
-        0;
+.book-subtitle {
 
     color:
-        var(--text);
-
-    font-size:
-        0.96rem;
-
-    line-height:
-        1.75;
-
-    opacity:
-        0.9;
-
-    /*
-       IMPORTANT FIX:
-       Never hide the description.
-    */
-
-    max-height:
-        none;
-
-    height:
-        auto;
-
-    overflow:
-        visible;
-
-    white-space:
-        normal;
-
-    overflow-wrap:
-        anywhere;
-}
-
-
-/* =========================================================
-   BUTTON
-========================================================= */
-
-.read-more {
-    position: relative;
-
-    align-self:
-        flex-start;
-
-    margin-top:
-        auto;
-
-    padding:
-        24px 0 0;
-
-    background:
-        transparent;
-
-    border:
-        none;
-
-    outline:
-        none;
-
-    color:
-        var(--gold);
-
-    cursor:
-        pointer;
+        #8b7042;
 
     font-family:
-        inherit;
+        "Cinzel",
+        serif;
 
-    font-size:
-        0.76rem;
+    font-size: 0.65rem;
 
-    font-weight:
-        900;
+    font-weight: 600;
 
-    letter-spacing:
-        1.5px;
-
-    line-height:
-        1.5;
-
-    white-space:
-        normal;
-
-    text-align:
-        left;
-
-    transition:
-        color 0.3s ease,
-        transform 0.3s ease,
-        text-shadow 0.3s ease;
+    letter-spacing: 0.28em;
 }
 
 
-.read-more:hover {
-    color:
-        var(--gold-light);
+.book-rule {
 
-    transform:
-        translateX(8px);
+    width: 70px;
 
-    text-shadow:
-        0 0 15px
-        rgba(244,197,66,0.6);
-}
+    height: 1px;
 
-
-/* =========================================================
-   CARD COLOR VARIATIONS
-========================================================= */
-
-.person:nth-child(3n + 1) {
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,0.35),
-
-        0 0 35px
-        rgba(34,211,238,0.04);
-}
-
-
-.person:nth-child(3n + 2) {
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,0.35),
-
-        0 0 35px
-        rgba(139,92,246,0.04);
-}
-
-
-.person:nth-child(3n + 3) {
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,0.35),
-
-        0 0 35px
-        rgba(236,72,153,0.04);
-}
-
-
-/* =========================================================
-   PARTICLES CREATED BY JAVASCRIPT
-========================================================= */
-
-.people-particle {
-    position: fixed;
-
-    width:
-        3px;
-
-    height:
-        3px;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--cyan);
-
-    box-shadow:
-        0 0 12px
-        var(--cyan);
-
-    pointer-events:
-        none;
-
-    z-index:
-        1;
-
-    opacity:
-        0.45;
-}
-
-
-/* =========================================================
-   CURSOR GLOW
-========================================================= */
-
-.people-cursor-glow {
-    position: fixed;
-
-    width:
-        300px;
-
-    height:
-        300px;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(34,211,238,0.11),
-            transparent 70%
-        );
-
-    transform:
-        translate(-50%, -50%);
-
-    pointer-events:
-        none;
-
-    z-index:
-        0;
-}
-
-
-/* =========================================================
-   RANDOM LIGHTS
-========================================================= */
-
-.people-random-light {
-    position: fixed;
-
-    width:
-        5px;
-
-    height:
-        5px;
-
-    border-radius:
-        50%;
-
-    pointer-events:
-        none;
-
-    z-index:
-        1;
-
-    opacity:
-        0.5;
-
-    filter:
-        blur(0.5px);
-}
-
-
-/* =========================================================
-   SCROLL PROGRESS
-========================================================= */
-
-.people-scroll-progress {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 0;
-
-    height: 3px;
-
-    z-index: 2000;
+    margin: 28px 0;
 
     background:
         linear-gradient(
             90deg,
-            var(--cyan),
-            var(--blue),
-            var(--purple),
-            var(--pink),
-            var(--gold)
+            transparent,
+            var(--gold-dark),
+            transparent
         );
+}
 
-    box-shadow:
-        0 0 15px
-        var(--cyan);
+
+.contents-page:first-child .book-rule {
+
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+
+.book-introduction {
+
+    max-width: 390px;
+
+    margin: 0 auto;
+
+    color:
+        var(--ink-light);
+
+    font-family:
+        "Libre Baskerville",
+        Georgia,
+        serif;
+
+    font-size: 0.82rem;
+
+    line-height: 1.9;
 }
 
 
 /* =========================================================
-   SCROLL REVEAL
+   TABLE OF CONTENTS
 ========================================================= */
 
-.reveal {
-    opacity:
-        0;
-
-    transform:
-        translateY(40px);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+.contents-page .section-label {
+    margin-bottom: 14px;
 }
 
 
-.reveal.active {
-    opacity:
-        1;
+.section-label {
+
+    color:
+        #80683e;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.65rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.25em;
+}
+
+
+.contents-heading {
+
+    margin-bottom: 35px;
+
+    color:
+        var(--ink);
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 2.3rem;
+
+    font-weight: 500;
+}
+
+
+.contents-list {
+    width: 100%;
+}
+
+
+.contents-entry {
+
+    display: grid;
+
+    grid-template-columns:
+        45px
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 0;
+
+    border-bottom:
+        1px solid
+        rgba(92, 70, 32, 0.17);
+
+    color:
+        var(--ink);
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        padding-left 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.contents-entry:first-child {
+
+    border-top:
+        1px solid
+        rgba(92, 70, 32, 0.17);
+}
+
+
+.contents-entry span {
+
+    color:
+        var(--gold-dark);
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.68rem;
+}
+
+
+.contents-entry strong {
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.78rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.04em;
+}
+
+
+.contents-entry em {
+
+    color:
+        #8c7c60;
+
+    font-family:
+        "Libre Baskerville",
+        serif;
+
+    font-size: 0.62rem;
+
+    font-style: italic;
+}
+
+
+.contents-entry:hover {
+
+    padding-left: 8px;
+
+    color:
+        #8a672b;
+
+    border-color:
+        rgba(216, 181, 106, 0.5);
+}
+
+
+/* =========================================================
+   CATEGORY INTRO
+========================================================= */
+
+.category-intro {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 75px;
+}
+
+
+.category-intro .book-kicker {
+
+    margin-bottom: 25px;
+
+    color:
+        #80683e;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.68rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3em;
+}
+
+
+.section-title {
+
+    max-width: 450px;
+
+    color:
+        var(--ink);
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:
+        clamp(
+            2.6rem,
+            4vw,
+            3.8rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -0.025em;
+}
+
+
+.category-description {
+
+    max-width: 400px;
+
+    color:
+        var(--ink-light);
+
+    font-family:
+        "Libre Baskerville",
+        Georgia,
+        serif;
+
+    font-size: 0.86rem;
+
+    line-height: 1.9;
+}
+
+
+.category-back {
+
+    width: fit-content;
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding:
+        10px 16px;
+
+    border:
+        1px solid
+        rgba(139, 107, 52, 0.45);
+
+    color:
+        #775b2d;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 0.12em;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.category-back:hover {
+
+    background:
+        #7c602f;
+
+    border-color:
+        #7c602f;
+
+    color:
+        #f7eedc;
+}
+
+
+/* =========================================================
+   CATEGORY LIST
+========================================================= */
+
+.category-list-page {
+
+    padding:
+        65px
+        60px
+        65px
+        65px;
+}
+
+
+.category-list-page .section-heading {
+
+    margin-top: 9px;
+
+    margin-bottom: 28px;
+
+    color:
+        var(--ink);
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 2rem;
+
+    font-weight: 500;
+}
+
+
+.category-list-page .legend-list {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    column-gap: 25px;
+}
+
+
+.legend-entry {
+
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        28px
+        1fr;
+
+    gap: 9px;
+
+    padding: 14px 0;
+
+    border-top:
+        1px solid
+        rgba(92, 70, 32, 0.16);
+}
+
+
+.legend-entry:last-child {
+
+    border-bottom:
+        1px solid
+        rgba(92, 70, 32, 0.16);
+}
+
+
+.entry-number {
+
+    padding-top: 3px;
+
+    color:
+        #9a7a42;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.08em;
+}
+
+
+.entry-info {
+    min-width: 0;
+}
+
+
+.entry-info h3 {
+
+    margin-bottom: 6px;
+
+    color:
+        var(--ink);
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+    line-height: 1.25;
+}
+
+
+.entry-info p {
+
+    margin-bottom: 9px;
+
+    color:
+        #665943;
+
+    font-family:
+        "Libre Baskerville",
+        Georgia,
+        serif;
+
+    font-size: 0.72rem;
+
+    line-height: 1.55;
+}
+
+
+.read-link {
+
+    color:
+        #80622f;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.6rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.1em;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        letter-spacing 0.25s ease;
+}
+
+
+.read-link:hover {
+
+    color:
+        #4d391c;
+
+    letter-spacing:
+        0.13em;
+}
+
+
+/* =========================================================
+   BOOK CONTROLS
+========================================================= */
+
+.book-controls {
+
+    position: absolute;
+
+    left: 50%;
+
+    /*
+       More distance between book and controls
+    */
+
+    bottom: -200px;
 
     transform:
-        translateY(0);
+        translateX(-50%);
+
+    width:
+        min(
+            1240px,
+            96vw
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    z-index: 20;
+}
+
+
+.book-button {
+
+    border:
+        1px solid
+        rgba(216, 181, 106, 0.28);
+
+    background:
+        rgba(7, 11, 20, 0.8);
+
+    color:
+        #d8c59c;
+
+    padding:
+        10px
+        18px;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.14em;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+.book-button:hover:not(:disabled) {
+
+    background:
+        rgba(216, 181, 106, 0.1);
+
+    border-color:
+        var(--gold);
+
+    color:
+        var(--gold-light);
+}
+
+
+.book-button:disabled {
+
+    opacity: 0.3;
+
+    cursor: not-allowed;
+}
+
+
+.book-position {
+
+    min-width: 150px;
+
+    text-align: center;
+
+    color:
+        #b7a681;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.16em;
 }
 
 
@@ -1392,31 +1505,40 @@ nav.scrolled {
    FOOTER
 ========================================================= */
 
-footer {
-    width:
-        100%;
+.site-footer {
+
+    width: 100%;
 
     padding:
-        35px 20px;
+        35px
+        6vw
+        45px;
 
-    text-align:
-        center;
+    display: flex;
 
-    background:
-        #030510;
+    justify-content: space-between;
+
+    align-items: center;
+
+    color:
+        rgba(
+            183,
+            166,
+            129,
+            0.55
+        );
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.16em;
 
     border-top:
         1px solid
-        rgba(255,255,255,0.07);
-
-    color:
-        var(--muted);
-
-    font-size:
-        0.8rem;
-
-    line-height:
-        1.6;
+        rgba(216, 181, 106, 0.08);
 }
 
 
@@ -1424,38 +1546,102 @@ footer {
    TABLET
 ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
 
-    .people-grid {
+    .book-world {
+
+        padding:
+            105px
+            20px
+            150px;
+    }
+
+
+    .book {
+        width: 96vw;
+    }
+
+
+    .book-spread {
+
         grid-template-columns:
-            repeat(
-                2,
-                minmax(
-                    0,
-                    1fr
-                )
-            );
+            1fr;
 
-        gap:
-            26px;
+        min-height: auto;
     }
 
 
-    .person {
-        min-height:
-            540px;
+    .book-page {
+        min-height: 650px;
     }
 
 
-    .person > img {
-        height:
-            290px;
+    .book-spread::before {
+        display: none;
     }
 
 
-    .person::after {
-        height:
-            290px;
+    .left-page,
+    .right-page {
+
+        border-radius: 8px;
+
+        border: none;
+    }
+
+
+    .category-list-page .legend-list {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .book-controls {
+
+        position: relative;
+
+        left: auto;
+
+        bottom: auto;
+
+        transform: none;
+
+        width: 100%;
+
+        margin-top: 45px;
+    }
+
+
+    .category-intro {
+
+        padding:
+            60px
+            50px;
+    }
+
+
+    .category-list-page {
+
+        padding:
+            55px
+            45px;
+    }
+
+
+    .page-content {
+
+        padding:
+            55px
+            45px;
+    }
+
+
+    .contents-page.right-page {
+
+        padding-left: 55px;
+
+        padding-right: 55px;
     }
 }
 
@@ -1464,283 +1650,110 @@ footer {
    MOBILE
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
-    nav {
-        height:
-            68px;
+    .book-world {
 
         padding:
-            0 5%;
+            90px
+            12px
+            130px;
     }
 
 
-    .logo {
-        font-size:
-            0.95rem;
-
-        letter-spacing:
-            2px;
+    .book-page {
+        min-height: 620px;
     }
 
 
-    .nav-links {
-        gap:
-            18px;
-    }
-
-
-    .nav-links a {
-        font-size:
-            0.72rem;
-    }
-
-
-    .people-hero {
-        min-height:
-            100svh;
-    }
-
-
-    .people-hero .hero-content {
-        width:
-            92%;
+    .page-content,
+    .category-intro,
+    .category-list-page {
 
         padding:
-            120px 10px
-            80px;
+            42px
+            28px;
     }
 
 
-    .people-hero h1 {
-        font-size:
-            clamp(
-                3rem,
-                15vw,
-                5rem
-            );
+    .contents-page.right-page {
 
-        letter-spacing:
-            -2px;
-
-        line-height:
-            0.98;
-    }
-
-
-    .hero-description {
-        font-size:
-            0.95rem;
-
-        line-height:
-            1.7;
-    }
-
-
-    .people-section {
         padding:
-            90px 5%
-            100px;
+            42px
+            28px;
     }
 
 
-    .section-heading {
-        margin-bottom:
-            75px;
+    .book-title {
+        font-size: 3.2rem;
     }
 
 
-    .section-heading h2 {
-        font-size:
-            clamp(
-                2.3rem,
-                11vw,
-                4rem
-            );
-
-        letter-spacing:
-            -1px;
+    .section-title {
+        font-size: 3rem;
     }
 
 
-    .intro-text {
-        font-size:
-            0.95rem;
-
-        line-height:
-            1.75;
+    .category-list-page .section-heading {
+        font-size: 1.6rem;
     }
 
 
-    .category-section {
-        margin-bottom:
-            80px;
-    }
+    .category-list-page .legend-list {
 
-
-    .category-title {
-        font-size:
-            1.7rem;
-
-        padding-left:
-            18px;
-    }
-
-
-    .people-grid {
         grid-template-columns:
             1fr;
-
-        gap:
-            24px;
     }
 
 
-    /*
-       IMPORTANT:
-       Mobile cards have NO fixed height.
-    */
+    .contents-entry {
 
-    .person {
-        min-height:
-            0;
+        grid-template-columns:
+            35px
+            1fr;
 
-        height:
-            auto;
-
-        border-radius:
-            20px;
+        gap: 8px;
     }
 
 
-    .person > img {
-        height:
-            270px;
+    .contents-entry em {
+        display: none;
     }
 
 
-    .person::after {
-        height:
-            270px;
+    .book-controls {
+
+        gap: 10px;
+
+        margin-top: 35px;
     }
 
 
-    .person-info {
+    .book-button {
+
         padding:
-            24px 22px 27px;
-    }
-
-
-    .person-info h2 {
-        font-size:
-            1.55rem;
-
-        line-height:
-            1.2;
-    }
-
-
-    .person-info > p:not(.category) {
-        font-size:
-            0.93rem;
-
-        line-height:
-            1.7;
-    }
-
-
-    .read-more {
-        padding-top:
-            22px;
-    }
-}
-
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media (max-width: 430px) {
-
-    .nav-links {
-        gap:
+            9px
             12px;
+
+        font-size: 0.52rem;
     }
 
 
-    .nav-links a {
-        font-size:
-            0.65rem;
+    .book-position {
+
+        min-width: 100px;
+
+        font-size: 0.52rem;
     }
 
 
-    .logo {
-        font-size:
-            0.82rem;
+    .site-footer {
 
-        letter-spacing:
-            1.5px;
-    }
+        flex-direction: column;
 
+        gap: 12px;
 
-    .people-hero .hero-content {
-        padding-top:
-            110px;
-    }
-
-
-    .people-hero .small-title {
-        font-size:
-            0.62rem;
-
-        letter-spacing:
-            2.5px;
-    }
-
-
-    .people-hero h1 {
-        font-size:
-            clamp(
-                2.7rem,
-                15vw,
-                4.2rem
-            );
-    }
-
-
-    .person > img {
-        height:
-            240px;
-    }
-
-
-    .person::after {
-        height:
-            240px;
-    }
-
-
-    .person-info {
-        padding:
-            22px 20px 25px;
-    }
-
-
-    .person-info h2 {
-        font-size:
-            1.4rem;
-
-        line-height:
-            1.2;
-    }
-
-
-    .person-info > p:not(.category) {
-        font-size:
-            0.9rem;
-
-        line-height:
-            1.65;
+        text-align: center;
     }
 }
 
@@ -1751,360 +1764,739 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
 
-    *,
-    *::before,
-    *::after {
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    .book-spread.turn-next,
+    .book-spread.enter-next,
+    .book-spread.turn-prev,
+    .book-spread.enter-prev {
+
         animation-duration:
-            0.01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            0.01ms !important;
-
-        scroll-behavior:
-            auto !important;
+            0.01ms;
     }
 }
+
+
 /* =========================================================
-   FINAL HERO TITLE FIX
+   HIDDEN LEGENDS — INTRO SCREEN
 ========================================================= */
 
-.people-hero .hero-content h1 {
-    position: relative !important;
+.intro-screen {
 
-    display: block !important;
+    position: fixed;
 
-    width: 100% !important;
+    inset: 0;
 
-    max-width: none !important;
+    width: 100%;
 
-    height: auto !important;
+    height: 100vh;
 
-    min-height: 0 !important;
+    display: flex;
 
-    margin: 0 auto 35px !important;
+    align-items: center;
 
-    padding: 0 !important;
-
-    font-size: clamp(4.5rem, 10vw, 10rem) !important;
-
-    line-height: 0.9 !important;
-
-    letter-spacing: -7px !important;
-
-    font-weight: 900 !important;
-
-    text-align: center !important;
-
-    white-space: normal !important;
-
-    overflow: visible !important;
-
-    overflow-wrap: normal !important;
-
-    word-break: normal !important;
-
-    word-wrap: normal !important;
-
-    hyphens: none !important;
-
-    color: #ffffff !important;
+    justify-content: center;
 
     background:
-        linear-gradient(
-            100deg,
-            #ffffff 0%,
-            #67e8f9 25%,
-            #3b82f6 45%,
-            #8b5cf6 65%,
-            #ec4899 82%,
-            #f4c542 100%
-        ) !important;
+        #000000;
 
-    background-size: 300% 100% !important;
+    z-index: 5000;
 
-    -webkit-background-clip: text !important;
+    opacity: 1;
 
-    background-clip: text !important;
+    visibility: visible;
 
-    -webkit-text-fill-color: transparent !important;
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease;
+}
+
+
+/* When the intro is finished */
+
+.intro-screen.hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   INTRO CONTENT
+========================================================= */
+
+.intro-content {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 30px;
+}
+
+
+/* =========================================================
+   SPARROW
+========================================================= */
+
+.intro-sparrow {
+
+    position: relative;
+
+    width: 230px;
+
+    height: 230px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    opacity: 0;
 
     animation:
-        peopleTitleGradient
-        8s ease-in-out infinite !important;
+        introSparrowAppear
+        2.5s
+        ease-out
+        0.5s
+        forwards;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+
+.intro-sparrow::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 210px;
+
+    height: 210px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(244, 197, 66, 0.13),
+            rgba(244, 197, 66, 0.03) 45%,
+            transparent 70%
+        );
+
+    filter:
+        blur(15px);
+
+    opacity: 0.7;
+
+    animation:
+        introGlow
+        3.5s
+        ease-in-out
+        infinite;
+}
+
+
+.intro-sparrow img {
+
+    position: relative;
+
+    width: 170px;
+
+    height: 170px;
+
+    object-fit: contain;
+
+    z-index: 2;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(244, 197, 66, 0.12)
+        );
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+
+/* Hover */
+
+.intro-sparrow:hover {
 
     transform:
-        translate3d(0, 0, 0) !important;
+        scale(1.06);
+}
 
-    z-index: 50 !important;
+
+.intro-sparrow:hover img {
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            rgba(244, 197, 66, 0.3)
+        );
 }
 
 
 /* =========================================================
-   HERO CONTENT — DON'T CLIP TITLE
+   TITLE
 ========================================================= */
 
-.people-hero {
-    overflow: visible !important;
-}
+.intro-title {
 
-.people-hero .hero-content {
-    position: relative !important;
+    margin-top: 22px;
 
-    overflow: visible !important;
+    color:
+        #eee4cc;
 
-    max-height: none !important;
+    font-family:
+        "Cinzel",
+        serif;
 
-    min-height: 0 !important;
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.8rem
+        );
 
-    z-index: 50 !important;
+    font-weight: 500;
+
+    letter-spacing:
+        0.22em;
+
+    line-height: 1;
+
+    opacity: 0;
+
+    animation:
+        introTextAppear
+        2s
+        ease-out
+        1.5s
+        forwards;
+
+    text-shadow:
+        0 0 25px
+        rgba(216, 181, 106, 0.08);
 }
 
 
 /* =========================================================
-   TITLE GRADIENT
+   SUBTITLE
 ========================================================= */
 
-@keyframes peopleTitleGradient {
+.intro-subtitle {
+
+    margin-top: 18px;
+
+    color:
+        rgba(
+            216,
+            181,
+            106,
+            0.75
+        );
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.65rem;
+
+    font-weight: 500;
+
+    letter-spacing:
+        0.35em;
+
+    opacity: 0;
+
+    animation:
+        introTextAppear
+        2s
+        ease-out
+        2s
+        forwards;
+}
+
+
+/* =========================================================
+   CLICK PROMPT
+========================================================= */
+
+.intro-prompt {
+
+    margin-top: 55px;
+
+    color:
+        rgba(
+            238,
+            228,
+            204,
+            0.42
+        );
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.55rem;
+
+    letter-spacing:
+        0.3em;
+
+    opacity: 0;
+
+    animation:
+        introPromptAppear
+        2s
+        ease-out
+        3s
+        forwards;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes introSparrowAppear {
 
     0% {
-        background-position: 0% 50%;
+
+        opacity: 0;
+
+        transform:
+            scale(0.82)
+            translateY(15px);
+
+        filter:
+            blur(8px);
     }
 
-    50% {
-        background-position: 100% 50%;
+    45% {
+
+        opacity: 0.5;
+
+        transform:
+            scale(0.94)
+            translateY(5px);
+
+        filter:
+            blur(2px);
     }
 
     100% {
-        background-position: 0% 50%;
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+@keyframes introGlow {
+
+    0%,
+    100% {
+
+        transform:
+            scale(0.95);
+
+        opacity: 0.45;
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+        opacity: 0.75;
+    }
+}
+
+
+@keyframes introTextAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+
+        filter:
+            blur(5px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+@keyframes introPromptAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
     }
 }
 
 
 /* =========================================================
-   MOBILE
+   INTRO EXIT
 ========================================================= */
 
-@media (max-width: 700px) {
+.intro-screen.leaving {
 
-    .people-hero .hero-content h1 {
-        font-size:
-            clamp(
-                3.4rem,
-                15vw,
-                6rem
-            ) !important;
+    opacity: 0;
 
-        line-height:
-            0.9 !important;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1.2s
+        cubic-bezier(.77, 0, .18, 1);
+}
+
+
+/* =========================================================
+   INTRO MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .intro-sparrow {
+
+        width: 190px;
+
+        height: 190px;
+    }
+
+
+    .intro-sparrow img {
+
+        width: 140px;
+
+        height: 140px;
+    }
+
+
+    .intro-sparrow::before {
+
+        width: 175px;
+
+        height: 175px;
+    }
+
+
+    .intro-title {
+
+        font-size: 1.7rem;
 
         letter-spacing:
-            -3px !important;
+            0.15em;
     }
-}
 
 
-/* =========================================================
-   SMALL PHONES
-========================================================= */
+    .intro-subtitle {
 
-@media (max-width: 430px) {
-
-    .people-hero .hero-content h1 {
-        font-size:
-            clamp(
-                3rem,
-                15vw,
-                4.5rem
-            ) !important;
-
-        line-height:
-            0.92 !important;
+        font-size: 0.5rem;
 
         letter-spacing:
-            -2px !important;
+            0.25em;
     }
-}
 
-/* =========================================================
-   FINAL HERO TITLE — GUARANTEED VISIBLE
-========================================================= */
 
-.people-hero {
-    position: relative !important;
-    overflow: hidden !important;
-}
+    .intro-prompt {
 
-.people-hero .hero-content {
-    position: relative !important;
-    z-index: 100 !important;
-    width: min(1100px, 92%) !important;
-    max-width: 1100px !important;
-    overflow: visible !important;
-    text-align: center !important;
-}
+        margin-top: 42px;
 
-.people-hero .hero-content h1 {
-    position: relative !important;
-
-    display: block !important;
-
-    width: 100% !important;
-    max-width: none !important;
-
-    height: auto !important;
-    min-height: auto !important;
-
-    margin: 0 auto 35px !important;
-    padding: 0 !important;
-
-    font-family: Arial, Helvetica, sans-serif !important;
-
-    font-size: clamp(4rem, 10vw, 9rem) !important;
-    font-weight: 900 !important;
-
-    line-height: 0.9 !important;
-    letter-spacing: -6px !important;
-
-    text-align: center !important;
-
-    white-space: normal !important;
-    overflow: visible !important;
-
-    /* STOP THE TEXT FROM BECOMING INVISIBLE */
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-
-    /* REMOVE GRADIENT CLIPPING */
-    background: none !important;
-    background-image: none !important;
-
-    /* STOP GRADIENT ANIMATION */
-    animation: none !important;
-
-    /* FORCE VISIBILITY */
-    opacity: 1 !important;
-    visibility: visible !important;
-
-    transform: none !important;
-
-    z-index: 200 !important;
-
-    text-shadow:
-        0 5px 20px rgba(0, 0, 0, 0.5),
-        0 0 35px rgba(103, 232, 249, 0.25);
+        font-size: 0.48rem;
+    }
 }
 
 
 /* =========================================================
-   DESKTOP — BIG TITLE
+   INTRO REDUCED MOTION
 ========================================================= */
 
-@media (min-width: 1101px) {
+@media (prefers-reduced-motion: reduce) {
 
-    .people-hero .hero-content h1 {
-        font-size: clamp(5rem, 9vw, 9rem) !important;
-        line-height: 0.88 !important;
-        letter-spacing: -7px !important;
+    .intro-screen,
+    .intro-screen.leaving {
+
+        transition:
+            opacity 0.3s ease;
     }
 
+
+    .intro-sparrow,
+    .intro-title,
+    .intro-subtitle,
+    .intro-prompt {
+
+        animation: none;
+
+        opacity: 1;
+    }
+
+
+    .intro-sparrow::before {
+
+        animation: none;
+    }
 }
 
 
 /* =========================================================
-   TABLET
+   SPARROW LIGHT REVEAL
 ========================================================= */
 
-@media (max-width: 1100px) {
+/* Make both the sparrow and Click to Enter clickable */
 
-    .people-hero .hero-content h1 {
-        font-size: clamp(4rem, 10vw, 7rem) !important;
-        letter-spacing: -5px !important;
-    }
+.intro-sparrow,
+.intro-prompt {
 
+    cursor: pointer;
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* Light starts at the sparrow */
 
-@media (max-width: 700px) {
+.intro-screen::after {
 
-    .people-hero .hero-content {
-        width: 94% !important;
-        padding-left: 5px !important;
-        padding-right: 5px !important;
-    }
+    content: "";
 
-    .people-hero .hero-content h1 {
-        font-size: clamp(3.2rem, 15vw, 5.5rem) !important;
-        line-height: 0.92 !important;
-        letter-spacing: -3px !important;
-    }
+    position: absolute;
 
-}
+    left: 50%;
 
+    top: 50%;
 
-/* =========================================================
-   SMALL PHONES
-========================================================= */
+    width: 20px;
 
-@media (max-width: 430px) {
+    height: 20px;
 
-    .people-hero .hero-content h1 {
-        font-size: clamp(2.8rem, 15vw, 4.3rem) !important;
-        line-height: 0.95 !important;
-        letter-spacing: -2px !important;
-    }
-
-}
-
-.category-label {
-    
-
-    top: 12px;
-    right: 12px;
-
-    padding:
-        6px 10px;
-
-    border-radius:
-        12px;
+    border-radius: 50%;
 
     background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            var(--purple),
-            var(--pink)
-        );
+        #fff8df;
 
-    color:
-        white;
+    transform:
+        translate(-50%, -50%)
+        scale(0);
 
-    font-size:
-        0.65rem;
+    opacity: 0;
 
-    font-weight:
-        900;
+    pointer-events: none;
 
-    letter-spacing:
-        1.5px;
+    z-index: 10;
 
-    line-height:
-        1.5;
+    box-shadow:
+        0 0 20px
+        rgba(255, 248, 223, 0.9),
 
-    text-transform:
-        uppercase;
+        0 0 60px
+        rgba(244, 197, 66, 0.7),
 
-    text-shadow:
-        0 0 8px
-        rgba(34,211,238,0.6);
+        0 0 120px
+        rgba(244, 197, 66, 0.45);
+}
 
-    pointer-events:
-        none;
 
+/* =========================================================
+   WHEN ENTERING
+========================================================= */
+
+.intro-screen.light-reveal::after {
+
+    animation:
+        sparrowLight
+        1.8s
+        cubic-bezier(.7, 0, .15, 1)
+        forwards;
+}
+
+
+/* Everything gets hidden behind the expanding light */
+
+.intro-screen.light-reveal .intro-content {
+
+    animation:
+        introDisappear
+        0.7s
+        ease-out
+        forwards;
+}
+
+
+/* =========================================================
+   EXPANDING LIGHT
+========================================================= */
+
+@keyframes sparrowLight {
+
+    0% {
+
+        width: 20px;
+
+        height: 20px;
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        border-radius: 50%;
+    }
+
+    25% {
+
+        width: 80px;
+
+        height: 80px;
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    55% {
+
+        width: 300px;
+
+        height: 300px;
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    100% {
+
+        width: 100vmax;
+
+        height: 100vmax;
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        box-shadow:
+            0 0 100px
+            rgba(255, 248, 223, 0.9),
+
+            0 0 250px
+            rgba(244, 197, 66, 0.5);
+    }
+}
+
+
+/* =========================================================
+   INTRO CONTENT DISAPPEARS
+========================================================= */
+
+@keyframes introDisappear {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.96);
+    }
+}
+
+
+/* =========================================================
+   AFTER THE LIGHT REVEAL
+========================================================= */
+
+.intro-screen.light-reveal {
+
+    background:
+        #000;
+}
+
+
+.intro-screen.light-reveal.finished {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
 }
