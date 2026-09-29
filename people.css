@@ -1263,10 +1263,6 @@ body {
 
     left: 50%;
 
-    /*
-       More distance between book and controls
-    */
-
     bottom: -200px;
 
     transform:
@@ -2263,7 +2259,7 @@ body {
     .book-controls {
         position: static;
         width: 100%;
-        margin-top: 40px;
+        margin-top: 440px;
         margin-bottom: 30px;
 
         display: flex;
