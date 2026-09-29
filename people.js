@@ -1,6 +1,3 @@
-/* =========================================================
-   HIDDEN LEGENDS — INTRO LIGHT REVEAL
-========================================================= */
 
 const introScreen = document.getElementById("introScreen");
 const introSparrow = document.getElementById("introSparrow");
@@ -8,22 +5,14 @@ const introPrompt = document.querySelector(".intro-prompt");
 
 let introStarted = false;
 
-
-/* ENTER HIDDEN LEGENDS */
-
 function enterHiddenLegends() {
 
     if (introStarted) return;
 
     introStarted = true;
 
-    /* Start the light coming from the sparrow */
     introScreen.classList.add("light-reveal");
 
-    /*
-       Wait until the light has completely covered
-       the screen before removing the intro.
-    */
     setTimeout(() => {
 
         introScreen.classList.add("finished");
@@ -31,9 +20,6 @@ function enterHiddenLegends() {
     }, 1750);
 
 }
-
-
-/* CLICK SPARROW */
 
 if (introSparrow) {
 
@@ -44,9 +30,6 @@ if (introSparrow) {
 
 }
 
-
-/* CLICK "CLICK TO ENTER" */
-
 if (introPrompt) {
 
     introPrompt.addEventListener(
@@ -56,22 +39,11 @@ if (introPrompt) {
 
 }
 
-/* =========================================================
-   HIDDEN LEGENDS — BOOK NAVIGATION
-   people.js
-========================================================= */
-
-
 const spreads = document.querySelectorAll(".book-spread");
 
 const previousButton = document.getElementById("previousPage");
 const nextButton = document.getElementById("nextPage");
 const bookPosition = document.getElementById("bookPosition");
-
-
-/* =========================================================
-   PAGE NAMES
-========================================================= */
 
 const pageNames = [
     "CONTENTS",
@@ -84,19 +56,11 @@ const pageNames = [
 ];
 
 
-/* =========================================================
-   SETTINGS
-========================================================= */
-
 const TURN_DURATION = 900;
 
 let currentPage = 0;
 let isTurning = false;
 
-
-/* =========================================================
-   UPDATE BUTTONS / POSITION
-========================================================= */
 
 function updateControls() {
 
@@ -105,11 +69,6 @@ function updateControls() {
     previousButton.disabled = currentPage === 0;
     nextButton.disabled = currentPage === spreads.length - 1;
 }
-
-
-/* =========================================================
-   CLEAR ANIMATION CLASSES
-========================================================= */
 
 function clearAnimationClasses() {
 
@@ -136,11 +95,6 @@ function clearAnimationClasses() {
 
 }
 
-
-/* =========================================================
-   4. UPDATE BUTTONS / PAGE NAME
-========================================================= */
-
 function updateControls() {
 
     if (bookPosition) {
@@ -160,19 +114,7 @@ function updateControls() {
 
 }
 
-
-/* =========================================================
-   5. PAGE TURN
-========================================================= */
-
 function turnPage(targetPage) {
-
-    /*
-       Don't allow:
-       - clicking the current page
-       - turning beyond the book
-       - another turn while animation is running
-    */
 
     if (isTurning) {
         return;
@@ -194,12 +136,6 @@ function turnPage(targetPage) {
     const newPage = spreads[targetPage];
 
     const movingForward = targetPage > currentPage;
-
-
-    /* =====================================================
-       PREPARE NEW PAGE
-    ===================================================== */
-
     newPage.classList.remove(
         "active",
         "turn-next",
@@ -215,11 +151,6 @@ function turnPage(targetPage) {
         "enter-prev"
     );
 
-
-    /*
-       Put the new page underneath the page being turned.
-    */
-
     newPage.style.zIndex = "1";
     oldPage.style.zIndex = "5";
 
@@ -228,12 +159,6 @@ function turnPage(targetPage) {
         movingForward ? "enter-next" : "enter-prev"
     );
 
-
-    /*
-       Force the browser to register the starting
-       animation state before starting the turn.
-    */
-
     void newPage.offsetWidth;
 
 
@@ -241,22 +166,12 @@ function turnPage(targetPage) {
         movingForward ? "turn-next" : "turn-prev"
     );
 
-
-    /*
-       The new page becomes active during the animation.
-    */
-
     newPage.classList.add("active");
 
 
     currentPage = targetPage;
 
     updateControls();
-
-
-    /* =====================================================
-       FINISH ANIMATION
-    ===================================================== */
 
     setTimeout(() => {
 
@@ -282,10 +197,6 @@ function turnPage(targetPage) {
 
         isTurning = false;
 
-        /*
-           Keep the book at the top after turning.
-        */
-
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -294,11 +205,6 @@ function turnPage(targetPage) {
     }, 760);
 
 }
-
-
-/* =========================================================
-   6. NEXT BUTTON
-========================================================= */
 
 if (nextButton) {
 
@@ -310,11 +216,6 @@ if (nextButton) {
 
 }
 
-
-/* =========================================================
-   7. PREVIOUS BUTTON
-========================================================= */
-
 if (previousButton) {
 
     previousButton.addEventListener("click", () => {
@@ -324,11 +225,6 @@ if (previousButton) {
     });
 
 }
-
-
-/* =========================================================
-   8. CONTENTS CATEGORY LINKS
-========================================================= */
 
 const pageLinks = document.querySelectorAll("[data-go-to]");
 
@@ -352,16 +248,7 @@ pageLinks.forEach(link => {
 
 });
 
-
-/* =========================================================
-   9. KEYBOARD CONTROLS
-========================================================= */
-
 document.addEventListener("keydown", event => {
-
-    /*
-       Don't interfere with typing into an input.
-    */
 
     const activeElement = document.activeElement;
 
@@ -396,11 +283,6 @@ document.addEventListener("keydown", event => {
 
 });
 
-
-/* =========================================================
-   10. URL HASH
-========================================================= */
-
 const hashPages = {
 
     christian: 1,
@@ -430,11 +312,6 @@ function openHashPage() {
 
         const targetPage = hashPages[hash];
 
-        /*
-           Start directly on the requested category
-           when the page first loads.
-        */
-
         spreads.forEach((spread, index) => {
 
             spread.classList.remove(
@@ -460,11 +337,6 @@ function openHashPage() {
     }
 
 }
-
-
-/* =========================================================
-   11. UPDATE HASH WHEN TURNING
-========================================================= */
 
 function updateHash(pageNumber) {
 
@@ -501,18 +373,7 @@ function updateHash(pageNumber) {
 
 }
 
-
-/* =========================================================
-   12. WRAP PAGE TURN TO UPDATE HASH
-========================================================= */
-
 const originalTurnPage = turnPage;
-
-
-/*
-   Replace the function behavior so the URL changes
-   when the user turns the page.
-*/
 
 function goToPage(targetPage) {
 
@@ -533,11 +394,6 @@ function goToPage(targetPage) {
     updateHash(targetPage);
 
 }
-
-
-/* =========================================================
-   13. RECONNECT BUTTONS TO HASH-AWARE TURNING
-========================================================= */
 
 if (nextButton) {
 
@@ -581,11 +437,6 @@ pageLinks.forEach(link => {
 
 });
 
-
-/* =========================================================
-   14. KEYBOARD — HASH AWARE
-========================================================= */
-
 document.addEventListener("keydown", event => {
 
     const activeElement = document.activeElement;
@@ -621,11 +472,6 @@ document.addEventListener("keydown", event => {
 
 });
 
-
-/* =========================================================
-   15. BROWSER BACK / FORWARD
-========================================================= */
-
 window.addEventListener("hashchange", () => {
 
     const hash = window.location.hash
@@ -642,20 +488,9 @@ window.addEventListener("hashchange", () => {
 
         const targetPage = hashPages[hash];
 
-        /*
-           If already on the requested page,
-           do nothing.
-        */
-
         if (targetPage === currentPage) {
             return;
         }
-
-
-        /*
-           For browser navigation, switch pages
-           without creating another history entry.
-        */
 
         spreads.forEach((spread, index) => {
 
@@ -682,11 +517,6 @@ window.addEventListener("hashchange", () => {
     }
 
 });
-
-
-/* =========================================================
-   16. START BOOK
-========================================================= */
 
 initializeBook();
 
