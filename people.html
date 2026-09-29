@@ -1,1724 +1,904 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Legends | Hidden Legends</title>
+    <title>Legends — Hidden Legends</title>
 
     <link rel="stylesheet" href="people.css">
 </head>
 
 <body>
 
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================= -->
+    <!-- =========================
+     HIDDEN LEGENDS INTRO
+========================== -->
 
-    <nav class="site-nav">
+<div class="intro-screen" id="introScreen">
 
-        <a href="index.html" class="nav-logo">
+    <div class="intro-content">
+
+        <!-- SPARROW LOGO -->
+        <button class="intro-sparrow"
+                id="introSparrow"
+                type="button"
+                aria-label="Enter Hidden Legends">
+
+            <!-- Replace this with the same sparrow image/logo
+                 you use on index.html -->
+            <img src="goldsparrow.png"
+                 alt="Hidden Legends Sparrow">
+
+        </button>
+
+        <h1 class="intro-title">
             HIDDEN LEGENDS
-        </a>
+        </h1>
 
-        <div class="nav-links">
-            <a href="index.html">HOME</a>
-            <a href="people.html" class="active">LEGENDS</a>
-        </div>
+        <p class="intro-subtitle">
+            THE STORIES HISTORY FORGOT
+        </p>
 
-    </nav>
+        <p class="intro-prompt">
+            CLICK TO ENTER
+        </p>
+
+    </div>
+
+</div>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        HIDDEN LEGENDS
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="people.html" class="active">Legends</a>
+    </div>
+
+</nav>
 
 
-    <!-- =========================================================
-         BOOK WORLD
-    ========================================================= -->
+    <!-- =========================
+         BOOK
+    ========================== -->
 
     <main class="book-world">
 
         <div class="book" id="legendBook">
 
 
-            <!-- =================================================
-                 SPREAD 1 — CONTENTS
-            ================================================= -->
+            <!-- =========================
+                 PAGE 0 — CONTENTS
+            ========================== -->
 
-            <section class="book-spread active">
+            <div class="book-spread active" data-page="0">
 
-                <!-- TOP PAGE -->
+                <!-- LEFT PAGE -->
 
-                <div class="book-page contents-page left-page">
+                <section class="book-page left-page contents-page">
 
-                    <div class="page-number">
-                        CONTENTS
-                    </div>
+                    <div class="page-number">I</div>
 
-                    <div class="page-inner">
+                    <p class="book-kicker">THE ARCHIVE</p>
 
-                        <span class="section-label">
-                            THE STORIES HISTORY FORGOT
-                        </span>
+                    <h1 class="book-title">
+                        Hidden<br>
+                        Legends
+                    </h1>
 
-                        <h1 class="contents-heading">
-                            Hidden<br>
-                            Legends
-                        </h1>
+                    <p class="book-subtitle">
+                        THE STORIES HISTORY FORGOT
+                    </p>
 
-                        <p class="book-introduction">
-                            Some changed the world without ever becoming famous.
-                            Their names may not fill history books, but their
-                            courage, discoveries, sacrifices, and faith continue
-                            to shape the world around us.
-                        </p>
+                    <div class="book-rule"></div>
 
-                        <p class="book-introduction">
-                            Turn the pages and discover the people whose stories
-                            deserve to be remembered.
-                        </p>
+                    <p class="book-introduction">
+                        Some changed the world without ever becoming famous.
+                        Their names faded, but their work remained.
+                    </p>
 
-                    </div>
-
-                </div>
+                </section>
 
 
-                <!-- BOTTOM PAGE -->
+                <!-- RIGHT PAGE -->
 
-                <div class="book-page contents-page right-page">
+                <section class="book-page right-page contents-page">
 
-                    <div class="page-number">
-                        01
-                    </div>
+                    <div class="page-number">II</div>
 
-                    <div class="page-inner">
+                    <p class="section-label">TABLE OF CONTENTS</p>
 
-                        <span class="section-label">
-                            EXPLORE THE COLLECTION
-                        </span>
+                    <h2 class="contents-heading">
+                        The Legends
+                    </h2>
 
-                        <div class="contents-list">
+                    <div class="contents-list">
 
-                            <a href="#christian" class="contents-entry">
+                        <a href="#christian"
+                           class="contents-entry"
+                           data-go-to="1">
+                            <span>01</span>
+                            <strong>Christian</strong>
+                            <em>09 legends</em>
+                        </a>
 
-                                <span class="contents-number">
-                                    I
-                                </span>
+                        <a href="#courage-rescue"
+                           class="contents-entry"
+                           data-go-to="2">
+                            <span>02</span>
+                            <strong>Courage &amp; Rescue</strong>
+                            <em>06 legends</em>
+                        </a>
 
-                                <span class="contents-text">
-                                    <strong>Christian</strong>
-                                    <span>Faith, service, and sacrifice</span>
-                                </span>
+                        <a href="#humanitarians"
+                           class="contents-entry"
+                           data-go-to="3">
+                            <span>03</span>
+                            <strong>Humanitarians</strong>
+                            <em>06 legends</em>
+                        </a>
 
-                                <em>9 legends</em>
+                        <a href="#explorers"
+                           class="contents-entry"
+                           data-go-to="4">
+                            <span>04</span>
+                            <strong>Explorers</strong>
+                            <em>06 legends</em>
+                        </a>
 
-                            </a>
+                        <a href="#space"
+                           class="contents-entry"
+                           data-go-to="5">
+                            <span>05</span>
+                            <strong>Space</strong>
+                            <em>06 legends</em>
+                        </a>
 
-
-                            <a href="#courage" class="contents-entry">
-
-                                <span class="contents-number">
-                                    II
-                                </span>
-
-                                <span class="contents-text">
-                                    <strong>Courage &amp; Rescue</strong>
-                                    <span>People who stood against danger</span>
-                                </span>
-
-                                <em>6 legends</em>
-
-                            </a>
-
-
-                            <a href="#humanitarians" class="contents-entry">
-
-                                <span class="contents-number">
-                                    III
-                                </span>
-
-                                <span class="contents-text">
-                                    <strong>Humanitarians</strong>
-                                    <span>Lives devoted to helping others</span>
-                                </span>
-
-                                <em>6 legends</em>
-
-                            </a>
-
-
-                            <a href="#explorers" class="contents-entry">
-
-                                <span class="contents-number">
-                                    IV
-                                </span>
-
-                                <span class="contents-text">
-                                    <strong>Explorers</strong>
-                                    <span>Journeys beyond the known</span>
-                                </span>
-
-                                <em>6 legends</em>
-
-                            </a>
-
-
-                            <a href="#space" class="contents-entry">
-
-                                <span class="contents-number">
-                                    V
-                                </span>
-
-                                <span class="contents-text">
-                                    <strong>Space</strong>
-                                    <span>People who reached beyond Earth</span>
-                                </span>
-
-                                <em>6 legends</em>
-
-                            </a>
-
-
-                            <a href="#science" class="contents-entry">
-
-                                <span class="contents-number">
-                                    VI
-                                </span>
-
-                                <span class="contents-text">
-                                    <strong>Science &amp; Discovery</strong>
-                                    <span>Discoveries that changed knowledge</span>
-                                </span>
-
-                                <em>6 legends</em>
-
-                            </a>
-
-                        </div>
+                        <a href="#science"
+                           class="contents-entry"
+                           data-go-to="6">
+                            <span>06</span>
+                            <strong>Science &amp; Discovery</strong>
+                            <em>06 legends</em>
+                        </a>
 
                     </div>
 
-                </div>
+                </section>
 
-            </section>
+            </div>
 
 
 
-            <!-- =================================================
-                 SPREAD 2 — CHRISTIAN
-            ================================================= -->
+            <!-- =========================
+                 PAGE 1 — CHRISTIAN
+            ========================== -->
 
-            <section class="book-spread" id="christian">
+            <div class="book-spread" data-page="1">
 
-                <!-- TOP PAGE -->
-
-                <div class="book-page category-intro-page">
-
-                    <div class="page-number">
-                        02
-                    </div>
-
-                    <div class="page-inner">
-
-                        <span class="section-label">
-                            CATEGORY I
-                        </span>
-
-                        <h2 class="section-title">
-                            Christian
-                        </h2>
-
-                        <p class="category-description">
-                            These men and women devoted their lives to faith,
-                            service, compassion, and the calling they believed
-                            God had given them. Their work crossed cultures,
-                            borders, and generations.
-                        </p>
-
-                        <div class="category-quote">
-                            “Let your light shine before others.”
-                        </div>
-
-                        <div class="category-reference">
-                            Matthew 5:16
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- BOTTOM PAGE -->
-
-                <div class="book-page category-list-page">
-
-                    <div class="page-number">
-                        CHRISTIAN — 6
-                    </div>
-
-                    <div class="page-inner">
-
-                        <div class="legend-list">
-
-
-                            <!-- William Carey -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    01
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        William Carey
-                                    </h3>
-
-                                    <p>
-                                        Missionary and pioneer of modern Protestant missions.
-                                    </p>
-
-                                    <a href="william-carey.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Amy Carmichael -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    02
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Amy Carmichael
-                                    </h3>
-
-                                    <p>
-                                        Missionary who dedicated her life to children in India.
-                                    </p>
-
-                                    <a href="amy-carmichael.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- David Livingstone -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    03
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        David Livingstone
-                                    </h3>
-
-                                    <p>
-                                        Missionary, physician, and explorer of Africa.
-                                    </p>
-
-                                    <a href="david-livingstone.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Gladys Aylward -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    04
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Gladys Aylward
-                                    </h3>
-
-                                    <p>
-                                        Missionary who served children and families in China.
-                                    </p>
-
-                                    <a href="gladys-aylward.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Mary Slessor -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    05
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Mary Slessor
-                                    </h3>
-
-                                    <p>
-                                        Scottish missionary who worked among communities in Nigeria.
-                                    </p>
-
-                                    <a href="mary-slessor.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Eric Liddell -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    06
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Eric Liddell
-                                    </h3>
-
-                                    <p>
-                                        Olympic athlete and missionary remembered for his faith.
-                                    </p>
-
-                                    <a href="eric-liddell.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Father James B. Reuter -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    07
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Father James B. Reuter
-                                    </h3>
-
-                                    <p>
-                                        Jesuit priest who became an influential voice in Philippine media.
-                                    </p>
-
-                                    <a href="james-b-reuter.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Pedro Calungsod -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    08
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Pedro Calungsod
-                                    </h3>
-
-                                    <p>
-                                        Filipino missionary catechist who died while serving his faith.
-                                    </p>
-
-                                    <a href="pedro-calungsod.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Lorenzo Ruiz -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    09
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Lorenzo Ruiz
-                                    </h3>
-
-                                    <p>
-                                        Filipino Christian remembered for his courage and martyrdom.
-                                    </p>
-
-                                    <a href="lorenzo-ruiz.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-                        </div>
+                <!-- CATEGORY INTRO -->
+
+                <section class="book-page left-page category-intro"
+                         id="christian">
+
+                    <div class="page-number">III</div>
+
+                    <p class="book-kicker">CHAPTER ONE</p>
+
+                    <h1 class="section-title">
+                        Christian
+                    </h1>
+
+                    <div class="book-rule"></div>
+
+                    <p class="category-description">
+                        Men and women whose faith shaped their lives,
+                        their work, and the people they served.
+                    </p>
+
+                    <a href="#"
+                       class="category-back"
+                       data-go-to="0">
+                        ← Return to Contents
+                    </a>
+
+                </section>
+
+
+                <!-- PEOPLE -->
+
+                <section class="book-page right-page category-list-page">
+
+                    <div class="page-number">IV</div>
+
+                    <p class="section-label">CHRISTIAN</p>
+
+                    <h2 class="section-heading">
+                        Lives of Faith
+                    </h2>
+
+                    <div class="legend-list">
+
+                        <article class="legend-entry">
+                            <span class="entry-number">01</span>
+                            <div class="entry-info">
+                                <h3>William Carey</h3>
+                                <p>Missionary and pioneer of modern Protestant missions.</p>
+                                <a href="william-carey.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">02</span>
+                            <div class="entry-info">
+                                <h3>Amy Carmichael</h3>
+                                <p>Missionary who devoted her life to children in India.</p>
+                                <a href="amy-carmichael.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">03</span>
+                            <div class="entry-info">
+                                <h3>David Livingstone</h3>
+                                <p>Explorer, missionary, and advocate for Africa.</p>
+                                <a href="david-livingstone.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">04</span>
+                            <div class="entry-info">
+                                <h3>Gladys Aylward</h3>
+                                <p>Missionary who served children and families in China.</p>
+                                <a href="gladys-aylward.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">05</span>
+                            <div class="entry-info">
+                                <h3>Mary Slessor</h3>
+                                <p>Missionary who worked for peace and justice in Nigeria.</p>
+                                <a href="mary-slessor.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">06</span>
+                            <div class="entry-info">
+                                <h3>Eric Liddell</h3>
+                                <p>Olympic athlete, missionary, and teacher.</p>
+                                <a href="eric-liddell.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">07</span>
+                            <div class="entry-info">
+                                <h3>Father James B. Reuter</h3>
+                                <p>Jesuit priest and influential figure in Philippine media.</p>
+                                <a href="james-reuter.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">08</span>
+                            <div class="entry-info">
+                                <h3>Pedro Calungsod</h3>
+                                <p>Young catechist who died serving the Christian faith.</p>
+                                <a href="pedro-calungsod.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">09</span>
+                            <div class="entry-info">
+                                <h3>Lorenzo Ruiz</h3>
+                                <p>Filipino Christian martyr who remained faithful to his beliefs.</p>
+                                <a href="lorenzo-ruiz.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
 
                     </div>
 
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 SPREAD 3 — COURAGE & RESCUE
-            ================================================= -->
-
-            <section class="book-spread" id="courage">
-
-                <!-- TOP PAGE -->
-
-                <div class="book-page category-intro-page">
-
-                    <div class="page-number">
-                        03
-                    </div>
-
-                    <div class="page-inner">
-
-                        <span class="section-label">
-                            CATEGORY II
-                        </span>
-
-                        <h2 class="section-title">
-                            Courage &amp;<br>
-                            Rescue
-                        </h2>
-
-                        <p class="category-description">
-                            During some of history's darkest moments,
-                            ordinary people chose to act. These individuals
-                            risked their safety to protect strangers, rescue
-                            families, and resist injustice.
-                        </p>
-
-                        <div class="category-quote">
-                            “Greater love has no one than this.”
-                        </div>
-
-                        <div class="category-reference">
-                            John 15:13
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- BOTTOM PAGE -->
-
-                <div class="book-page category-list-page">
-
-                    <div class="page-number">
-                        COURAGE &amp; RESCUE — 6
-                    </div>
-
-                    <div class="page-inner">
-
-                        <div class="legend-list">
-
-
-                            <!-- Truus Wijsmuller -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    01
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Truus Wijsmuller
-                                    </h3>
-
-                                    <p>
-                                        Dutch resistance worker who helped Jewish children escape Nazi persecution.
-                                    </p>
-
-                                    <a href="truus-wijsmuller.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Frank Foley -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    02
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Frank Foley
-                                    </h3>
-
-                                    <p>
-                                        British diplomat who helped Jewish refugees escape Nazi Germany.
-                                    </p>
-
-                                    <a href="frank-foley.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Ładoś Group -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    03
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        The Ładoś Group
-                                    </h3>
-
-                                    <p>
-                                        Diplomats and activists who created documents to help save Jews during the Holocaust.
-                                    </p>
-
-                                    <a href="lados-group.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Johan van Hulst -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    04
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Johan van Hulst
-                                    </h3>
-
-                                    <p>
-                                        Dutch educator who helped Jewish children escape during World War II.
-                                    </p>
-
-                                    <a href="johan-van-hulst.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- ten Boom Family -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    05
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        The ten Boom Family
-                                    </h3>
-
-                                    <p>
-                                        A Dutch Christian family who sheltered Jewish people during the Holocaust.
-                                    </p>
-
-                                    <a href="ten-boom-family.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Irena Sendler -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    06
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Irena Sendler
-                                    </h3>
-
-                                    <p>
-                                        Polish social worker who helped rescue Jewish children from the Warsaw Ghetto.
-                                    </p>
-
-                                    <a href="irena-sendler.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-                        </div>
+                </section>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PAGE 2 — COURAGE & RESCUE
+            ========================== -->
+
+            <div class="book-spread" data-page="2">
+
+                <section class="book-page left-page category-intro"
+                         id="courage-rescue">
+
+                    <div class="page-number">V</div>
+
+                    <p class="book-kicker">CHAPTER TWO</p>
+
+                    <h1 class="section-title">
+                        Courage<br>&amp; Rescue
+                    </h1>
+
+                    <div class="book-rule"></div>
+
+                    <p class="category-description">
+                        Ordinary people who made extraordinary choices
+                        when the lives of others were at stake.
+                    </p>
+
+                    <a href="#"
+                       class="category-back"
+                       data-go-to="0">
+                        ← Return to Contents
+                    </a>
+
+                </section>
+
+
+                <section class="book-page right-page category-list-page">
+
+                    <div class="page-number">VI</div>
+
+                    <p class="section-label">COURAGE &amp; RESCUE</p>
+
+                    <h2 class="section-heading">
+                        Acts of Courage
+                    </h2>
+
+                    <div class="legend-list">
+
+                        <article class="legend-entry">
+                            <span class="entry-number">01</span>
+                            <div class="entry-info">
+                                <h3>Truus Wijsmuller</h3>
+                                <p>A Dutch resistance figure who helped rescue Jewish children.</p>
+                                <a href="truus-wijsmuller.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">02</span>
+                            <div class="entry-info">
+                                <h3>Frank Foley</h3>
+                                <p>British diplomat who helped Jews escape Nazi persecution.</p>
+                                <a href="frank-foley.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">03</span>
+                            <div class="entry-info">
+                                <h3>The Ładoś Group</h3>
+                                <p>Diplomats and activists who forged documents to save Jews.</p>
+                                <a href="lados-group.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">04</span>
+                            <div class="entry-info">
+                                <h3>Johan van Hulst</h3>
+                                <p>Dutch educator who helped save Jewish children during the Holocaust.</p>
+                                <a href="johan-van-hulst.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">05</span>
+                            <div class="entry-info">
+                                <h3>The ten Boom Family</h3>
+                                <p>A Dutch family who sheltered Jewish people during the Holocaust.</p>
+                                <a href="ten-boom-family.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">06</span>
+                            <div class="entry-info">
+                                <h3>Irena Sendler</h3>
+                                <p>Polish social worker who helped rescue Jewish children.</p>
+                                <a href="irena-sendler.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
 
                     </div>
 
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 SPREAD 4 — HUMANITARIANS
-            ================================================= -->
-
-            <section class="book-spread" id="humanitarians">
-
-                <!-- TOP PAGE -->
-
-                <div class="book-page category-intro-page">
-
-                    <div class="page-number">
-                        04
-                    </div>
-
-                    <div class="page-inner">
-
-                        <span class="section-label">
-                            CATEGORY III
-                        </span>
-
-                        <h2 class="section-title">
-                            Humanitarians
-                        </h2>
-
-                        <p class="category-description">
-                            Their work focused on human dignity, health,
-                            food, education, equality, and the protection
-                            of people whose voices were often overlooked.
-                        </p>
-
-                        <div class="category-quote">
-                            “Whoever is kind to the poor lends to the Lord.”
-                        </div>
-
-                        <div class="category-reference">
-                            Proverbs 19:17
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- BOTTOM PAGE -->
-
-                <div class="book-page category-list-page">
-
-                    <div class="page-number">
-                        HUMANITARIANS — 6
-                    </div>
-
-                    <div class="page-inner">
-
-                        <div class="legend-list">
-
-
-                            <!-- Norman Borlaug -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    01
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Norman Borlaug
-                                    </h3>
-
-                                    <p>
-                                        Agricultural scientist whose work helped increase food production around the world.
-                                    </p>
-
-                                    <a href="norman-borlaug.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Abdul Sattar Edhi -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    02
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Abdul Sattar Edhi
-                                    </h3>
-
-                                    <p>
-                                        Pakistani humanitarian who built one of the world's largest volunteer welfare networks.
-                                    </p>
-
-                                    <a href="abdul-sattar-edhi.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Henrietta Lacks -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    03
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Henrietta Lacks
-                                    </h3>
-
-                                    <p>
-                                        Woman whose cells became an important part of modern biomedical research.
-                                    </p>
-
-                                    <a href="henrietta-lacks.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Wangari Maathai -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    04
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Wangari Maathai
-                                    </h3>
-
-                                    <p>
-                                        Kenyan environmentalist who connected tree planting with community development.
-                                    </p>
-
-                                    <a href="wangari-maathai.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Florence Nightingale -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    05
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Florence Nightingale
-                                    </h3>
-
-                                    <p>
-                                        Nursing pioneer who transformed hospital care and nursing education.
-                                    </p>
-
-                                    <a href="florence-nightingale.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Albert Schweitzer -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    06
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Albert Schweitzer
-                                    </h3>
-
-                                    <p>
-                                        Physician and humanitarian who established a hospital in what is now Gabon.
-                                    </p>
-
-                                    <a href="albert-schweitzer.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-                        </div>
+                </section>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PAGE 3 — HUMANITARIANS
+            ========================== -->
+
+            <div class="book-spread" data-page="3">
+
+                <section class="book-page left-page category-intro"
+                         id="humanitarians">
+
+                    <div class="page-number">VII</div>
+
+                    <p class="book-kicker">CHAPTER THREE</p>
+
+                    <h1 class="section-title">
+                        Humanitarians
+                    </h1>
+
+                    <div class="book-rule"></div>
+
+                    <p class="category-description">
+                        People who used their knowledge, resources,
+                        and courage to improve the lives of others.
+                    </p>
+
+                    <a href="#"
+                       class="category-back"
+                       data-go-to="0">
+                        ← Return to Contents
+                    </a>
+
+                </section>
+
+
+                <section class="book-page right-page category-list-page">
+
+                    <div class="page-number">VIII</div>
+
+                    <p class="section-label">HUMANITARIANS</p>
+
+                    <h2 class="section-heading">
+                        For Others
+                    </h2>
+
+                    <div class="legend-list">
+
+                        <article class="legend-entry">
+                            <span class="entry-number">01</span>
+                            <div class="entry-info">
+                                <h3>Norman Borlaug</h3>
+                                <p>Scientist whose agricultural work helped fight global hunger.</p>
+                                <a href="norman-borlaug.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">02</span>
+                            <div class="entry-info">
+                                <h3>Abdul Sattar Edhi</h3>
+                                <p>Humanitarian who built one of Pakistan's largest welfare networks.</p>
+                                <a href="abdul-sattar-edhi.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">03</span>
+                            <div class="entry-info">
+                                <h3>Henrietta Lacks</h3>
+                                <p>Her cells became foundational to major advances in modern medicine.</p>
+                                <a href="henrietta-lacks.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">04</span>
+                            <div class="entry-info">
+                                <h3>Wangari Maathai</h3>
+                                <p>Environmental and social activist who founded the Green Belt Movement.</p>
+                                <a href="wangari-maathai.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">05</span>
+                            <div class="entry-info">
+                                <h3>Florence Nightingale</h3>
+                                <p>Nurse and reformer who transformed modern nursing and hospital care.</p>
+                                <a href="florence-nightingale.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">06</span>
+                            <div class="entry-info">
+                                <h3>Albert Schweitzer</h3>
+                                <p>Physician, theologian, musician, and humanitarian in Africa.</p>
+                                <a href="albert-schweitzer.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
 
                     </div>
 
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 SPREAD 5 — EXPLORERS
-            ================================================= -->
-
-            <section class="book-spread" id="explorers">
-
-                <!-- TOP PAGE -->
-
-                <div class="book-page category-intro-page">
-
-                    <div class="page-number">
-                        05
-                    </div>
-
-                    <div class="page-inner">
-
-                        <span class="section-label">
-                            CATEGORY IV
-                        </span>
-
-                        <h2 class="section-title">
-                            Explorers
-                        </h2>
-
-                        <p class="category-description">
-                            Long before modern maps, satellites, and GPS,
-                            explorers crossed oceans, deserts, mountains,
-                            and unfamiliar lands to expand humanity's
-                            understanding of the world.
-                        </p>
-
-                        <div class="category-quote">
-                            “The earth is the Lord's, and all its fullness.”
-                        </div>
-
-                        <div class="category-reference">
-                            Psalm 24:1
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- BOTTOM PAGE -->
-
-                <div class="book-page category-list-page">
-
-                    <div class="page-number">
-                        EXPLORERS — 6
-                    </div>
-
-                    <div class="page-inner">
-
-                        <div class="legend-list">
-
-
-                            <!-- Ibn Battuta -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    01
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Ibn Battuta
-                                    </h3>
-
-                                    <p>
-                                        Moroccan traveler whose journeys covered a remarkable portion of the medieval world.
-                                    </p>
-
-                                    <a href="ibn-battuta.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Sacagawea -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    02
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Sacagawea
-                                    </h3>
-
-                                    <p>
-                                        Shoshone woman who contributed to the Lewis and Clark expedition.
-                                    </p>
-
-                                    <a href="sacagawea.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Zheng He -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    03
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Zheng He
-                                    </h3>
-
-                                    <p>
-                                        Chinese admiral who led enormous maritime expeditions across the Indian Ocean.
-                                    </p>
-
-                                    <a href="zheng-he.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Amelia Earhart -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    04
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Amelia Earhart
-                                    </h3>
-
-                                    <p>
-                                        Aviation pioneer who became one of the most recognized women in early flight.
-                                    </p>
-
-                                    <a href="amelia-earhart.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Matthew Henson -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    05
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Matthew Henson
-                                    </h3>
-
-                                    <p>
-                                        American explorer who played a major role in Arctic expeditions.
-                                    </p>
-
-                                    <a href="matthew-henson.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Gertrude Bell -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    06
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Gertrude Bell
-                                    </h3>
-
-                                    <p>
-                                        Explorer, writer, archaeologist, and political figure who traveled extensively through the Middle East.
-                                    </p>
-
-                                    <a href="gertrude-bell.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-                        </div>
+                </section>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PAGE 4 — EXPLORERS
+            ========================== -->
+
+            <div class="book-spread" data-page="4">
+
+                <section class="book-page left-page category-intro"
+                         id="explorers">
+
+                    <div class="page-number">IX</div>
+
+                    <p class="book-kicker">CHAPTER FOUR</p>
+
+                    <h1 class="section-title">
+                        Explorers
+                    </h1>
+
+                    <div class="book-rule"></div>
+
+                    <p class="category-description">
+                        Travelers who crossed unfamiliar lands,
+                        seas, cultures, and boundaries.
+                    </p>
+
+                    <a href="#"
+                       class="category-back"
+                       data-go-to="0">
+                        ← Return to Contents
+                    </a>
+
+                </section>
+
+
+                <section class="book-page right-page category-list-page">
+
+                    <div class="page-number">X</div>
+
+                    <p class="section-label">EXPLORERS</p>
+
+                    <h2 class="section-heading">
+                        Beyond the Known
+                    </h2>
+
+                    <div class="legend-list">
+
+                        <article class="legend-entry">
+                            <span class="entry-number">01</span>
+                            <div class="entry-info">
+                                <h3>Ibn Battuta</h3>
+                                <p>Medieval traveler whose journeys covered much of the known world.</p>
+                                <a href="ibn-battuta.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">02</span>
+                            <div class="entry-info">
+                                <h3>Sacagawea</h3>
+                                <p>Interpreter and guide who accompanied the Lewis and Clark Expedition.</p>
+                                <a href="sacagawea.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">03</span>
+                            <div class="entry-info">
+                                <h3>Zheng He</h3>
+                                <p>Chinese admiral who led enormous maritime expeditions across Asia and Africa.</p>
+                                <a href="zheng-he.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">04</span>
+                            <div class="entry-info">
+                                <h3>Amelia Earhart</h3>
+                                <p>Pioneering aviator who became one of the most famous women in aviation.</p>
+                                <a href="amelia-earhart.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">05</span>
+                            <div class="entry-info">
+                                <h3>Matthew Henson</h3>
+                                <p>Arctic explorer who accompanied Robert Peary on expeditions to the North Pole.</p>
+                                <a href="matthew-henson.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">06</span>
+                            <div class="entry-info">
+                                <h3>Gertrude Bell</h3>
+                                <p>Explorer, writer, archaeologist, and scholar of the Middle East.</p>
+                                <a href="gertrude-bell.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
 
                     </div>
 
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 SPREAD 6 — SPACE
-            ================================================= -->
-
-            <section class="book-spread" id="space">
-
-                <!-- TOP PAGE -->
-
-                <div class="book-page category-intro-page">
-
-                    <div class="page-number">
-                        06
-                    </div>
-
-                    <div class="page-inner">
-
-                        <span class="section-label">
-                            CATEGORY V
-                        </span>
-
-                        <h2 class="section-title">
-                            Space
-                        </h2>
-
-                        <p class="category-description">
-                            The story of space exploration was shaped not only
-                            by famous astronauts, but also by scientists,
-                            mathematicians, engineers, and advocates whose
-                            contributions opened the way beyond Earth.
-                        </p>
-
-                        <div class="category-quote">
-                            “The heavens declare the glory of God.”
-                        </div>
-
-                        <div class="category-reference">
-                            Psalm 19:1
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- BOTTOM PAGE -->
-
-                <div class="book-page category-list-page">
-
-                    <div class="page-number">
-                        SPACE — 6
-                    </div>
-
-                    <div class="page-inner">
-
-                        <div class="legend-list">
-
-
-                            <!-- Eilene Galloway -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    01
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Eilene Galloway
-                                    </h3>
-
-                                    <p>
-                                        American space-policy expert who helped shape international thinking about space law.
-                                    </p>
-
-                                    <a href="eilene-galloway.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Katherine Johnson -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    02
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Katherine Johnson
-                                    </h3>
-
-                                    <p>
-                                        Mathematician whose calculations supported major American space missions.
-                                    </p>
-
-                                    <a href="katherine-johnson.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Valentina Tereshkova -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    03
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Valentina Tereshkova
-                                    </h3>
-
-                                    <p>
-                                        Soviet cosmonaut who became the first woman to travel into space.
-                                    </p>
-
-                                    <a href="valentina-tereshkova.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Yuri Kondratyuk -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    04
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Yuri Kondratyuk
-                                    </h3>
-
-                                    <p>
-                                        Engineer and theorist whose ideas influenced concepts for lunar exploration.
-                                    </p>
-
-                                    <a href="yuri-kondratyuk.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Katharine Blodgett -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    05
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Katharine Blodgett
-                                    </h3>
-
-                                    <p>
-                                        Physicist whose inventions included important advances in thin-film technology.
-                                    </p>
-
-                                    <a href="katharine-blodgett.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Guion Bluford -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    06
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Guion Bluford
-                                    </h3>
-
-                                    <p>
-                                        Engineer, Air Force officer, and the first African American astronaut to travel into space.
-                                    </p>
-
-                                    <a href="guion-bluford.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-                        </div>
+                </section>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PAGE 5 — SPACE
+            ========================== -->
+
+            <div class="book-spread" data-page="5">
+
+                <section class="book-page left-page category-intro"
+                         id="space">
+
+                    <div class="page-number">XI</div>
+
+                    <p class="book-kicker">CHAPTER FIVE</p>
+
+                    <h1 class="section-title">
+                        Space
+                    </h1>
+
+                    <div class="book-rule"></div>
+
+                    <p class="category-description">
+                        Visionaries, scientists, engineers, and pioneers
+                        who helped humanity reach beyond Earth.
+                    </p>
+
+                    <a href="#"
+                       class="category-back"
+                       data-go-to="0">
+                        ← Return to Contents
+                    </a>
+
+                </section>
+
+
+                <section class="book-page right-page category-list-page">
+
+                    <div class="page-number">XII</div>
+
+                    <p class="section-label">SPACE</p>
+
+                    <h2 class="section-heading">
+                        Beyond Earth
+                    </h2>
+
+                    <div class="legend-list">
+
+                        <article class="legend-entry">
+                            <span class="entry-number">01</span>
+                            <div class="entry-info">
+                                <h3>Eilene Galloway</h3>
+                                <p>Legal and policy expert who helped shape the framework of space law.</p>
+                                <a href="eilene-galloway.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">02</span>
+                            <div class="entry-info">
+                                <h3>Katherine Johnson</h3>
+                                <p>Mathematician whose calculations supported America's early space missions.</p>
+                                <a href="katherine-johnson.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">03</span>
+                            <div class="entry-info">
+                                <h3>Valentina Tereshkova</h3>
+                                <p>The first woman to travel into space.</p>
+                                <a href="valentina-tereshkova.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">04</span>
+                            <div class="entry-info">
+                                <h3>Yuri Kondratyuk</h3>
+                                <p>Self-taught engineer whose ideas anticipated key concepts in lunar exploration.</p>
+                                <a href="yuri-kondratyuk.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">05</span>
+                            <div class="entry-info">
+                                <h3>Katharine Blodgett</h3>
+                                <p>Physicist whose work led to important advances in optical technology.</p>
+                                <a href="katharine-blodgett.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">06</span>
+                            <div class="entry-info">
+                                <h3>Guion Bluford</h3>
+                                <p>The first African American astronaut to travel into space.</p>
+                                <a href="guion-bluford.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
 
                     </div>
 
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 SPREAD 7 — SCIENCE & DISCOVERY
-            ================================================= -->
-
-            <section class="book-spread" id="science">
-
-                <!-- TOP PAGE -->
-
-                <div class="book-page category-intro-page">
-
-                    <div class="page-number">
-                        07
-                    </div>
-
-                    <div class="page-inner">
-
-                        <span class="section-label">
-                            CATEGORY VI
-                        </span>
-
-                        <h2 class="section-title">
-                            Science &amp;<br>
-                            Discovery
-                        </h2>
-
-                        <p class="category-description">
-                            These scientists asked questions, challenged
-                            assumptions, and uncovered knowledge that helped
-                            transform medicine, physics, chemistry, biology,
-                            and our understanding of the universe.
-                        </p>
-
-                        <div class="category-quote">
-                            “It is the glory of God to conceal a matter.”
-                        </div>
-
-                        <div class="category-reference">
-                            Proverbs 25:2
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- BOTTOM PAGE -->
-
-                <div class="book-page category-list-page">
-
-                    <div class="page-number">
-                        SCIENCE &amp; DISCOVERY — 6
-                    </div>
-
-                    <div class="page-inner">
-
-                        <div class="legend-list">
-
-
-                            <!-- Rosalind Franklin -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    01
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Rosalind Franklin
-                                    </h3>
-
-                                    <p>
-                                        Chemist and X-ray crystallographer whose research was crucial to understanding DNA.
-                                    </p>
-
-                                    <a href="rosalind-franklin.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Subrahmanyan Chandrasekhar -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    02
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Subrahmanyan Chandrasekhar
-                                    </h3>
-
-                                    <p>
-                                        Astrophysicist whose work transformed understanding of stars and stellar evolution.
-                                    </p>
-
-                                    <a href="subrahmanyan-chandrasekhar.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Mary Anning -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    03
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Mary Anning
-                                    </h3>
-
-                                    <p>
-                                        Fossil collector whose discoveries contributed greatly to early paleontology.
-                                    </p>
-
-                                    <a href="mary-anning.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Vera Rubin -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    04
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Vera Rubin
-                                    </h3>
-
-                                    <p>
-                                        Astronomer whose observations provided important evidence for dark matter.
-                                    </p>
-
-                                    <a href="vera-rubin.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Alice Ball -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    05
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Alice Ball
-                                    </h3>
-
-                                    <p>
-                                        Chemist who developed an important treatment method for Hansen's disease.
-                                    </p>
-
-                                    <a href="alice-ball.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-
-                            <!-- Percy Julian -->
-
-                            <article class="legend-entry">
-
-                                <div class="entry-number">
-                                    06
-                                </div>
-
-                                <div class="entry-info">
-
-                                    <h3>
-                                        Percy Julian
-                                    </h3>
-
-                                    <p>
-                                        Chemist who pioneered methods for producing important medicines from plant compounds.
-                                    </p>
-
-                                    <a href="percy-julian.html" class="read-link">
-                                        READ THE STORY →
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-                        </div>
+                </section>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PAGE 6 — SCIENCE & DISCOVERY
+            ========================== -->
+
+            <div class="book-spread" data-page="6">
+
+                <section class="book-page left-page category-intro"
+                         id="science">
+
+                    <div class="page-number">XIII</div>
+
+                    <p class="book-kicker">CHAPTER SIX</p>
+
+                    <h1 class="section-title">
+                        Science<br>&amp; Discovery
+                    </h1>
+
+                    <div class="book-rule"></div>
+
+                    <p class="category-description">
+                        Scientists whose discoveries changed what
+                        humanity knows about life, matter, and the universe.
+                    </p>
+
+                    <a href="#"
+                       class="category-back"
+                       data-go-to="0">
+                        ← Return to Contents
+                    </a>
+
+                </section>
+
+
+                <section class="book-page right-page category-list-page">
+
+                    <div class="page-number">XIV</div>
+
+                    <p class="section-label">SCIENCE &amp; DISCOVERY</p>
+
+                    <h2 class="section-heading">
+                        Discovering the Unknown
+                    </h2>
+
+                    <div class="legend-list">
+
+                        <article class="legend-entry">
+                            <span class="entry-number">01</span>
+                            <div class="entry-info">
+                                <h3>Rosalind Franklin</h3>
+                                <p>Chemist whose X-ray research contributed to understanding DNA's structure.</p>
+                                <a href="rosalind-franklin.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">02</span>
+                            <div class="entry-info">
+                                <h3>Subrahmanyan Chandrasekhar</h3>
+                                <p>Astrophysicist whose work transformed understanding of stars and stellar evolution.</p>
+                                <a href="subrahmanyan-chandrasekhar.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">03</span>
+                            <div class="entry-info">
+                                <h3>Mary Anning</h3>
+                                <p>Fossil hunter whose discoveries helped shape early paleontology.</p>
+                                <a href="mary-anning.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">04</span>
+                            <div class="entry-info">
+                                <h3>Vera Rubin</h3>
+                                <p>Astronomer whose observations provided important evidence for dark matter.</p>
+                                <a href="vera-rubin.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">05</span>
+                            <div class="entry-info">
+                                <h3>Alice Ball</h3>
+                                <p>Chemist who developed an important treatment for Hansen's disease.</p>
+                                <a href="alice-ball.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
+
+                        <article class="legend-entry">
+                            <span class="entry-number">06</span>
+                            <div class="entry-info">
+                                <h3>Percy Julian</h3>
+                                <p>Chemist who pioneered large-scale synthesis of important medicines and chemicals.</p>
+                                <a href="percy-julian.html" class="read-link">Read the story →</a>
+                            </div>
+                        </article>
 
                     </div>
 
-                </div>
+                </section>
 
-            </section>
-
+            </div>
 
         </div>
-
-
-        <!-- =====================================================
-             BOOK CONTROLS
-             KEEP THESE INSIDE .book-world
-        ====================================================== -->
-
-        <div class="book-controls">
-
-            <button
-                class="book-button"
-                id="previousPage"
-                type="button">
-                ← PREVIOUS
-            </button>
-
-            <span
-                class="book-position"
-                id="bookPosition">
-                CONTENTS
-            </span>
-
-            <button
-                class="book-button"
-                id="nextPage"
-                type="button">
-                NEXT →
-            </button>
-
-        </div>
-
     </main>
 
 
 
-    <!-- =========================================================
+    <!-- =========================
+         BOOK CONTROLS
+    ========================== -->
+
+    <div class="book-controls">
+
+        <button class="book-button"
+                id="previousPage"
+                type="button">
+            ← PREVIOUS
+        </button>
+
+        <span class="book-position"
+              id="bookPosition">
+            CONTENTS
+        </span>
+
+        <button class="book-button"
+                id="nextPage"
+                type="button">
+            NEXT →
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================
          FOOTER
-    ========================================================= -->
+    ========================== -->
 
     <footer class="site-footer">
 
-        <div class="footer-inner">
+        <span>
+            © 2026 Hidden Legends
+        </span>
 
-            <div class="footer-brand">
-                HIDDEN LEGENDS
-            </div>
-
-            <p>
-                THE STORIES HISTORY FORGOT
-            </p>
-
-            <span>
-                © 2026 Hidden Legends
-            </span>
-
-        </div>
+        <span>
+            THE STORIES HISTORY FORGOT
+        </span>
 
     </footer>
 
 
-
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================= -->
-
     <script src="people.js"></script>
 
 </body>
-
 </html>
