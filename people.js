@@ -9,7 +9,9 @@ const introPrompt = document.querySelector(".intro-prompt");
 let introStarted = false;
 
 
-/* ENTER HIDDEN LEGENDS */
+/* =========================================================
+   ENTER HIDDEN LEGENDS
+========================================================= */
 
 function enterHiddenLegends() {
 
@@ -24,6 +26,7 @@ function enterHiddenLegends() {
        Wait until the light has completely covered
        the screen before removing the intro.
     */
+
     setTimeout(() => {
 
         introScreen.classList.add("finished");
@@ -33,7 +36,9 @@ function enterHiddenLegends() {
 }
 
 
-/* CLICK SPARROW */
+/* =========================================================
+   CLICK SPARROW
+========================================================= */
 
 if (introSparrow) {
 
@@ -45,7 +50,9 @@ if (introSparrow) {
 }
 
 
-/* CLICK "CLICK TO ENTER" */
+/* =========================================================
+   CLICK "CLICK TO ENTER"
+========================================================= */
 
 if (introPrompt) {
 
@@ -56,17 +63,71 @@ if (introPrompt) {
 
 }
 
+
 /* =========================================================
    HIDDEN LEGENDS — BOOK NAVIGATION
-   people.js
 ========================================================= */
 
+const spreads =
+    document.querySelectorAll(".book-spread");
 
-const spreads = document.querySelectorAll(".book-spread");
+const previousButton =
+    document.getElementById("previousPage");
 
-const previousButton = document.getElementById("previousPage");
-const nextButton = document.getElementById("nextPage");
-const bookPosition = document.getElementById("bookPosition");
+const nextButton =
+    document.getElementById("nextPage");
+
+const bookPosition =
+    document.getElementById("bookPosition");
+
+
+/* =========================================================
+   MOBILE BOOK HEIGHT
+========================================================= */
+
+function updateMobileBookHeight() {
+
+    const book =
+        document.getElementById("legendBook");
+
+    if (!book) return;
+
+
+    /*
+       Desktop uses the original book layout.
+       Remove the JS height on larger screens.
+    */
+
+    if (window.innerWidth > 600) {
+
+        book.style.height = "";
+
+        return;
+
+    }
+
+
+    /*
+       Find the currently visible spread.
+    */
+
+    const activeSpread =
+        document.querySelector(
+            ".book-spread.active"
+        );
+
+    if (!activeSpread) return;
+
+
+    /*
+       Give the book exactly enough height
+       for the active mobile page.
+    */
+
+    book.style.height =
+        activeSpread.scrollHeight + "px";
+
+}
 
 
 /* =========================================================
@@ -74,6 +135,7 @@ const bookPosition = document.getElementById("bookPosition");
 ========================================================= */
 
 const pageNames = [
+
     "CONTENTS",
     "CHRISTIAN",
     "COURAGE & RESCUE",
@@ -81,6 +143,7 @@ const pageNames = [
     "EXPLORERS",
     "SPACE",
     "SCIENCE & DISCOVERY"
+
 ];
 
 
@@ -91,6 +154,7 @@ const pageNames = [
 const TURN_DURATION = 900;
 
 let currentPage = 0;
+
 let isTurning = false;
 
 
@@ -100,10 +164,30 @@ let isTurning = false;
 
 function updateControls() {
 
-    bookPosition.textContent = pageNames[currentPage];
+    if (bookPosition) {
 
-    previousButton.disabled = currentPage === 0;
-    nextButton.disabled = currentPage === spreads.length - 1;
+        bookPosition.textContent =
+            pageNames[currentPage] ||
+            "CONTENTS";
+
+    }
+
+
+    if (previousButton) {
+
+        previousButton.disabled =
+            currentPage === 0;
+
+    }
+
+
+    if (nextButton) {
+
+        nextButton.disabled =
+            currentPage === spreads.length - 1;
+
+    }
+
 }
 
 
@@ -113,56 +197,40 @@ function updateControls() {
 
 function clearAnimationClasses() {
 
-    spreads.forEach((spread) => {
+    spreads.forEach((spread, index) => {
 
         spread.classList.remove(
+
             "turn-next",
             "turn-prev",
             "enter-next",
             "enter-prev"
+
         );
 
         spread.style.zIndex = "";
 
+
         if (index === 0) {
+
             spread.classList.add("active");
+
         }
 
     });
+
 
     currentPage = 0;
 
     updateControls();
 
-}
-
-
-/* =========================================================
-   4. UPDATE BUTTONS / PAGE NAME
-========================================================= */
-
-function updateControls() {
-
-    if (bookPosition) {
-        bookPosition.textContent =
-            pageNames[currentPage] || "CONTENTS";
-    }
-
-    if (previousButton) {
-        previousButton.disabled =
-            currentPage === 0;
-    }
-
-    if (nextButton) {
-        nextButton.disabled =
-            currentPage === spreads.length - 1;
-    }
+    updateMobileBookHeight();
 
 }
 
 
 /* =========================================================
-   5. PAGE TURN
+   PAGE TURN
 ========================================================= */
 
 function turnPage(targetPage) {
@@ -175,25 +243,36 @@ function turnPage(targetPage) {
     */
 
     if (isTurning) {
+
         return;
+
     }
 
+
     if (
+
         targetPage < 0 ||
         targetPage >= spreads.length ||
         targetPage === currentPage
+
     ) {
+
         return;
+
     }
 
 
     isTurning = true;
 
 
-    const oldPage = spreads[currentPage];
-    const newPage = spreads[targetPage];
+    const oldPage =
+        spreads[currentPage];
 
-    const movingForward = targetPage > currentPage;
+    const newPage =
+        spreads[targetPage];
+
+    const movingForward =
+        targetPage > currentPage;
 
 
     /* =====================================================
@@ -201,57 +280,77 @@ function turnPage(targetPage) {
     ===================================================== */
 
     newPage.classList.remove(
+
         "active",
         "turn-next",
         "turn-prev",
         "enter-next",
         "enter-prev"
+
     );
 
+
     oldPage.classList.remove(
+
         "turn-next",
         "turn-prev",
         "enter-next",
         "enter-prev"
+
     );
 
 
     /*
-       Put the new page underneath the page being turned.
+       Put the new page underneath
+       the page being turned.
     */
 
     newPage.style.zIndex = "1";
+
     oldPage.style.zIndex = "5";
 
 
     newPage.classList.add(
-        movingForward ? "enter-next" : "enter-prev"
+
+        movingForward
+            ? "enter-next"
+            : "enter-prev"
+
     );
 
 
     /*
-       Force the browser to register the starting
-       animation state before starting the turn.
+       Force the browser to register
+       the starting animation state.
     */
 
     void newPage.offsetWidth;
 
 
     oldPage.classList.add(
-        movingForward ? "turn-next" : "turn-prev"
+
+        movingForward
+            ? "turn-next"
+            : "turn-prev"
+
     );
 
 
     /*
-       The new page becomes active during the animation.
+       The new page becomes active
+       during the animation.
     */
 
     newPage.classList.add("active");
 
 
-    currentPage = targetPage;
+    currentPage =
+        targetPage;
+
 
     updateControls();
+
+    updateMobileBookHeight();
 
 
     /* =====================================================
@@ -261,35 +360,57 @@ function turnPage(targetPage) {
     setTimeout(() => {
 
         oldPage.classList.remove(
+
             "active",
             "turn-next",
             "turn-prev",
             "enter-next",
             "enter-prev"
+
         );
 
+
         newPage.classList.remove(
+
             "turn-next",
             "turn-prev",
             "enter-next",
             "enter-prev"
+
         );
+
 
         newPage.classList.add("active");
 
+
         oldPage.style.zIndex = "";
+
         newPage.style.zIndex = "";
 
+
         isTurning = false;
+
+
+        /*
+           Recalculate the mobile book height
+           after the page-turn animation.
+        */
+
+        updateMobileBookHeight();
+
 
         /*
            Keep the book at the top after turning.
         */
 
         window.scrollTo({
+
             top: 0,
+
             behavior: "smooth"
+
         });
+
 
     }, 760);
 
@@ -297,268 +418,45 @@ function turnPage(targetPage) {
 
 
 /* =========================================================
-   6. NEXT BUTTON
-========================================================= */
-
-if (nextButton) {
-
-    nextButton.addEventListener("click", () => {
-
-        turnPage(currentPage + 1);
-
-    });
-
-}
-
-
-/* =========================================================
-   7. PREVIOUS BUTTON
-========================================================= */
-
-if (previousButton) {
-
-    previousButton.addEventListener("click", () => {
-
-        turnPage(currentPage - 1);
-
-    });
-
-}
-
-
-/* =========================================================
-   8. CONTENTS CATEGORY LINKS
-========================================================= */
-
-const pageLinks = document.querySelectorAll("[data-go-to]");
-
-pageLinks.forEach(link => {
-
-    link.addEventListener("click", event => {
-
-        event.preventDefault();
-
-        const targetPage = Number(
-            link.getAttribute("data-go-to")
-        );
-
-        if (!Number.isNaN(targetPage)) {
-
-            turnPage(targetPage);
-
-        }
-
-    });
-
-});
-
-
-/* =========================================================
-   9. KEYBOARD CONTROLS
-========================================================= */
-
-document.addEventListener("keydown", event => {
-
-    /*
-       Don't interfere with typing into an input.
-    */
-
-    const activeElement = document.activeElement;
-
-    if (
-        activeElement &&
-        (
-            activeElement.tagName === "INPUT" ||
-            activeElement.tagName === "TEXTAREA" ||
-            activeElement.isContentEditable
-        )
-    ) {
-        return;
-    }
-
-
-    if (event.key === "ArrowRight") {
-
-        event.preventDefault();
-
-        turnPage(currentPage + 1);
-
-    }
-
-
-    if (event.key === "ArrowLeft") {
-
-        event.preventDefault();
-
-        turnPage(currentPage - 1);
-
-    }
-
-});
-
-
-/* =========================================================
-   10. URL HASH
-========================================================= */
-
-const hashPages = {
-
-    christian: 1,
-    courage: 2,
-    humanitarians: 3,
-    explorers: 4,
-    space: 5,
-    science: 6
-
-};
-
-
-function openHashPage() {
-
-    const hash = window.location.hash
-        .replace("#", "")
-        .toLowerCase();
-
-
-    if (
-        hash &&
-        Object.prototype.hasOwnProperty.call(
-            hashPages,
-            hash
-        )
-    ) {
-
-        const targetPage = hashPages[hash];
-
-        /*
-           Start directly on the requested category
-           when the page first loads.
-        */
-
-        spreads.forEach((spread, index) => {
-
-            spread.classList.remove(
-                "active",
-                "turn-next",
-                "turn-prev",
-                "enter-next",
-                "enter-prev"
-            );
-
-            spread.style.zIndex = "";
-
-            if (index === targetPage) {
-                spread.classList.add("active");
-            }
-
-        });
-
-        currentPage = targetPage;
-
-        updateControls();
-
-    }
-
-}
-
-
-/* =========================================================
-   11. UPDATE HASH WHEN TURNING
-========================================================= */
-
-function updateHash(pageNumber) {
-
-    const hashNames = [
-        "",
-        "christian",
-        "courage",
-        "humanitarians",
-        "explorers",
-        "space",
-        "science"
-    ];
-
-    const hash = hashNames[pageNumber];
-
-    if (!hash) {
-
-        history.replaceState(
-            null,
-            "",
-            window.location.pathname +
-            window.location.search
-        );
-
-        return;
-    }
-
-
-    history.replaceState(
-        null,
-        "",
-        "#" + hash
-    );
-
-}
-
-
-/* =========================================================
-   12. WRAP PAGE TURN TO UPDATE HASH
-========================================================= */
-
-const originalTurnPage = turnPage;
-
-
-/*
-   Replace the function behavior so the URL changes
-   when the user turns the page.
-*/
-
-function goToPage(targetPage) {
-
-    if (isTurning) {
-        return;
-    }
-
-    if (
-        targetPage < 0 ||
-        targetPage >= spreads.length ||
-        targetPage === currentPage
-    ) {
-        return;
-    }
-
-    originalTurnPage(targetPage);
-
-    updateHash(targetPage);
-
-}
-
-
-/* =========================================================
-   13. RECONNECT BUTTONS TO HASH-AWARE TURNING
+   NEXT BUTTON
 ========================================================= */
 
 if (nextButton) {
 
     nextButton.onclick = () => {
 
-        goToPage(currentPage + 1);
+        goToPage(
+            currentPage + 1
+        );
 
     };
 
 }
 
+
+/* =========================================================
+   PREVIOUS BUTTON
+========================================================= */
 
 if (previousButton) {
 
     previousButton.onclick = () => {
 
-        goToPage(currentPage - 1);
+        goToPage(
+            currentPage - 1
+        );
 
     };
 
 }
+
+
+/* =========================================================
+   CONTENTS CATEGORY LINKS
+========================================================= */
+
+const pageLinks =
+    document.querySelectorAll("[data-go-to]");
 
 
 pageLinks.forEach(link => {
@@ -567,9 +465,14 @@ pageLinks.forEach(link => {
 
         event.preventDefault();
 
-        const targetPage = Number(
-            link.getAttribute("data-go-to")
-        );
+
+        const targetPage =
+            Number(
+                link.getAttribute(
+                    "data-go-to"
+                )
+            );
+
 
         if (!Number.isNaN(targetPage)) {
 
@@ -583,111 +486,368 @@ pageLinks.forEach(link => {
 
 
 /* =========================================================
-   14. KEYBOARD — HASH AWARE
+   KEYBOARD CONTROLS
 ========================================================= */
 
-document.addEventListener("keydown", event => {
+document.addEventListener(
+    "keydown",
+    event => {
 
-    const activeElement = document.activeElement;
+        /*
+           Don't interfere with typing
+           into an input.
+        */
 
-    if (
-        activeElement &&
-        (
-            activeElement.tagName === "INPUT" ||
-            activeElement.tagName === "TEXTAREA" ||
-            activeElement.isContentEditable
-        )
-    ) {
-        return;
+        const activeElement =
+            document.activeElement;
+
+
+        if (
+
+            activeElement &&
+            (
+                activeElement.tagName === "INPUT" ||
+                activeElement.tagName === "TEXTAREA" ||
+                activeElement.isContentEditable
+            )
+
+        ) {
+
+            return;
+
+        }
+
+
+        if (event.key === "ArrowRight") {
+
+            event.preventDefault();
+
+            goToPage(
+                currentPage + 1
+            );
+
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+            event.preventDefault();
+
+            goToPage(
+                currentPage - 1
+            );
+
+        }
+
     }
-
-
-    if (event.key === "ArrowRight") {
-
-        event.preventDefault();
-
-        goToPage(currentPage + 1);
-
-    }
-
-
-    if (event.key === "ArrowLeft") {
-
-        event.preventDefault();
-
-        goToPage(currentPage - 1);
-
-    }
-
-});
+);
 
 
 /* =========================================================
-   15. BROWSER BACK / FORWARD
+   URL HASH
 ========================================================= */
 
-window.addEventListener("hashchange", () => {
+const hashPages = {
 
-    const hash = window.location.hash
-        .replace("#", "")
-        .toLowerCase();
+    christian: 1,
+
+    courage: 2,
+
+    humanitarians: 3,
+
+    explorers: 4,
+
+    space: 5,
+
+    science: 6
+
+};
+
+
+/* =========================================================
+   OPEN HASH PAGE
+========================================================= */
+
+function openHashPage() {
+
+    const hash =
+        window.location.hash
+            .replace("#", "")
+            .toLowerCase();
+
 
     if (
+
         hash &&
         Object.prototype.hasOwnProperty.call(
             hashPages,
             hash
         )
+
     ) {
 
-        const targetPage = hashPages[hash];
-
-        /*
-           If already on the requested page,
-           do nothing.
-        */
-
-        if (targetPage === currentPage) {
-            return;
-        }
+        const targetPage =
+            hashPages[hash];
 
 
         /*
-           For browser navigation, switch pages
-           without creating another history entry.
+           Start directly on the requested
+           category when the page loads.
         */
 
-        spreads.forEach((spread, index) => {
+        spreads.forEach(
+            (spread, index) => {
 
-            spread.classList.remove(
-                "active",
-                "turn-next",
-                "turn-prev",
-                "enter-next",
-                "enter-prev"
-            );
+                spread.classList.remove(
 
-            spread.style.zIndex = "";
+                    "active",
+                    "turn-next",
+                    "turn-prev",
+                    "enter-next",
+                    "enter-prev"
 
-            if (index === targetPage) {
-                spread.classList.add("active");
+                );
+
+
+                spread.style.zIndex = "";
+
+
+                if (index === targetPage) {
+
+                    spread.classList.add(
+                        "active"
+                    );
+
+                }
+
             }
+        );
 
-        });
 
-        currentPage = targetPage;
+        currentPage =
+            targetPage;
+
 
         updateControls();
 
     }
 
-});
+}
 
 
 /* =========================================================
-   16. START BOOK
+   UPDATE HASH WHEN TURNING
 ========================================================= */
 
-initializeBook();
+function updateHash(pageNumber) {
+
+    const hashNames = [
+
+        "",
+
+        "christian",
+
+        "courage",
+
+        "humanitarians",
+
+        "explorers",
+
+        "space",
+
+        "science"
+
+    ];
+
+
+    const hash =
+        hashNames[pageNumber];
+
+
+    if (!hash) {
+
+        history.replaceState(
+
+            null,
+
+            "",
+
+            window.location.pathname +
+            window.location.search
+
+        );
+
+        return;
+
+    }
+
+
+    history.replaceState(
+
+        null,
+
+        "",
+
+        "#" + hash
+
+    );
+
+}
+
+
+/* =========================================================
+   HASH-AWARE PAGE TURNING
+========================================================= */
+
+function goToPage(targetPage) {
+
+    if (isTurning) {
+
+        return;
+
+    }
+
+
+    if (
+
+        targetPage < 0 ||
+        targetPage >= spreads.length ||
+        targetPage === currentPage
+
+    ) {
+
+        return;
+
+    }
+
+
+    turnPage(targetPage);
+
+    updateHash(targetPage);
+
+}
+
+
+/* =========================================================
+   BROWSER BACK / FORWARD
+========================================================= */
+
+window.addEventListener(
+    "hashchange",
+    () => {
+
+        const hash =
+            window.location.hash
+                .replace("#", "")
+                .toLowerCase();
+
+
+        if (
+
+            hash &&
+            Object.prototype.hasOwnProperty.call(
+                hashPages,
+                hash
+            )
+
+        ) {
+
+            const targetPage =
+                hashPages[hash];
+
+
+            /*
+               If already on the requested page,
+               do nothing.
+            */
+
+            if (
+                targetPage === currentPage
+            ) {
+
+                return;
+
+            }
+
+
+            /*
+               For browser navigation,
+               switch pages without creating
+               another history entry.
+            */
+
+            spreads.forEach(
+                (spread, index) => {
+
+                    spread.classList.remove(
+
+                        "active",
+                        "turn-next",
+                        "turn-prev",
+                        "enter-next",
+                        "enter-prev"
+
+                    );
+
+
+                    spread.style.zIndex = "";
+
+
+                    if (
+                        index === targetPage
+                    ) {
+
+                        spread.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            currentPage =
+                targetPage;
+
+
+            updateControls();
+
+            updateMobileBookHeight();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIALIZE BOOK
+========================================================= */
+
+/*
+   The first spread already has
+   class="active" in the HTML,
+   so no separate initializeBook()
+   function is needed.
+*/
 
 openHashPage();
+
+updateControls();
+
+updateMobileBookHeight();
+
+
+/* =========================================================
+   WINDOW RESIZE
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        updateMobileBookHeight();
+
+    }
+);
