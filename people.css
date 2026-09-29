@@ -58,6 +58,11 @@ body {
     overflow-x: hidden;
 }
 
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
 .navbar {
     position: fixed;
 
@@ -220,6 +225,11 @@ body {
     width: 22px;
 }
 
+
+/* =========================================================
+   NAVBAR — TABLET / MOBILE
+========================================================= */
+
 @media (max-width: 700px) {
 
     .navbar {
@@ -247,6 +257,11 @@ body {
             0.12em;
     }
 }
+
+
+/* =========================================================
+   BOOK WORLD
+========================================================= */
 
 .book-world {
 
@@ -286,6 +301,11 @@ body {
     transform-style:
         preserve-3d;
 }
+
+
+/* =========================================================
+   BOOK SPREAD
+========================================================= */
 
 .book-spread {
 
@@ -384,6 +404,11 @@ body {
 
     z-index: 2;
 }
+
+
+/* =========================================================
+   PAGE TURN ANIMATIONS
+========================================================= */
 
 @keyframes turnNext {
 
@@ -553,6 +578,11 @@ body {
     }
 }
 
+
+/* =========================================================
+   BOOK CENTER
+========================================================= */
+
 .book-spread::before {
 
     content: "";
@@ -583,6 +613,11 @@ body {
 
     pointer-events: none;
 }
+
+
+/* =========================================================
+   BOOK PAGE
+========================================================= */
 
 .book-page {
 
@@ -617,7 +652,6 @@ body {
         rgba(80, 54, 18, 0.25);
 }
 
-
 .left-page {
 
     border-radius:
@@ -627,7 +661,6 @@ body {
         1px solid
         rgba(92, 70, 32, 0.2);
 }
-
 
 .right-page {
 
@@ -662,6 +695,11 @@ body {
     z-index: 1;
 }
 
+
+/* =========================================================
+   PAGE CONTENT
+========================================================= */
+
 .page-content {
 
     position: relative;
@@ -675,6 +713,10 @@ body {
     padding: 70px;
 }
 
+
+/* =========================================================
+   PAGE NUMBERS
+========================================================= */
 
 .page-number {
 
@@ -701,7 +743,6 @@ body {
     z-index: 5;
 }
 
-
 .left-page .page-number {
     left: 45px;
 }
@@ -709,6 +750,11 @@ body {
 .right-page .page-number {
     right: 45px;
 }
+
+
+/* =========================================================
+   CONTENTS PAGE
+========================================================= */
 
 .contents-page {
 
@@ -718,7 +764,6 @@ body {
 
     justify-content: center;
 }
-
 
 .contents-page:first-child {
     text-align: center;
@@ -730,7 +775,6 @@ body {
 
     padding-right: 85px;
 }
-
 
 .contents-page .book-kicker {
 
@@ -750,6 +794,10 @@ body {
     letter-spacing: 0.3em;
 }
 
+
+/* =========================================================
+   BOOK TITLE
+========================================================= */
 
 .book-title {
 
@@ -776,7 +824,6 @@ body {
     letter-spacing: -0.04em;
 }
 
-
 .book-subtitle {
 
     color:
@@ -792,7 +839,6 @@ body {
 
     letter-spacing: 0.28em;
 }
-
 
 .book-rule {
 
@@ -811,14 +857,12 @@ body {
         );
 }
 
-
 .contents-page:first-child .book-rule {
 
     margin-left: auto;
 
     margin-right: auto;
 }
-
 
 .book-introduction {
 
@@ -839,10 +883,14 @@ body {
     line-height: 1.9;
 }
 
+
+/* =========================================================
+   SECTION LABELS
+========================================================= */
+
 .contents-page .section-label {
     margin-bottom: 14px;
 }
-
 
 .section-label {
 
@@ -859,7 +907,6 @@ body {
 
     letter-spacing: 0.25em;
 }
-
 
 .contents-heading {
 
@@ -878,10 +925,13 @@ body {
 }
 
 
+/* =========================================================
+   CONTENTS LIST
+========================================================= */
+
 .contents-list {
     width: 100%;
 }
-
 
 .contents-entry {
 
@@ -913,14 +963,12 @@ body {
         border-color 0.25s ease;
 }
 
-
 .contents-entry:first-child {
 
     border-top:
         1px solid
         rgba(92, 70, 32, 0.17);
 }
-
 
 .contents-entry span {
 
@@ -934,7 +982,6 @@ body {
     font-size: 0.68rem;
 }
 
-
 .contents-entry strong {
 
     font-family:
@@ -947,7 +994,6 @@ body {
 
     letter-spacing: 0.04em;
 }
-
 
 .contents-entry em {
 
@@ -963,7 +1009,6 @@ body {
     font-style: italic;
 }
 
-
 .contents-entry:hover {
 
     padding-left: 8px;
@@ -975,6 +1020,11 @@ body {
         rgba(216, 181, 106, 0.5);
 }
 
+
+/* =========================================================
+   CATEGORY INTRO
+========================================================= */
+
 .category-intro {
 
     display: flex;
@@ -985,7 +1035,6 @@ body {
 
     padding: 75px;
 }
-
 
 .category-intro .book-kicker {
 
@@ -1004,7 +1053,6 @@ body {
 
     letter-spacing: 0.3em;
 }
-
 
 .section-title {
 
@@ -1031,7 +1079,6 @@ body {
     letter-spacing: -0.025em;
 }
 
-
 .category-description {
 
     max-width: 400px;
@@ -1048,7 +1095,6 @@ body {
 
     line-height: 1.9;
 }
-
 
 .category-back {
 
@@ -1084,7 +1130,6 @@ body {
         border-color 0.25s ease;
 }
 
-
 .category-back:hover {
 
     background:
@@ -1097,6 +1142,11 @@ body {
         #f7eedc;
 }
 
+
+/* =========================================================
+   CATEGORY LIST
+========================================================= */
+
 .category-list-page {
 
     padding:
@@ -1105,7 +1155,6 @@ body {
         65px
         65px;
 }
-
 
 .category-list-page .section-heading {
 
@@ -1125,7 +1174,6 @@ body {
     font-weight: 500;
 }
 
-
 .category-list-page .legend-list {
 
     display: grid;
@@ -1136,7 +1184,6 @@ body {
 
     column-gap: 25px;
 }
-
 
 .legend-entry {
 
@@ -1157,14 +1204,12 @@ body {
         rgba(92, 70, 32, 0.16);
 }
 
-
 .legend-entry:last-child {
 
     border-bottom:
         1px solid
         rgba(92, 70, 32, 0.16);
 }
-
 
 .entry-number {
 
@@ -1182,11 +1227,9 @@ body {
     letter-spacing: 0.08em;
 }
 
-
 .entry-info {
     min-width: 0;
 }
-
 
 .entry-info h3 {
 
@@ -1206,7 +1249,6 @@ body {
     line-height: 1.25;
 }
 
-
 .entry-info p {
 
     margin-bottom: 9px;
@@ -1223,7 +1265,6 @@ body {
 
     line-height: 1.55;
 }
-
 
 .read-link {
 
@@ -1247,7 +1288,6 @@ body {
         letter-spacing 0.25s ease;
 }
 
-
 .read-link:hover {
 
     color:
@@ -1256,6 +1296,11 @@ body {
     letter-spacing:
         0.13em;
 }
+
+
+/* =========================================================
+   BOOK CONTROLS
+========================================================= */
 
 .book-controls {
 
@@ -1284,7 +1329,6 @@ body {
 
     z-index: 20;
 }
-
 
 .book-button {
 
@@ -1319,7 +1363,6 @@ body {
         opacity 0.25s ease;
 }
 
-
 .book-button:hover:not(:disabled) {
 
     background:
@@ -1332,14 +1375,12 @@ body {
         var(--gold-light);
 }
 
-
 .book-button:disabled {
 
     opacity: 0.3;
 
     cursor: not-allowed;
 }
-
 
 .book-position {
 
@@ -1358,6 +1399,11 @@ body {
 
     letter-spacing: 0.16em;
 }
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .site-footer {
 
@@ -1395,6 +1441,11 @@ body {
         rgba(216, 181, 106, 0.08);
 }
 
+
+/* =========================================================
+   TABLET
+========================================================= */
+
 @media (max-width: 900px) {
 
     .book-world {
@@ -1405,62 +1456,36 @@ body {
             150px;
     }
 
-
     .book {
         width: 96vw;
     }
 
-
     .book-spread {
-
         grid-template-columns:
+            1fr
             1fr;
 
         min-height: auto;
     }
 
-
     .book-page {
         min-height: 650px;
     }
 
-
     .book-spread::before {
-        display: none;
+        display: block;
     }
-
 
     .left-page,
     .right-page {
-
-        border-radius: 8px;
-
-        border: none;
+        border-radius: 0;
     }
-
 
     .category-list-page .legend-list {
 
         grid-template-columns:
             1fr;
     }
-
-
-    .book-controls {
-
-        position: absolute;
-
-        left: auto;
-
-        bottom: auto;
-
-        transform: none;
-
-        width: 100%;
-
-        margin-top: 45px;
-    }
-
 
     .category-intro {
 
@@ -1469,7 +1494,6 @@ body {
             50px;
     }
 
-
     .category-list-page {
 
         padding:
@@ -1477,14 +1501,12 @@ body {
             45px;
     }
 
-
     .page-content {
 
         padding:
             55px
             45px;
     }
-
 
     .contents-page.right-page {
 
@@ -1494,52 +1516,346 @@ body {
     }
 }
 
+
+/* =========================================================
+   MOBILE BOOK
+========================================================= */
+
 @media (max-width: 600px) {
 
     .book-world {
 
+        width: 100%;
+
+        min-height: auto;
+
         padding:
-            90px
-            12px
-            130px;
+            88px
+            8px
+            95px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: flex-start;
     }
 
+
+    .book {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        position: relative;
+    }
+
+
+    /* Keep two pages side-by-side */
+    .book-spread {
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+        min-height: 0;
+
+        height: auto;
+    }
+
+
+    /* =====================================================
+       MOBILE PAGES
+    ===================================================== */
 
     .book-page {
-        min-height: 620px;
+
+        width: 100% !important;
+
+        min-height: 590px;
+
+        height: 590px;
+
+        overflow: hidden;
+
+        border-radius: 0;
+
+        position: relative;
     }
 
 
-    .page-content,
-    .category-intro,
-    .category-list-page {
+    .left-page {
+
+        border-radius:
+            6px 0 0 6px;
+
+        border-right:
+            1px solid
+            rgba(92, 70, 32, 0.22);
+    }
+
+
+    .right-page {
+
+        border-radius:
+            0 6px 6px 0;
+
+        border-left:
+            1px solid
+            rgba(92, 70, 32, 0.16);
+    }
+
+
+    /* Center binding */
+    .book-spread::before {
+
+        display: block;
+
+        left: 50%;
+
+        width: 2px;
+
+        transform:
+            translateX(-50%);
+    }
+
+
+    /* =====================================================
+       PAGE CONTENT
+    ===================================================== */
+
+    .page-content {
+
+        width: 100%;
+
+        height: 100%;
 
         padding:
-            42px
-            28px;
+            32px
+            20px;
     }
 
 
     .contents-page.right-page {
 
         padding:
-            42px
-            28px;
+            32px
+            20px;
     }
 
+
+    .category-intro {
+
+        padding:
+            32px
+            20px;
+
+        justify-content: center;
+    }
+
+
+    .category-list-page {
+
+        padding:
+            32px
+            20px;
+    }
+
+
+    /* =====================================================
+       TITLE
+    ===================================================== */
 
     .book-title {
-        font-size: 3.2rem;
+
+        font-size:
+            clamp(
+                1.65rem,
+                7vw,
+                2.5rem
+            );
+
+        line-height:
+            0.98;
+
+        letter-spacing:
+            -0.04em;
     }
 
+
+    .book-subtitle {
+
+        font-size:
+            0.42rem;
+
+        letter-spacing:
+            0.15em;
+    }
+
+
+    .book-kicker {
+
+        font-size:
+            0.48rem !important;
+
+        letter-spacing:
+            0.16em !important;
+    }
+
+
+    .book-rule {
+
+        width: 42px;
+
+        margin:
+            18px auto;
+    }
+
+
+    .book-introduction {
+
+        max-width: 100%;
+
+        font-size:
+            0.55rem;
+
+        line-height:
+            1.7;
+    }
+
+
+    /* =====================================================
+       CONTENTS
+    ===================================================== */
+
+    .section-label {
+
+        font-size:
+            0.45rem;
+
+        letter-spacing:
+            0.14em;
+    }
+
+
+    .contents-heading {
+
+        margin-bottom:
+            20px;
+
+        font-size:
+            1.25rem;
+    }
+
+
+    .contents-entry {
+
+        grid-template-columns:
+            22px
+            1fr;
+
+        gap: 5px;
+
+        padding:
+            8px 0;
+    }
+
+
+    .contents-entry span {
+
+        font-size:
+            0.45rem;
+    }
+
+
+    .contents-entry strong {
+
+        font-size:
+            0.53rem;
+
+        line-height:
+            1.25;
+    }
+
+
+    .contents-entry em {
+
+        display: none;
+    }
+
+
+    /* =====================================================
+       CATEGORY INTRO
+    ===================================================== */
 
     .section-title {
-        font-size: 3rem;
+
+        max-width: 100%;
+
+        font-size:
+            clamp(
+                1.45rem,
+                6vw,
+                2.2rem
+            );
+
+        line-height:
+            1.05;
     }
 
 
+    .category-description {
+
+        max-width: 100%;
+
+        font-size:
+            0.56rem;
+
+        line-height:
+            1.7;
+
+        margin-top:
+            12px;
+    }
+
+
+    .category-back {
+
+        margin-top:
+            18px;
+
+        padding:
+            7px
+            10px;
+
+        font-size:
+            0.45rem;
+    }
+
+
+    /* =====================================================
+       LEGEND LIST
+    ===================================================== */
+
     .category-list-page .section-heading {
-        font-size: 1.6rem;
+
+        margin-top: 0;
+
+        margin-bottom:
+            16px;
+
+        font-size:
+            1.1rem;
     }
 
 
@@ -1550,73 +1866,198 @@ body {
     }
 
 
-    .contents-entry {
+    .legend-entry {
 
         grid-template-columns:
-            35px
+            19px
             1fr;
 
-        gap: 8px;
+        gap: 5px;
+
+        padding:
+            8px 0;
     }
 
 
-    .contents-entry em {
-        display: none;
+    .entry-number {
+
+        font-size:
+            0.43rem;
+
+        padding-top:
+            2px;
     }
 
+
+    .entry-info h3 {
+
+        margin-bottom:
+            3px;
+
+        font-size:
+            0.58rem;
+
+        line-height:
+            1.2;
+    }
+
+
+    .entry-info p {
+
+        margin-bottom:
+            4px;
+
+        font-size:
+            0.46rem;
+
+        line-height:
+            1.4;
+    }
+
+
+    .read-link {
+
+        font-size:
+            0.42rem;
+
+        letter-spacing:
+            0.07em;
+    }
+
+
+    /* =====================================================
+       PAGE NUMBERS
+    ===================================================== */
+
+    .page-number {
+
+        bottom:
+            13px;
+
+        font-size:
+            0.48rem;
+    }
+
+
+    .left-page .page-number {
+
+        left:
+            14px;
+    }
+
+
+    .right-page .page-number {
+
+        right:
+            14px;
+    }
+
+
+    /* =====================================================
+       MOBILE BOOK CONTROLS
+    ===================================================== */
 
     .book-controls {
 
-        gap: 10px;
+        position: absolute;
 
-        margin-top: auto;
+        left: 50%;
+
+        bottom:
+            -65px;
+
+        transform:
+            translateX(-50%);
+
+        width: 100%;
+
+        margin: 0;
+
+        padding:
+            0 4px;
+
+        display: flex;
+
+        justify-content:
+            space-between;
+
+        align-items:
+            center;
+
+        gap: 6px;
+
+        z-index: 50;
     }
 
 
     .book-button {
 
-        padding:
-            9px
-            12px;
+        flex:
+            0 0 auto;
 
-        font-size: 0.52rem;
+        padding:
+            8px
+            9px;
+
+        font-size:
+            0.43rem;
+
+        letter-spacing:
+            0.08em;
+
+        white-space:
+            nowrap;
     }
 
 
     .book-position {
 
-        min-width: 100px;
+        flex:
+            1 1 auto;
 
-        font-size: 0.52rem;
+        min-width:
+            0;
+
+        font-size:
+            0.43rem;
+
+        letter-spacing:
+            0.08em;
+
+        text-align:
+            center;
+
+        white-space:
+            nowrap;
     }
 
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
 
     .site-footer {
 
-        flex-direction: column;
+        flex-direction:
+            column;
 
-        gap: 12px;
+        gap:
+            10px;
 
-        text-align: center;
+        text-align:
+            center;
+
+        padding:
+            25px
+            5vw
+            30px;
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
 
-    html {
-        scroll-behavior: auto;
-    }
-
-
-    .book-spread.turn-next,
-    .book-spread.enter-next,
-    .book-spread.turn-prev,
-    .book-spread.enter-prev {
-
-        animation-duration:
-            0.01ms;
-    }
-}
+/* =========================================================
+   INTRO SCREEN
+========================================================= */
 
 .intro-screen {
 
@@ -1714,7 +2155,6 @@ body {
         filter 0.5s ease;
 }
 
-
 .intro-sparrow::before {
 
     content: "";
@@ -1747,7 +2187,6 @@ body {
         infinite;
 }
 
-
 .intro-sparrow img {
 
     position: relative;
@@ -1772,14 +2211,15 @@ body {
 }
 
 
-/* Hover */
+/* =========================================================
+   INTRO HOVER
+========================================================= */
 
 .intro-sparrow:hover {
 
     transform:
         scale(1.06);
 }
-
 
 .intro-sparrow:hover img {
 
@@ -1789,6 +2229,11 @@ body {
             rgba(244, 197, 66, 0.3)
         );
 }
+
+
+/* =========================================================
+   INTRO TEXT
+========================================================= */
 
 .intro-title {
 
@@ -1893,6 +2338,11 @@ body {
         forwards;
 }
 
+
+/* =========================================================
+   INTRO ANIMATIONS
+========================================================= */
+
 @keyframes introSparrowAppear {
 
     0% {
@@ -1932,7 +2382,6 @@ body {
     }
 }
 
-
 @keyframes introGlow {
 
     0%,
@@ -1952,7 +2401,6 @@ body {
         opacity: 0.75;
     }
 }
-
 
 @keyframes introTextAppear {
 
@@ -1979,7 +2427,6 @@ body {
     }
 }
 
-
 @keyframes introPromptAppear {
 
     0% {
@@ -1999,6 +2446,11 @@ body {
     }
 }
 
+
+/* =========================================================
+   INTRO LEAVING
+========================================================= */
+
 .intro-screen.leaving {
 
     opacity: 0;
@@ -2012,6 +2464,11 @@ body {
         cubic-bezier(.77, 0, .18, 1);
 }
 
+
+/* =========================================================
+   INTRO MOBILE
+========================================================= */
+
 @media (max-width: 600px) {
 
     .intro-sparrow {
@@ -2021,7 +2478,6 @@ body {
         height: 190px;
     }
 
-
     .intro-sparrow img {
 
         width: 140px;
@@ -2029,14 +2485,12 @@ body {
         height: 140px;
     }
 
-
     .intro-sparrow::before {
 
         width: 175px;
 
         height: 175px;
     }
-
 
     .intro-title {
 
@@ -2046,7 +2500,6 @@ body {
             0.15em;
     }
 
-
     .intro-subtitle {
 
         font-size: 0.5rem;
@@ -2054,7 +2507,6 @@ body {
         letter-spacing:
             0.25em;
     }
-
 
     .intro-prompt {
 
@@ -2064,7 +2516,25 @@ body {
     }
 }
 
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .book-spread.turn-next,
+    .book-spread.enter-next,
+    .book-spread.turn-prev,
+    .book-spread.enter-prev {
+
+        animation-duration:
+            0.01ms;
+    }
 
     .intro-screen,
     .intro-screen.leaving {
@@ -2072,7 +2542,6 @@ body {
         transition:
             opacity 0.3s ease;
     }
-
 
     .intro-sparrow,
     .intro-title,
@@ -2084,12 +2553,16 @@ body {
         opacity: 1;
     }
 
-
     .intro-sparrow::before {
 
         animation: none;
     }
 }
+
+
+/* =========================================================
+   INTRO CLICK / LIGHT REVEAL
+========================================================= */
 
 .intro-sparrow,
 .intro-prompt {
@@ -2154,6 +2627,11 @@ body {
         ease-out
         forwards;
 }
+
+
+/* =========================================================
+   LIGHT REVEAL ANIMATION
+========================================================= */
 
 @keyframes sparrowLight {
 
@@ -2244,7 +2722,6 @@ body {
         #000;
 }
 
-
 .intro-screen.light-reveal.finished {
 
     opacity: 0;
@@ -2252,161 +2729,4 @@ body {
     visibility: hidden;
 
     pointer-events: none;
-}
-
-@media (max-width: 600px) {
-
-    .book-world {
-        padding:
-            90px
-            12px
-            30px;
-
-        display: block;
-    }
-
-    .book {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .book-spread {
-        position: absolute;
-
-        width: 100%;
-
-        grid-template-columns: 1fr;
-
-        min-height: auto;
-    }
-
-    .book-page {
-        min-height: 0;
-
-        height: auto;
-
-        overflow: visible;
-
-        border-radius: 6px;
-    }
-
-    .book-page::after {
-        pointer-events: none;
-    }
-
-    .page-content,
-    .category-intro,
-    .category-list-page {
-        padding:
-            42px
-            28px;
-    }
-
-    .contents-page.right-page {
-        padding:
-            42px
-            28px;
-    }
-
-    .contents-page {
-        min-height: 0;
-    }
-
-    .book-title {
-        font-size: 3.2rem;
-    }
-
-    .section-title {
-        font-size: 3rem;
-    }
-
-    .category-list-page .section-heading {
-        font-size: 1.6rem;
-    }
-
-    .category-list-page .legend-list {
-        grid-template-columns: 1fr;
-    }
-
-    .legend-entry {
-        padding: 16px 0;
-    }
-
-    .entry-info h3 {
-        font-size: 0.9rem;
-    }
-
-    .entry-info p {
-        font-size: 0.7rem;
-        line-height: 1.65;
-    }
-
-    .contents-entry {
-        grid-template-columns:
-            35px
-            1fr;
-
-        gap: 8px;
-    }
-
-    .contents-entry em {
-        display: none;
-    }
-
-    .book-controls {
-        position: static;
-
-        width: 100%;
-
-        margin-top: 35px;
-        margin-bottom: 30px;
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        gap: 8px;
-    }
-
-    .book-button {
-        padding:
-            10px
-            10px;
-
-        font-size: 0.5rem;
-
-        white-space: nowrap;
-    }
-
-    .book-position {
-        min-width: 80px;
-
-        font-size: 0.5rem;
-
-        text-align: center;
-    }
-
-    .site-footer {
-        flex-direction: column;
-
-        gap: 12px;
-
-        text-align: center;
-
-        padding-top: 30px;
-    }
-
-    .page-number {
-        bottom: 18px;
-    }
-
-    .left-page .page-number {
-        left: 22px;
-    }
-
-    .right-page .page-number {
-        right: 22px;
-    }
 }
