@@ -1,4 +1,14 @@
+/* =========================================================
+   HIDDEN LEGENDS — PEOPLE / BOOK PAGE
+   people.css
+========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
 
 :root {
 
@@ -21,6 +31,11 @@
 
     --muted: #b7a681;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -60,7 +75,7 @@ body {
 
 
 /* =========================================================
-   NAVBAR
+   NAVBAR — HIDDEN LEGENDS
 ========================================================= */
 
 .navbar {
@@ -96,6 +111,11 @@ body {
         border-color 0.5s ease;
 }
 
+
+/* =========================================================
+   NAVBAR WHEN SCROLLED
+========================================================= */
+
 .navbar.nav-scrolled {
 
     background:
@@ -111,6 +131,11 @@ body {
         1px solid
         rgba(216, 181, 106, 0.12);
 }
+
+
+/* =========================================================
+   LOGO
+========================================================= */
 
 .logo {
     position: relative;
@@ -137,6 +162,9 @@ body {
     white-space: nowrap;
 }
 
+
+/* Small gold line underneath */
+
 .logo::after {
     content: "";
 
@@ -153,6 +181,11 @@ body {
 
     opacity: 0.7;
 }
+
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
 
 .nav-links {
     display: flex;
@@ -192,6 +225,9 @@ body {
         transform 0.3s ease;
 }
 
+
+/* Gold underline */
+
 .nav-links a::after {
     content: "";
 
@@ -214,6 +250,9 @@ body {
         width 0.3s ease;
 }
 
+
+/* Hover + active */
+
 .nav-links a:hover,
 .nav-links a.active {
     color:
@@ -227,7 +266,7 @@ body {
 
 
 /* =========================================================
-   NAVBAR — TABLET / MOBILE
+   NAVBAR MOBILE
 ========================================================= */
 
 @media (max-width: 700px) {
@@ -281,6 +320,11 @@ body {
 
     position: relative;
 }
+
+
+/* =========================================================
+   BOOK
+========================================================= */
 
 .book {
 
@@ -355,6 +399,11 @@ body {
     z-index: 2;
 }
 
+
+/* =========================================================
+   SOFT PAGE-TURN ANIMATION
+========================================================= */
+
 .book-spread.turn-next {
 
     animation:
@@ -407,7 +456,7 @@ body {
 
 
 /* =========================================================
-   PAGE TURN ANIMATIONS
+   NEXT — OLD PAGE LEAVES
 ========================================================= */
 
 @keyframes turnNext {
@@ -452,6 +501,11 @@ body {
     }
 }
 
+
+/* =========================================================
+   NEXT — NEW PAGE ENTERS
+========================================================= */
+
 @keyframes enterNext {
 
     0% {
@@ -494,6 +548,11 @@ body {
     }
 }
 
+
+/* =========================================================
+   PREVIOUS — OLD PAGE LEAVES
+========================================================= */
+
 @keyframes turnPrev {
 
     0% {
@@ -535,6 +594,11 @@ body {
             brightness(0.82);
     }
 }
+
+
+/* =========================================================
+   PREVIOUS — NEW PAGE ENTERS
+========================================================= */
 
 @keyframes enterPrev {
 
@@ -580,7 +644,7 @@ body {
 
 
 /* =========================================================
-   BOOK CENTER
+   BOOK CENTER SPINE
 ========================================================= */
 
 .book-spread::before {
@@ -616,7 +680,7 @@ body {
 
 
 /* =========================================================
-   BOOK PAGE
+   BOOK PAGES
 ========================================================= */
 
 .book-page {
@@ -652,6 +716,7 @@ body {
         rgba(80, 54, 18, 0.25);
 }
 
+
 .left-page {
 
     border-radius:
@@ -662,6 +727,7 @@ body {
         rgba(92, 70, 32, 0.2);
 }
 
+
 .right-page {
 
     border-radius:
@@ -671,6 +737,11 @@ body {
         1px solid
         rgba(92, 70, 32, 0.12);
 }
+
+
+/* =========================================================
+   PAPER TEXTURE
+========================================================= */
 
 .book-page::after {
 
@@ -714,10 +785,6 @@ body {
 }
 
 
-/* =========================================================
-   PAGE NUMBERS
-========================================================= */
-
 .page-number {
 
     position: absolute;
@@ -743,6 +810,7 @@ body {
     z-index: 5;
 }
 
+
 .left-page .page-number {
     left: 45px;
 }
@@ -753,7 +821,7 @@ body {
 
 
 /* =========================================================
-   CONTENTS PAGE
+   CONTENTS
 ========================================================= */
 
 .contents-page {
@@ -765,9 +833,13 @@ body {
     justify-content: center;
 }
 
+
 .contents-page:first-child {
     text-align: center;
 }
+
+
+/* More breathing room on the right Contents page */
 
 .contents-page.right-page {
 
@@ -775,6 +847,7 @@ body {
 
     padding-right: 85px;
 }
+
 
 .contents-page .book-kicker {
 
@@ -794,10 +867,6 @@ body {
     letter-spacing: 0.3em;
 }
 
-
-/* =========================================================
-   BOOK TITLE
-========================================================= */
 
 .book-title {
 
@@ -824,6 +893,7 @@ body {
     letter-spacing: -0.04em;
 }
 
+
 .book-subtitle {
 
     color:
@@ -839,6 +909,7 @@ body {
 
     letter-spacing: 0.28em;
 }
+
 
 .book-rule {
 
@@ -857,12 +928,14 @@ body {
         );
 }
 
+
 .contents-page:first-child .book-rule {
 
     margin-left: auto;
 
     margin-right: auto;
 }
+
 
 .book-introduction {
 
@@ -885,12 +958,13 @@ body {
 
 
 /* =========================================================
-   SECTION LABELS
+   TABLE OF CONTENTS
 ========================================================= */
 
 .contents-page .section-label {
     margin-bottom: 14px;
 }
+
 
 .section-label {
 
@@ -907,6 +981,7 @@ body {
 
     letter-spacing: 0.25em;
 }
+
 
 .contents-heading {
 
@@ -925,13 +1000,10 @@ body {
 }
 
 
-/* =========================================================
-   CONTENTS LIST
-========================================================= */
-
 .contents-list {
     width: 100%;
 }
+
 
 .contents-entry {
 
@@ -963,12 +1035,14 @@ body {
         border-color 0.25s ease;
 }
 
+
 .contents-entry:first-child {
 
     border-top:
         1px solid
         rgba(92, 70, 32, 0.17);
 }
+
 
 .contents-entry span {
 
@@ -981,6 +1055,7 @@ body {
 
     font-size: 0.68rem;
 }
+
 
 .contents-entry strong {
 
@@ -995,6 +1070,7 @@ body {
     letter-spacing: 0.04em;
 }
 
+
 .contents-entry em {
 
     color:
@@ -1008,6 +1084,7 @@ body {
 
     font-style: italic;
 }
+
 
 .contents-entry:hover {
 
@@ -1036,6 +1113,7 @@ body {
     padding: 75px;
 }
 
+
 .category-intro .book-kicker {
 
     margin-bottom: 25px;
@@ -1053,6 +1131,7 @@ body {
 
     letter-spacing: 0.3em;
 }
+
 
 .section-title {
 
@@ -1079,6 +1158,7 @@ body {
     letter-spacing: -0.025em;
 }
 
+
 .category-description {
 
     max-width: 400px;
@@ -1095,6 +1175,7 @@ body {
 
     line-height: 1.9;
 }
+
 
 .category-back {
 
@@ -1130,6 +1211,7 @@ body {
         border-color 0.25s ease;
 }
 
+
 .category-back:hover {
 
     background:
@@ -1156,6 +1238,7 @@ body {
         65px;
 }
 
+
 .category-list-page .section-heading {
 
     margin-top: 9px;
@@ -1174,6 +1257,7 @@ body {
     font-weight: 500;
 }
 
+
 .category-list-page .legend-list {
 
     display: grid;
@@ -1184,6 +1268,7 @@ body {
 
     column-gap: 25px;
 }
+
 
 .legend-entry {
 
@@ -1204,12 +1289,14 @@ body {
         rgba(92, 70, 32, 0.16);
 }
 
+
 .legend-entry:last-child {
 
     border-bottom:
         1px solid
         rgba(92, 70, 32, 0.16);
 }
+
 
 .entry-number {
 
@@ -1227,9 +1314,11 @@ body {
     letter-spacing: 0.08em;
 }
 
+
 .entry-info {
     min-width: 0;
 }
+
 
 .entry-info h3 {
 
@@ -1249,6 +1338,7 @@ body {
     line-height: 1.25;
 }
 
+
 .entry-info p {
 
     margin-bottom: 9px;
@@ -1265,6 +1355,7 @@ body {
 
     line-height: 1.55;
 }
+
 
 .read-link {
 
@@ -1288,6 +1379,7 @@ body {
         letter-spacing 0.25s ease;
 }
 
+
 .read-link:hover {
 
     color:
@@ -1307,6 +1399,10 @@ body {
     position: absolute;
 
     left: 50%;
+
+    /*
+       More distance between book and controls
+    */
 
     bottom: -200px;
 
@@ -1329,6 +1425,7 @@ body {
 
     z-index: 20;
 }
+
 
 .book-button {
 
@@ -1363,6 +1460,7 @@ body {
         opacity 0.25s ease;
 }
 
+
 .book-button:hover:not(:disabled) {
 
     background:
@@ -1375,12 +1473,14 @@ body {
         var(--gold-light);
 }
 
+
 .book-button:disabled {
 
     opacity: 0.3;
 
     cursor: not-allowed;
 }
+
 
 .book-position {
 
@@ -1456,36 +1556,62 @@ body {
             150px;
     }
 
+
     .book {
         width: 96vw;
     }
 
+
     .book-spread {
+
         grid-template-columns:
-            1fr
             1fr;
 
         min-height: auto;
     }
 
+
     .book-page {
         min-height: 650px;
     }
 
+
     .book-spread::before {
-        display: block;
+        display: none;
     }
+
 
     .left-page,
     .right-page {
-        border-radius: 0;
+
+        border-radius: 8px;
+
+        border: none;
     }
+
 
     .category-list-page .legend-list {
 
         grid-template-columns:
             1fr;
     }
+
+
+    .book-controls {
+
+        position: relative;
+
+        left: auto;
+
+        bottom: auto;
+
+        transform: none;
+
+        width: 100%;
+
+        margin-top: 45px;
+    }
+
 
     .category-intro {
 
@@ -1494,6 +1620,7 @@ body {
             50px;
     }
 
+
     .category-list-page {
 
         padding:
@@ -1501,12 +1628,14 @@ body {
             45px;
     }
 
+
     .page-content {
 
         padding:
             55px
             45px;
     }
+
 
     .contents-page.right-page {
 
@@ -1518,344 +1647,55 @@ body {
 
 
 /* =========================================================
-   MOBILE BOOK
+   MOBILE
 ========================================================= */
 
 @media (max-width: 600px) {
 
     .book-world {
 
-        width: 100%;
-
-        min-height: auto;
-
         padding:
-            88px
-            8px
-            95px;
-
-        display: flex;
-
-        justify-content: center;
-
-        align-items: flex-start;
+            90px
+            12px
+            130px;
     }
 
-
-    .book {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        position: relative;
-    }
-
-
-    /* Keep two pages side-by-side */
-    .book-spread {
-
-        position: absolute;
-
-        top: 0;
-        left: 0;
-
-        width: 100%;
-
-        display: grid;
-
-        grid-template-columns:
-            1fr
-            1fr;
-
-        min-height: 0;
-
-        height: auto;
-    }
-
-
-    /* =====================================================
-       MOBILE PAGES
-    ===================================================== */
 
     .book-page {
-
-        width: 100% !important;
-
-        min-height: 590px;
-
-        height: 590px;
-
-        overflow: hidden;
-
-        border-radius: 0;
-
-        position: relative;
+        min-height: 620px;
     }
 
 
-    .left-page {
-
-        border-radius:
-            6px 0 0 6px;
-
-        border-right:
-            1px solid
-            rgba(92, 70, 32, 0.22);
-    }
-
-
-    .right-page {
-
-        border-radius:
-            0 6px 6px 0;
-
-        border-left:
-            1px solid
-            rgba(92, 70, 32, 0.16);
-    }
-
-
-    /* Center binding */
-    .book-spread::before {
-
-        display: block;
-
-        left: 50%;
-
-        width: 2px;
-
-        transform:
-            translateX(-50%);
-    }
-
-
-    /* =====================================================
-       PAGE CONTENT
-    ===================================================== */
-
-    .page-content {
-
-        width: 100%;
-
-        height: 100%;
+    .page-content,
+    .category-intro,
+    .category-list-page {
 
         padding:
-            32px
-            20px;
+            42px
+            28px;
     }
 
 
     .contents-page.right-page {
 
         padding:
-            32px
-            20px;
+            42px
+            28px;
     }
 
-
-    .category-intro {
-
-        padding:
-            32px
-            20px;
-
-        justify-content: center;
-    }
-
-
-    .category-list-page {
-
-        padding:
-            32px
-            20px;
-    }
-
-
-    /* =====================================================
-       TITLE
-    ===================================================== */
 
     .book-title {
-
-        font-size:
-            clamp(
-                1.65rem,
-                7vw,
-                2.5rem
-            );
-
-        line-height:
-            0.98;
-
-        letter-spacing:
-            -0.04em;
+        font-size: 3.2rem;
     }
 
-
-    .book-subtitle {
-
-        font-size:
-            0.42rem;
-
-        letter-spacing:
-            0.15em;
-    }
-
-
-    .book-kicker {
-
-        font-size:
-            0.48rem !important;
-
-        letter-spacing:
-            0.16em !important;
-    }
-
-
-    .book-rule {
-
-        width: 42px;
-
-        margin:
-            18px auto;
-    }
-
-
-    .book-introduction {
-
-        max-width: 100%;
-
-        font-size:
-            0.55rem;
-
-        line-height:
-            1.7;
-    }
-
-
-    /* =====================================================
-       CONTENTS
-    ===================================================== */
-
-    .section-label {
-
-        font-size:
-            0.45rem;
-
-        letter-spacing:
-            0.14em;
-    }
-
-
-    .contents-heading {
-
-        margin-bottom:
-            20px;
-
-        font-size:
-            1.25rem;
-    }
-
-
-    .contents-entry {
-
-        grid-template-columns:
-            22px
-            1fr;
-
-        gap: 5px;
-
-        padding:
-            8px 0;
-    }
-
-
-    .contents-entry span {
-
-        font-size:
-            0.45rem;
-    }
-
-
-    .contents-entry strong {
-
-        font-size:
-            0.53rem;
-
-        line-height:
-            1.25;
-    }
-
-
-    .contents-entry em {
-
-        display: none;
-    }
-
-
-    /* =====================================================
-       CATEGORY INTRO
-    ===================================================== */
 
     .section-title {
-
-        max-width: 100%;
-
-        font-size:
-            clamp(
-                1.45rem,
-                6vw,
-                2.2rem
-            );
-
-        line-height:
-            1.05;
+        font-size: 3rem;
     }
 
-
-    .category-description {
-
-        max-width: 100%;
-
-        font-size:
-            0.56rem;
-
-        line-height:
-            1.7;
-
-        margin-top:
-            12px;
-    }
-
-
-    .category-back {
-
-        margin-top:
-            18px;
-
-        padding:
-            7px
-            10px;
-
-        font-size:
-            0.45rem;
-    }
-
-
-    /* =====================================================
-       LEGEND LIST
-    ===================================================== */
 
     .category-list-page .section-heading {
-
-        margin-top: 0;
-
-        margin-bottom:
-            16px;
-
-        font-size:
-            1.1rem;
+        font-size: 1.6rem;
     }
 
 
@@ -1866,197 +1706,82 @@ body {
     }
 
 
-    .legend-entry {
+    .contents-entry {
 
         grid-template-columns:
-            19px
+            35px
             1fr;
 
-        gap: 5px;
-
-        padding:
-            8px 0;
+        gap: 8px;
     }
 
 
-    .entry-number {
-
-        font-size:
-            0.43rem;
-
-        padding-top:
-            2px;
+    .contents-entry em {
+        display: none;
     }
 
-
-    .entry-info h3 {
-
-        margin-bottom:
-            3px;
-
-        font-size:
-            0.58rem;
-
-        line-height:
-            1.2;
-    }
-
-
-    .entry-info p {
-
-        margin-bottom:
-            4px;
-
-        font-size:
-            0.46rem;
-
-        line-height:
-            1.4;
-    }
-
-
-    .read-link {
-
-        font-size:
-            0.42rem;
-
-        letter-spacing:
-            0.07em;
-    }
-
-
-    /* =====================================================
-       PAGE NUMBERS
-    ===================================================== */
-
-    .page-number {
-
-        bottom:
-            13px;
-
-        font-size:
-            0.48rem;
-    }
-
-
-    .left-page .page-number {
-
-        left:
-            14px;
-    }
-
-
-    .right-page .page-number {
-
-        right:
-            14px;
-    }
-
-
-    /* =====================================================
-       MOBILE BOOK CONTROLS
-    ===================================================== */
 
     .book-controls {
 
-        position: absolute;
+        gap: 10px;
 
-        left: 50%;
-
-        bottom:
-            -65px;
-
-        transform:
-            translateX(-50%);
-
-        width: 100%;
-
-        margin: 0;
-
-        padding:
-            0 4px;
-
-        display: flex;
-
-        justify-content:
-            space-between;
-
-        align-items:
-            center;
-
-        gap: 6px;
-
-        z-index: 50;
+        margin-top: 35px;
     }
 
 
     .book-button {
 
-        flex:
-            0 0 auto;
-
         padding:
-            8px
-            9px;
+            9px
+            12px;
 
-        font-size:
-            0.43rem;
-
-        letter-spacing:
-            0.08em;
-
-        white-space:
-            nowrap;
+        font-size: 0.52rem;
     }
 
 
     .book-position {
 
-        flex:
-            1 1 auto;
+        min-width: 100px;
 
-        min-width:
-            0;
-
-        font-size:
-            0.43rem;
-
-        letter-spacing:
-            0.08em;
-
-        text-align:
-            center;
-
-        white-space:
-            nowrap;
+        font-size: 0.52rem;
     }
 
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
     .site-footer {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        gap:
-            10px;
+        gap: 12px;
 
-        text-align:
-            center;
-
-        padding:
-            25px
-            5vw
-            30px;
+        text-align: center;
     }
 }
 
 
 /* =========================================================
-   INTRO SCREEN
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    .book-spread.turn-next,
+    .book-spread.enter-next,
+    .book-spread.turn-prev,
+    .book-spread.enter-prev {
+
+        animation-duration:
+            0.01ms;
+    }
+}
+
+
+/* =========================================================
+   HIDDEN LEGENDS — INTRO SCREEN
 ========================================================= */
 
 .intro-screen {
@@ -2089,6 +1814,9 @@ body {
         visibility 1.4s ease;
 }
 
+
+/* When the intro is finished */
+
 .intro-screen.hidden {
 
     opacity: 0;
@@ -2097,6 +1825,11 @@ body {
 
     pointer-events: none;
 }
+
+
+/* =========================================================
+   INTRO CONTENT
+========================================================= */
 
 .intro-content {
 
@@ -2118,6 +1851,11 @@ body {
 
     padding: 30px;
 }
+
+
+/* =========================================================
+   SPARROW
+========================================================= */
 
 .intro-sparrow {
 
@@ -2155,6 +1893,7 @@ body {
         filter 0.5s ease;
 }
 
+
 .intro-sparrow::before {
 
     content: "";
@@ -2187,6 +1926,7 @@ body {
         infinite;
 }
 
+
 .intro-sparrow img {
 
     position: relative;
@@ -2211,15 +1951,14 @@ body {
 }
 
 
-/* =========================================================
-   INTRO HOVER
-========================================================= */
+/* Hover */
 
 .intro-sparrow:hover {
 
     transform:
         scale(1.06);
 }
+
 
 .intro-sparrow:hover img {
 
@@ -2232,7 +1971,7 @@ body {
 
 
 /* =========================================================
-   INTRO TEXT
+   TITLE
 ========================================================= */
 
 .intro-title {
@@ -2274,6 +2013,11 @@ body {
         rgba(216, 181, 106, 0.08);
 }
 
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
 .intro-subtitle {
 
     margin-top: 18px;
@@ -2306,6 +2050,11 @@ body {
         2s
         forwards;
 }
+
+
+/* =========================================================
+   CLICK PROMPT
+========================================================= */
 
 .intro-prompt {
 
@@ -2340,7 +2089,7 @@ body {
 
 
 /* =========================================================
-   INTRO ANIMATIONS
+   ANIMATIONS
 ========================================================= */
 
 @keyframes introSparrowAppear {
@@ -2382,6 +2131,7 @@ body {
     }
 }
 
+
 @keyframes introGlow {
 
     0%,
@@ -2401,6 +2151,7 @@ body {
         opacity: 0.75;
     }
 }
+
 
 @keyframes introTextAppear {
 
@@ -2427,6 +2178,7 @@ body {
     }
 }
 
+
 @keyframes introPromptAppear {
 
     0% {
@@ -2448,7 +2200,7 @@ body {
 
 
 /* =========================================================
-   INTRO LEAVING
+   INTRO EXIT
 ========================================================= */
 
 .intro-screen.leaving {
@@ -2478,6 +2230,7 @@ body {
         height: 190px;
     }
 
+
     .intro-sparrow img {
 
         width: 140px;
@@ -2485,12 +2238,14 @@ body {
         height: 140px;
     }
 
+
     .intro-sparrow::before {
 
         width: 175px;
 
         height: 175px;
     }
+
 
     .intro-title {
 
@@ -2500,6 +2255,7 @@ body {
             0.15em;
     }
 
+
     .intro-subtitle {
 
         font-size: 0.5rem;
@@ -2507,6 +2263,7 @@ body {
         letter-spacing:
             0.25em;
     }
+
 
     .intro-prompt {
 
@@ -2518,23 +2275,10 @@ body {
 
 
 /* =========================================================
-   REDUCED MOTION
+   INTRO REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    .book-spread.turn-next,
-    .book-spread.enter-next,
-    .book-spread.turn-prev,
-    .book-spread.enter-prev {
-
-        animation-duration:
-            0.01ms;
-    }
 
     .intro-screen,
     .intro-screen.leaving {
@@ -2542,6 +2286,7 @@ body {
         transition:
             opacity 0.3s ease;
     }
+
 
     .intro-sparrow,
     .intro-title,
@@ -2553,6 +2298,7 @@ body {
         opacity: 1;
     }
 
+
     .intro-sparrow::before {
 
         animation: none;
@@ -2561,14 +2307,19 @@ body {
 
 
 /* =========================================================
-   INTRO CLICK / LIGHT REVEAL
+   SPARROW LIGHT REVEAL
 ========================================================= */
+
+/* Make both the sparrow and Click to Enter clickable */
 
 .intro-sparrow,
 .intro-prompt {
 
     cursor: pointer;
 }
+
+
+/* Light starts at the sparrow */
 
 .intro-screen::after {
 
@@ -2610,6 +2361,11 @@ body {
         rgba(244, 197, 66, 0.45);
 }
 
+
+/* =========================================================
+   WHEN ENTERING
+========================================================= */
+
 .intro-screen.light-reveal::after {
 
     animation:
@@ -2618,6 +2374,9 @@ body {
         cubic-bezier(.7, 0, .15, 1)
         forwards;
 }
+
+
+/* Everything gets hidden behind the expanding light */
 
 .intro-screen.light-reveal .intro-content {
 
@@ -2630,7 +2389,7 @@ body {
 
 
 /* =========================================================
-   LIGHT REVEAL ANIMATION
+   EXPANDING LIGHT
 ========================================================= */
 
 @keyframes sparrowLight {
@@ -2697,6 +2456,11 @@ body {
     }
 }
 
+
+/* =========================================================
+   INTRO CONTENT DISAPPEARS
+========================================================= */
+
 @keyframes introDisappear {
 
     0% {
@@ -2716,11 +2480,17 @@ body {
     }
 }
 
+
+/* =========================================================
+   AFTER THE LIGHT REVEAL
+========================================================= */
+
 .intro-screen.light-reveal {
 
     background:
         #000;
 }
+
 
 .intro-screen.light-reveal.finished {
 
