@@ -58,11 +58,6 @@ body {
     overflow-x: hidden;
 }
 
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
 .navbar {
     position: fixed;
 
@@ -225,11 +220,6 @@ body {
     width: 22px;
 }
 
-
-/* =========================================================
-   NAVBAR — TABLET / MOBILE
-========================================================= */
-
 @media (max-width: 700px) {
 
     .navbar {
@@ -258,11 +248,6 @@ body {
     }
 }
 
-
-/* =========================================================
-   BOOK WORLD
-========================================================= */
-
 .book-world {
 
     min-height:
@@ -271,23 +256,16 @@ body {
     padding:
         110px
         30px
-        170px;
+        130px;
 
     display: flex;
 
-    flex-direction: column;
+    justify-content: center;
 
-    justify-content: flex-start;
-
-    align-items: center;
+    align-items: flex-start;
 
     position: relative;
 }
-
-
-/* =========================================================
-   BOOK
-========================================================= */
 
 .book {
 
@@ -309,17 +287,11 @@ body {
         preserve-3d;
 }
 
-
-/* =========================================================
-   BOOK SPREAD
-   ONE LARGE PAGE ABOVE ANOTHER
-========================================================= */
-
 .book-spread {
 
     width: 100%;
 
-    min-height: 1800px;
+    min-height: 900px;
 
     position: absolute;
 
@@ -327,9 +299,8 @@ body {
 
     display: grid;
 
-    grid-template-columns: 1fr;
-
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     opacity: 0;
 
@@ -373,7 +344,7 @@ body {
         forwards;
 
     transform-origin:
-        center;
+        left center;
 
     z-index: 5;
 }
@@ -398,7 +369,7 @@ body {
         forwards;
 
     transform-origin:
-        center;
+        right center;
 
     z-index: 5;
 }
@@ -413,11 +384,6 @@ body {
 
     z-index: 2;
 }
-
-
-/* =========================================================
-   PAGE TURN ANIMATIONS
-========================================================= */
 
 @keyframes turnNext {
 
@@ -587,31 +553,25 @@ body {
     }
 }
 
-
-/* =========================================================
-   BOOK CENTER / HORIZONTAL BINDING
-========================================================= */
-
 .book-spread::before {
 
     content: "";
 
     position: absolute;
 
-    left: 0;
-    right: 0;
+    top: 0;
+    bottom: 0;
 
-    top: 50%;
+    left: 50%;
 
-    width: 100%;
-    height: 5px;
+    width: 5px;
 
     transform:
-        translateY(-50%);
+        translateX(-50%);
 
     background:
         linear-gradient(
-            180deg,
+            90deg,
             rgba(60, 43, 18, 0.18),
             rgba(255, 244, 207, 0.65),
             rgba(76, 55, 22, 0.25)
@@ -623,11 +583,6 @@ body {
 
     pointer-events: none;
 }
-
-
-/* =========================================================
-   BOOK PAGE
-========================================================= */
 
 .book-page {
 
@@ -662,22 +617,24 @@ body {
         rgba(80, 54, 18, 0.25);
 }
 
+
 .left-page {
 
     border-radius:
-        8px 8px 0 0;
+        8px 0 0 8px;
 
-    border-bottom:
+    border-right:
         1px solid
         rgba(92, 70, 32, 0.2);
 }
 
+
 .right-page {
 
     border-radius:
-        0 0 8px 8px;
+        0 8px 8px 0;
 
-    border-top:
+    border-left:
         1px solid
         rgba(92, 70, 32, 0.12);
 }
@@ -705,11 +662,6 @@ body {
     z-index: 1;
 }
 
-
-/* =========================================================
-   PAGE CONTENT
-========================================================= */
-
 .page-content {
 
     position: relative;
@@ -720,13 +672,9 @@ body {
 
     min-height: 100%;
 
-    padding: 80px;
+    padding: 70px;
 }
 
-
-/* =========================================================
-   PAGE NUMBERS
-========================================================= */
 
 .page-number {
 
@@ -738,7 +686,7 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 0.72rem;
+    font-size: 0.65rem;
 
     letter-spacing: 0.18em;
 
@@ -753,20 +701,14 @@ body {
     z-index: 5;
 }
 
-.left-page .page-number {
 
+.left-page .page-number {
     left: 45px;
 }
 
 .right-page .page-number {
-
     right: 45px;
 }
-
-
-/* =========================================================
-   CONTENTS PAGE
-========================================================= */
 
 .contents-page {
 
@@ -777,21 +719,22 @@ body {
     justify-content: center;
 }
 
-.contents-page:first-child {
 
+.contents-page:first-child {
     text-align: center;
 }
 
 .contents-page.right-page {
 
-    padding-left: 110px;
+    padding-left: 85px;
 
-    padding-right: 110px;
+    padding-right: 85px;
 }
+
 
 .contents-page .book-kicker {
 
-    margin-bottom: 28px;
+    margin-bottom: 25px;
 
     color:
         #7d673f;
@@ -800,7 +743,7 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 0.82rem;
+    font-size: 0.7rem;
 
     font-weight: 600;
 
@@ -808,13 +751,9 @@ body {
 }
 
 
-/* =========================================================
-   BOOK TITLE
-========================================================= */
-
 .book-title {
 
-    margin-bottom: 18px;
+    margin-bottom: 12px;
 
     color:
         #302719;
@@ -825,9 +764,9 @@ body {
 
     font-size:
         clamp(
-            4rem,
-            7vw,
-            6.5rem
+            3.5rem,
+            6vw,
+            5.8rem
         );
 
     font-weight: 500;
@@ -836,6 +775,7 @@ body {
 
     letter-spacing: -0.04em;
 }
+
 
 .book-subtitle {
 
@@ -846,20 +786,21 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 0.78rem;
+    font-size: 0.65rem;
 
     font-weight: 600;
 
     letter-spacing: 0.28em;
 }
 
+
 .book-rule {
 
-    width: 90px;
+    width: 70px;
 
     height: 1px;
 
-    margin: 32px 0;
+    margin: 28px 0;
 
     background:
         linear-gradient(
@@ -870,6 +811,7 @@ body {
         );
 }
 
+
 .contents-page:first-child .book-rule {
 
     margin-left: auto;
@@ -877,9 +819,10 @@ body {
     margin-right: auto;
 }
 
+
 .book-introduction {
 
-    max-width: 520px;
+    max-width: 390px;
 
     margin: 0 auto;
 
@@ -891,20 +834,15 @@ body {
         Georgia,
         serif;
 
-    font-size: 1rem;
+    font-size: 0.82rem;
 
-    line-height: 2;
+    line-height: 1.9;
 }
-
-
-/* =========================================================
-   SECTION LABELS
-========================================================= */
 
 .contents-page .section-label {
-
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 }
+
 
 .section-label {
 
@@ -915,16 +853,17 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 0.78rem;
+    font-size: 0.65rem;
 
     font-weight: 600;
 
     letter-spacing: 0.25em;
 }
 
+
 .contents-heading {
 
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 
     color:
         var(--ink);
@@ -933,35 +872,31 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 2.8rem;
+    font-size: 2.3rem;
 
     font-weight: 500;
 }
 
 
-/* =========================================================
-   CONTENTS LIST
-========================================================= */
-
 .contents-list {
-
     width: 100%;
 }
+
 
 .contents-entry {
 
     display: grid;
 
     grid-template-columns:
-        60px
+        45px
         1fr
         auto;
 
     align-items: center;
 
-    gap: 18px;
+    gap: 12px;
 
-    padding: 20px 0;
+    padding: 14px 0;
 
     border-bottom:
         1px solid
@@ -978,12 +913,14 @@ body {
         border-color 0.25s ease;
 }
 
+
 .contents-entry:first-child {
 
     border-top:
         1px solid
         rgba(92, 70, 32, 0.17);
 }
+
 
 .contents-entry span {
 
@@ -994,8 +931,9 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 0.78rem;
+    font-size: 0.68rem;
 }
+
 
 .contents-entry strong {
 
@@ -1003,12 +941,13 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 1rem;
+    font-size: 0.78rem;
 
     font-weight: 600;
 
     letter-spacing: 0.04em;
 }
+
 
 .contents-entry em {
 
@@ -1019,14 +958,15 @@ body {
         "Libre Baskerville",
         serif;
 
-    font-size: 0.75rem;
+    font-size: 0.62rem;
 
     font-style: italic;
 }
 
+
 .contents-entry:hover {
 
-    padding-left: 10px;
+    padding-left: 8px;
 
     color:
         #8a672b;
@@ -1034,11 +974,6 @@ body {
     border-color:
         rgba(216, 181, 106, 0.5);
 }
-
-
-/* =========================================================
-   CATEGORY INTRO
-========================================================= */
 
 .category-intro {
 
@@ -1048,12 +983,13 @@ body {
 
     justify-content: center;
 
-    padding: 90px;
+    padding: 75px;
 }
+
 
 .category-intro .book-kicker {
 
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 
     color:
         #80683e;
@@ -1062,16 +998,17 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 0.8rem;
+    font-size: 0.68rem;
 
     font-weight: 600;
 
     letter-spacing: 0.3em;
 }
 
+
 .section-title {
 
-    max-width: 650px;
+    max-width: 450px;
 
     color:
         var(--ink);
@@ -1082,9 +1019,9 @@ body {
 
     font-size:
         clamp(
-            3.4rem,
-            5vw,
-            5.2rem
+            2.6rem,
+            4vw,
+            3.8rem
         );
 
     font-weight: 500;
@@ -1094,9 +1031,10 @@ body {
     letter-spacing: -0.025em;
 }
 
+
 .category-description {
 
-    max-width: 620px;
+    max-width: 400px;
 
     color:
         var(--ink-light);
@@ -1106,12 +1044,11 @@ body {
         Georgia,
         serif;
 
-    font-size: 1.05rem;
+    font-size: 0.86rem;
 
-    line-height: 2;
-
-    margin-top: 10px;
+    line-height: 1.9;
 }
+
 
 .category-back {
 
@@ -1119,10 +1056,10 @@ body {
 
     display: inline-block;
 
-    margin-top: 42px;
+    margin-top: 35px;
 
     padding:
-        13px 20px;
+        10px 16px;
 
     border:
         1px solid
@@ -1135,7 +1072,7 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 0.68rem;
+    font-size: 0.58rem;
 
     letter-spacing: 0.12em;
 
@@ -1146,6 +1083,7 @@ body {
         color 0.25s ease,
         border-color 0.25s ease;
 }
+
 
 .category-back:hover {
 
@@ -1159,25 +1097,21 @@ body {
         #f7eedc;
 }
 
-
-/* =========================================================
-   CATEGORY LIST
-========================================================= */
-
 .category-list-page {
 
     padding:
-        80px
-        90px
-        80px
-        90px;
+        65px
+        60px
+        65px
+        65px;
 }
+
 
 .category-list-page .section-heading {
 
-    margin-top: 12px;
+    margin-top: 9px;
 
-    margin-bottom: 38px;
+    margin-bottom: 28px;
 
     color:
         var(--ink);
@@ -1186,10 +1120,11 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 2.7rem;
+    font-size: 2rem;
 
     font-weight: 500;
 }
+
 
 .category-list-page .legend-list {
 
@@ -1199,8 +1134,9 @@ body {
         1fr
         1fr;
 
-    column-gap: 50px;
+    column-gap: 25px;
 }
+
 
 .legend-entry {
 
@@ -1209,17 +1145,18 @@ body {
     display: grid;
 
     grid-template-columns:
-        40px
+        28px
         1fr;
 
-    gap: 15px;
+    gap: 9px;
 
-    padding: 20px 0;
+    padding: 14px 0;
 
     border-top:
         1px solid
         rgba(92, 70, 32, 0.16);
 }
+
 
 .legend-entry:last-child {
 
@@ -1228,9 +1165,10 @@ body {
         rgba(92, 70, 32, 0.16);
 }
 
+
 .entry-number {
 
-    padding-top: 5px;
+    padding-top: 3px;
 
     color:
         #9a7a42;
@@ -1239,19 +1177,20 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 0.7rem;
+    font-size: 0.57rem;
 
     letter-spacing: 0.08em;
 }
 
-.entry-info {
 
+.entry-info {
     min-width: 0;
 }
 
+
 .entry-info h3 {
 
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 
     color:
         var(--ink);
@@ -1260,16 +1199,17 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 1.15rem;
+    font-size: 0.95rem;
 
     font-weight: 600;
 
-    line-height: 1.3;
+    line-height: 1.25;
 }
+
 
 .entry-info p {
 
-    margin-bottom: 12px;
+    margin-bottom: 9px;
 
     color:
         #665943;
@@ -1279,10 +1219,11 @@ body {
         Georgia,
         serif;
 
-    font-size: 0.88rem;
+    font-size: 0.72rem;
 
-    line-height: 1.7;
+    line-height: 1.55;
 }
+
 
 .read-link {
 
@@ -1293,7 +1234,7 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 0.7rem;
+    font-size: 0.6rem;
 
     font-weight: 600;
 
@@ -1306,6 +1247,7 @@ body {
         letter-spacing 0.25s ease;
 }
 
+
 .read-link:hover {
 
     color:
@@ -1315,14 +1257,16 @@ body {
         0.13em;
 }
 
-
-/* =========================================================
-   BOOK CONTROLS
-========================================================= */
-
 .book-controls {
 
-    position: relative;
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -200px;
+
+    transform:
+        translateX(-50%);
 
     width:
         min(
@@ -1330,18 +1274,17 @@ body {
             96vw
         );
 
-    margin-top: 55px;
-
     display: flex;
 
     justify-content: center;
 
     align-items: center;
 
-    gap: 35px;
+    gap: 25px;
 
     z-index: 20;
 }
+
 
 .book-button {
 
@@ -1356,14 +1299,14 @@ body {
         #d8c59c;
 
     padding:
-        13px
-        24px;
+        10px
+        18px;
 
     font-family:
         "Cinzel",
         serif;
 
-    font-size: 0.7rem;
+    font-size: 0.65rem;
 
     letter-spacing: 0.14em;
 
@@ -1375,6 +1318,7 @@ body {
         background 0.25s ease,
         opacity 0.25s ease;
 }
+
 
 .book-button:hover:not(:disabled) {
 
@@ -1388,6 +1332,7 @@ body {
         var(--gold-light);
 }
 
+
 .book-button:disabled {
 
     opacity: 0.3;
@@ -1395,9 +1340,10 @@ body {
     cursor: not-allowed;
 }
 
+
 .book-position {
 
-    min-width: 180px;
+    min-width: 150px;
 
     text-align: center;
 
@@ -1408,15 +1354,10 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 0.68rem;
+    font-size: 0.62rem;
 
     letter-spacing: 0.16em;
 }
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
 
 .site-footer {
 
@@ -1454,11 +1395,6 @@ body {
         rgba(216, 181, 106, 0.08);
 }
 
-
-/* =========================================================
-   TABLET
-========================================================= */
-
 @media (max-width: 900px) {
 
     .book-world {
@@ -1469,463 +1405,37 @@ body {
             150px;
     }
 
-    .book {
 
-        width: 94vw;
+    .book {
+        width: 96vw;
     }
+
 
     .book-spread {
 
         grid-template-columns:
             1fr;
-
-        grid-template-rows:
-            1fr
-            1fr;
-
-        min-height:
-            1500px;
-    }
-
-    .book-page {
-
-        min-height:
-            750px;
-    }
-
-    .book-spread::before {
-
-        display: block;
-
-        top: 50%;
-
-        left: 0;
-
-        width: 100%;
-
-        height: 4px;
-
-        transform:
-            translateY(-50%);
-    }
-
-    .left-page,
-    .right-page {
-
-        border-radius: 0;
-    }
-
-    .category-list-page .legend-list {
-
-        grid-template-columns:
-            1fr
-            1fr;
-    }
-
-    .category-intro {
-
-        padding:
-            70px
-            65px;
-    }
-
-    .category-list-page {
-
-        padding:
-            65px;
-    }
-
-    .page-content {
-
-        padding:
-            65px;
-    }
-
-    .contents-page.right-page {
-
-        padding-left:
-            70px;
-
-        padding-right:
-            70px;
-    }
-
-    .entry-info h3 {
-
-        font-size:
-            1.05rem;
-    }
-
-    .entry-info p {
-
-        font-size:
-            0.82rem;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .book-world {
-
-        width: 100%;
 
         min-height: auto;
-
-        padding:
-            88px
-            8px
-            115px;
-
-        display: flex;
-
-        justify-content: center;
-
-        align-items: flex-start;
     }
 
-
-    .book {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        position: relative;
-    }
-
-
-    /* =====================================================
-       MOBILE — TOP PAGE / BOTTOM PAGE
-    ===================================================== */
-
-    .book-spread {
-
-        position: absolute;
-
-        top: 0;
-        left: 0;
-
-        width: 100%;
-
-        display: grid;
-
-        grid-template-columns:
-            1fr;
-
-        grid-template-rows:
-            1fr
-            1fr;
-
-        min-height:
-            1200px;
-
-        height:
-            1200px;
-    }
-
-
-    /* =====================================================
-       MOBILE PAGES
-    ===================================================== */
 
     .book-page {
-
-        width: 100% !important;
-
-        min-height: 600px;
-
-        height: 600px;
-
-        overflow: hidden;
-
-        border-radius: 0;
-
-        position: relative;
+        min-height: 650px;
     }
 
-
-    .left-page {
-
-        border-radius:
-            6px 6px 0 0;
-
-        border-right:
-            none;
-
-        border-bottom:
-            1px solid
-            rgba(92, 70, 32, 0.25);
-    }
-
-
-    .right-page {
-
-        border-radius:
-            0 0 6px 6px;
-
-        border-left:
-            none;
-
-        border-top:
-            1px solid
-            rgba(92, 70, 32, 0.2);
-    }
-
-
-    /* =====================================================
-       CENTER HORIZONTAL BINDING
-    ===================================================== */
 
     .book-spread::before {
-
-        display: block;
-
-        left: 0;
-
-        top: 50%;
-
-        width: 100%;
-
-        height: 3px;
-
-        transform:
-            translateY(-50%);
-    }
-
-
-    /* =====================================================
-       PAGE CONTENT
-    ===================================================== */
-
-    .page-content {
-
-        width: 100%;
-
-        height: 100%;
-
-        padding:
-            45px
-            32px;
-    }
-
-
-    .contents-page.right-page {
-
-        padding:
-            45px
-            32px;
-    }
-
-
-    .category-intro {
-
-        padding:
-            45px
-            32px;
-
-        justify-content:
-            center;
-    }
-
-
-    .category-list-page {
-
-        padding:
-            42px
-            32px;
-    }
-
-
-    /* =====================================================
-       TITLE
-    ===================================================== */
-
-    .book-title {
-
-        font-size:
-            clamp(
-                2.2rem,
-                10vw,
-                3.5rem
-            );
-
-        line-height:
-            0.98;
-
-        letter-spacing:
-            -0.04em;
-    }
-
-
-    .book-subtitle {
-
-        font-size:
-            0.55rem;
-
-        letter-spacing:
-            0.15em;
-    }
-
-
-    .book-kicker {
-
-        font-size:
-            0.58rem !important;
-
-        letter-spacing:
-            0.16em !important;
-    }
-
-
-    .book-rule {
-
-        width: 55px;
-
-        margin:
-            22px auto;
-    }
-
-
-    .book-introduction {
-
-        max-width: 100%;
-
-        font-size:
-            0.72rem;
-
-        line-height:
-            1.85;
-    }
-
-
-    /* =====================================================
-       CONTENTS
-    ===================================================== */
-
-    .section-label {
-
-        font-size:
-            0.54rem;
-
-        letter-spacing:
-            0.14em;
-    }
-
-
-    .contents-heading {
-
-        margin-bottom:
-            24px;
-
-        font-size:
-            1.7rem;
-    }
-
-
-    .contents-entry {
-
-        grid-template-columns:
-            32px
-            1fr;
-
-        gap: 8px;
-
-        padding:
-            11px 0;
-    }
-
-
-    .contents-entry span {
-
-        font-size:
-            0.55rem;
-    }
-
-
-    .contents-entry strong {
-
-        font-size:
-            0.7rem;
-
-        line-height:
-            1.3;
-    }
-
-
-    .contents-entry em {
-
         display: none;
     }
 
 
-    /* =====================================================
-       CATEGORY INTRO
-    ===================================================== */
+    .left-page,
+    .right-page {
 
-    .section-title {
+        border-radius: 8px;
 
-        max-width: 100%;
-
-        font-size:
-            clamp(
-                2rem,
-                9vw,
-                3rem
-            );
-
-        line-height:
-            1.05;
-    }
-
-
-    .category-description {
-
-        max-width: 100%;
-
-        font-size:
-            0.72rem;
-
-        line-height:
-            1.85;
-
-        margin-top:
-            16px;
-    }
-
-
-    .category-back {
-
-        margin-top:
-            24px;
-
-        padding:
-            9px
-            13px;
-
-        font-size:
-            0.52rem;
-    }
-
-
-    /* =====================================================
-       LEGEND LIST
-    ===================================================== */
-
-    .category-list-page .section-heading {
-
-        margin-top:
-            0;
-
-        margin-bottom:
-            20px;
-
-        font-size:
-            1.55rem;
+        border: none;
     }
 
 
@@ -1936,101 +1446,9 @@ body {
     }
 
 
-    .legend-entry {
-
-        grid-template-columns:
-            25px
-            1fr;
-
-        gap:
-            7px;
-
-        padding:
-            10px 0;
-    }
-
-
-    .entry-number {
-
-        font-size:
-            0.52rem;
-
-        padding-top:
-            3px;
-    }
-
-
-    .entry-info h3 {
-
-        margin-bottom:
-            4px;
-
-        font-size:
-            0.78rem;
-
-        line-height:
-            1.3;
-    }
-
-
-    .entry-info p {
-
-        margin-bottom:
-            6px;
-
-        font-size:
-            0.62rem;
-
-        line-height:
-            1.55;
-    }
-
-
-    .read-link {
-
-        font-size:
-            0.48rem;
-
-        letter-spacing:
-            0.07em;
-    }
-
-
-    /* =====================================================
-       PAGE NUMBERS
-    ===================================================== */
-
-    .page-number {
-
-        bottom:
-            15px;
-
-        font-size:
-            0.5rem;
-    }
-
-
-    .left-page .page-number {
-
-        left:
-            16px;
-    }
-
-
-    .right-page .page-number {
-
-        right:
-            16px;
-    }
-
-
-    /* =====================================================
-       MOBILE BOOK CONTROLS
-    ===================================================== */
-
     .book-controls {
 
-        position: relative;
+        position: absolute;
 
         left: auto;
 
@@ -2040,96 +1458,165 @@ body {
 
         width: 100%;
 
-        margin-top:
-            35px;
+        margin-top: 45px;
+    }
+
+
+    .category-intro {
 
         padding:
-            0 4px;
+            60px
+            50px;
+    }
 
-        display: flex;
 
-        justify-content:
-            space-between;
+    .category-list-page {
 
-        align-items:
-            center;
+        padding:
+            55px
+            45px;
+    }
 
-        gap:
-            8px;
 
-        z-index:
-            50;
+    .page-content {
+
+        padding:
+            55px
+            45px;
+    }
+
+
+    .contents-page.right-page {
+
+        padding-left: 55px;
+
+        padding-right: 55px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .book-world {
+
+        padding:
+            90px
+            12px
+            130px;
+    }
+
+
+    .book-page {
+        min-height: 620px;
+    }
+
+
+    .page-content,
+    .category-intro,
+    .category-list-page {
+
+        padding:
+            42px
+            28px;
+    }
+
+
+    .contents-page.right-page {
+
+        padding:
+            42px
+            28px;
+    }
+
+
+    .book-title {
+        font-size: 3.2rem;
+    }
+
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+
+    .category-list-page .section-heading {
+        font-size: 1.6rem;
+    }
+
+
+    .category-list-page .legend-list {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .contents-entry {
+
+        grid-template-columns:
+            35px
+            1fr;
+
+        gap: 8px;
+    }
+
+
+    .contents-entry em {
+        display: none;
+    }
+
+
+    .book-controls {
+
+        gap: 10px;
+
+        margin-top: auto;
     }
 
 
     .book-button {
 
-        flex:
-            0 0 auto;
-
         padding:
-            10px
+            9px
             12px;
 
-        font-size:
-            0.48rem;
-
-        letter-spacing:
-            0.08em;
-
-        white-space:
-            nowrap;
+        font-size: 0.52rem;
     }
 
 
     .book-position {
 
-        flex:
-            1 1 auto;
+        min-width: 100px;
 
-        min-width:
-            0;
-
-        font-size:
-            0.48rem;
-
-        letter-spacing:
-            0.08em;
-
-        text-align:
-            center;
-
-        white-space:
-            nowrap;
+        font-size: 0.52rem;
     }
 
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
 
     .site-footer {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        gap:
-            10px;
+        gap: 12px;
 
-        text-align:
-            center;
-
-        padding:
-            25px
-            5vw
-            30px;
+        text-align: center;
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
 
-/* =========================================================
-   INTRO SCREEN
-========================================================= */
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    .book-spread.turn-next,
+    .book-spread.enter-next,
+    .book-spread.turn-prev,
+    .book-spread.enter-prev {
+
+        animation-duration:
+            0.01ms;
+    }
+}
 
 .intro-screen {
 
@@ -2227,6 +1714,7 @@ body {
         filter 0.5s ease;
 }
 
+
 .intro-sparrow::before {
 
     content: "";
@@ -2259,6 +1747,7 @@ body {
         infinite;
 }
 
+
 .intro-sparrow img {
 
     position: relative;
@@ -2283,15 +1772,14 @@ body {
 }
 
 
-/* =========================================================
-   INTRO HOVER
-========================================================= */
+/* Hover */
 
 .intro-sparrow:hover {
 
     transform:
         scale(1.06);
 }
+
 
 .intro-sparrow:hover img {
 
@@ -2301,11 +1789,6 @@ body {
             rgba(244, 197, 66, 0.3)
         );
 }
-
-
-/* =========================================================
-   INTRO TEXT
-========================================================= */
 
 .intro-title {
 
@@ -2410,11 +1893,6 @@ body {
         forwards;
 }
 
-
-/* =========================================================
-   INTRO ANIMATIONS
-========================================================= */
-
 @keyframes introSparrowAppear {
 
     0% {
@@ -2454,6 +1932,7 @@ body {
     }
 }
 
+
 @keyframes introGlow {
 
     0%,
@@ -2473,6 +1952,7 @@ body {
         opacity: 0.75;
     }
 }
+
 
 @keyframes introTextAppear {
 
@@ -2499,6 +1979,7 @@ body {
     }
 }
 
+
 @keyframes introPromptAppear {
 
     0% {
@@ -2518,11 +1999,6 @@ body {
     }
 }
 
-
-/* =========================================================
-   INTRO LEAVING
-========================================================= */
-
 .intro-screen.leaving {
 
     opacity: 0;
@@ -2536,11 +2012,6 @@ body {
         cubic-bezier(.77, 0, .18, 1);
 }
 
-
-/* =========================================================
-   INTRO MOBILE
-========================================================= */
-
 @media (max-width: 600px) {
 
     .intro-sparrow {
@@ -2550,6 +2021,7 @@ body {
         height: 190px;
     }
 
+
     .intro-sparrow img {
 
         width: 140px;
@@ -2557,12 +2029,14 @@ body {
         height: 140px;
     }
 
+
     .intro-sparrow::before {
 
         width: 175px;
 
         height: 175px;
     }
+
 
     .intro-title {
 
@@ -2572,6 +2046,7 @@ body {
             0.15em;
     }
 
+
     .intro-subtitle {
 
         font-size: 0.5rem;
@@ -2579,6 +2054,7 @@ body {
         letter-spacing:
             0.25em;
     }
+
 
     .intro-prompt {
 
@@ -2588,25 +2064,7 @@ body {
     }
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    .book-spread.turn-next,
-    .book-spread.enter-next,
-    .book-spread.turn-prev,
-    .book-spread.enter-prev {
-
-        animation-duration:
-            0.01ms;
-    }
 
     .intro-screen,
     .intro-screen.leaving {
@@ -2614,6 +2072,7 @@ body {
         transition:
             opacity 0.3s ease;
     }
+
 
     .intro-sparrow,
     .intro-title,
@@ -2625,16 +2084,12 @@ body {
         opacity: 1;
     }
 
+
     .intro-sparrow::before {
 
         animation: none;
     }
 }
-
-
-/* =========================================================
-   INTRO CLICK / LIGHT REVEAL
-========================================================= */
 
 .intro-sparrow,
 .intro-prompt {
@@ -2699,11 +2154,6 @@ body {
         ease-out
         forwards;
 }
-
-
-/* =========================================================
-   LIGHT REVEAL ANIMATION
-========================================================= */
 
 @keyframes sparrowLight {
 
@@ -2794,6 +2244,7 @@ body {
         #000;
 }
 
+
 .intro-screen.light-reveal.finished {
 
     opacity: 0;
@@ -2801,4 +2252,161 @@ body {
     visibility: hidden;
 
     pointer-events: none;
+}
+
+@media (max-width: 600px) {
+
+    .book-world {
+        padding:
+            90px
+            12px
+            30px;
+
+        display: block;
+    }
+
+    .book {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .book-spread {
+        position: absolute;
+
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+    }
+
+    .book-page {
+        min-height: 0;
+
+        height: auto;
+
+        overflow: visible;
+
+        border-radius: 6px;
+    }
+
+    .book-page::after {
+        pointer-events: none;
+    }
+
+    .page-content,
+    .category-intro,
+    .category-list-page {
+        padding:
+            42px
+            28px;
+    }
+
+    .contents-page.right-page {
+        padding:
+            42px
+            28px;
+    }
+
+    .contents-page {
+        min-height: 0;
+    }
+
+    .book-title {
+        font-size: 3.2rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .category-list-page .section-heading {
+        font-size: 1.6rem;
+    }
+
+    .category-list-page .legend-list {
+        grid-template-columns: 1fr;
+    }
+
+    .legend-entry {
+        padding: 16px 0;
+    }
+
+    .entry-info h3 {
+        font-size: 0.9rem;
+    }
+
+    .entry-info p {
+        font-size: 0.7rem;
+        line-height: 1.65;
+    }
+
+    .contents-entry {
+        grid-template-columns:
+            35px
+            1fr;
+
+        gap: 8px;
+    }
+
+    .contents-entry em {
+        display: none;
+    }
+
+    .book-controls {
+        position: static;
+
+        width: 100%;
+
+        margin-top: 35px;
+        margin-bottom: 30px;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        gap: 8px;
+    }
+
+    .book-button {
+        padding:
+            10px
+            10px;
+
+        font-size: 0.5rem;
+
+        white-space: nowrap;
+    }
+
+    .book-position {
+        min-width: 80px;
+
+        font-size: 0.5rem;
+
+        text-align: center;
+    }
+
+    .site-footer {
+        flex-direction: column;
+
+        gap: 12px;
+
+        text-align: center;
+
+        padding-top: 30px;
+    }
+
+    .page-number {
+        bottom: 18px;
+    }
+
+    .left-page .page-number {
+        left: 22px;
+    }
+
+    .right-page .page-number {
+        right: 22px;
+    }
 }
