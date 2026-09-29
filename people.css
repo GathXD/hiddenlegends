@@ -2254,7 +2254,7 @@ body {
     pointer-events: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
 
     .book-world {
         padding:
@@ -2271,31 +2271,37 @@ body {
     }
 
     .book-spread {
+        position: absolute;
+
+        width: 100%;
+
         grid-template-columns: 1fr;
+
         min-height: auto;
     }
 
     .book-page {
         min-height: 0;
+
         height: auto;
+
         overflow: visible;
 
         border-radius: 6px;
     }
 
-    .left-page,
-    .right-page {
-        border: none;
-        border-radius: 6px;
-    }
-
-    .book-spread::before {
-        display: none;
+    .book-page::after {
+        pointer-events: none;
     }
 
     .page-content,
     .category-intro,
-    .category-list-page,
+    .category-list-page {
+        padding:
+            42px
+            28px;
+    }
+
     .contents-page.right-page {
         padding:
             42px
@@ -2336,17 +2342,16 @@ body {
     }
 
     .contents-entry {
-        grid-template-columns: 35px 1fr;
+        grid-template-columns:
+            35px
+            1fr;
+
         gap: 8px;
     }
 
     .contents-entry em {
         display: none;
     }
-
-    /* =========================
-       MOBILE BOOK CONTROLS
-    ========================= */
 
     .book-controls {
         position: static;
@@ -2359,6 +2364,7 @@ body {
         display: flex;
 
         justify-content: space-between;
+
         align-items: center;
 
         gap: 8px;
@@ -2382,6 +2388,16 @@ body {
         text-align: center;
     }
 
+    .site-footer {
+        flex-direction: column;
+
+        gap: 12px;
+
+        text-align: center;
+
+        padding-top: 30px;
+    }
+
     .page-number {
         bottom: 18px;
     }
@@ -2392,15 +2408,5 @@ body {
 
     .right-page .page-number {
         right: 22px;
-    }
-
-    .site-footer {
-        flex-direction: column;
-
-        gap: 12px;
-
-        text-align: center;
-
-        padding-top: 30px;
     }
 }
