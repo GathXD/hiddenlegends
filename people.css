@@ -2256,16 +2256,151 @@ body {
 
 @media (max-width: 768px) {
 
+    .book-world {
+        padding:
+            90px
+            12px
+            30px;
+
+        display: block;
+    }
+
+    .book {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .book-spread {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .book-page {
+        min-height: 0;
+        height: auto;
+        overflow: visible;
+
+        border-radius: 6px;
+    }
+
+    .left-page,
+    .right-page {
+        border: none;
+        border-radius: 6px;
+    }
+
+    .book-spread::before {
+        display: none;
+    }
+
+    .page-content,
+    .category-intro,
+    .category-list-page,
+    .contents-page.right-page {
+        padding:
+            42px
+            28px;
+    }
+
+    .contents-page {
+        min-height: 0;
+    }
+
+    .book-title {
+        font-size: 3.2rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .category-list-page .section-heading {
+        font-size: 1.6rem;
+    }
+
+    .category-list-page .legend-list {
+        grid-template-columns: 1fr;
+    }
+
+    .legend-entry {
+        padding: 16px 0;
+    }
+
+    .entry-info h3 {
+        font-size: 0.9rem;
+    }
+
+    .entry-info p {
+        font-size: 0.7rem;
+        line-height: 1.65;
+    }
+
+    .contents-entry {
+        grid-template-columns: 35px 1fr;
+        gap: 8px;
+    }
+
+    .contents-entry em {
+        display: none;
+    }
+
+    /* =========================
+       MOBILE BOOK CONTROLS
+    ========================= */
+
     .book-controls {
         position: static;
+
         width: 100%;
-        margin-top: 400px;
+
+        margin-top: 35px;
         margin-bottom: 30px;
 
         display: flex;
+
         justify-content: space-between;
         align-items: center;
-        gap: 15px;
+
+        gap: 8px;
     }
 
+    .book-button {
+        padding:
+            10px
+            10px;
+
+        font-size: 0.5rem;
+
+        white-space: nowrap;
+    }
+
+    .book-position {
+        min-width: 80px;
+
+        font-size: 0.5rem;
+
+        text-align: center;
+    }
+
+    .page-number {
+        bottom: 18px;
+    }
+
+    .left-page .page-number {
+        left: 22px;
+    }
+
+    .right-page .page-number {
+        right: 22px;
+    }
+
+    .site-footer {
+        flex-direction: column;
+
+        gap: 12px;
+
+        text-align: center;
+
+        padding-top: 30px;
+    }
 }
