@@ -1275,7 +1275,7 @@ body {
 
     left: 50%;
 
-    bottom: -950px;
+    bottom: -600px;
 
     transform:
         translateX(-50%);
@@ -2282,4 +2282,143 @@ body {
         min-height: 1500px;
     }
 
+}
+
+
+@media (orientation: landscape) and (max-height: 600px) {
+
+    .book-world {
+        padding:
+            85px
+            15px
+            110px;
+    }
+
+    .book {
+        width: 96vw;
+    }
+
+    /* Keep the book as a two-page spread */
+    .book-spread {
+        grid-template-columns: 1fr 1fr;
+        min-height: 0;
+        height: auto;
+    }
+
+    .book-page {
+        min-height: 1000px;
+        height: auto;
+    }
+
+    .book-spread::before {
+        display: block;
+    }
+
+    .left-page {
+        border-radius: 8px 0 0 8px;
+        border-right:
+            1px solid
+            rgba(92, 70, 32, 0.2);
+    }
+
+    .right-page {
+        border-radius: 0 8px 8px 0;
+        border-left:
+            1px solid
+            rgba(92, 70, 32, 0.12);
+
+        min-height: 600px;
+    }
+
+    /* Smaller page spacing */
+    .page-content {
+        padding: 35px 30px;
+    }
+
+    .category-intro {
+        padding: 35px 30px;
+    }
+
+    .category-list-page {
+        padding: 35px 30px;
+    }
+
+    .contents-page.right-page {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    /* Smaller headings */
+    .book-title {
+        font-size: 2.8rem;
+    }
+
+    .section-title {
+        font-size: 2.1rem;
+    }
+
+    .contents-heading {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+    }
+
+    .category-list-page .section-heading {
+        font-size: 1.5rem;
+        margin-bottom: 18px;
+    }
+
+    /* Smaller list entries */
+    .contents-entry {
+        padding: 9px 0;
+    }
+
+    .legend-entry {
+        padding: 9px 0;
+    }
+
+    .entry-info h3 {
+        font-size: 0.78rem;
+    }
+
+    .entry-info p {
+        font-size: 0.62rem;
+        line-height: 1.4;
+    }
+
+    /* BOOK CONTROLS */
+    .book-controls {
+        position: relative;
+
+        left: auto;
+        bottom: auto;
+
+        transform: none;
+
+        width: 100%;
+
+        margin-top: 650px;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 12px;
+
+        z-index: 20;
+    }
+
+    .book-button {
+        padding:
+            8px
+            14px;
+
+        font-size: 0.55rem;
+    }
+
+    .book-position {
+        min-width: 110px;
+
+        font-size: 0.52rem;
+    }
 }
