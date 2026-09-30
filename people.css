@@ -1804,7 +1804,7 @@ body {
 
 .intro-title {
 
-    margin-top: 22px;
+    margin-top: -35px;
 
     color:
         #eee4cc;
@@ -2110,7 +2110,7 @@ body {
 
     cursor: pointer;
     min-width: 250px;
-    margin-top: 35px;
+    margin-top: 15px;
     padding: 15px 18px;
     gap: 14px;
     letter-spacing: 0.15em;
