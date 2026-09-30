@@ -2306,7 +2306,7 @@ body {
     }
 
     .book-page {
-        min-height: 1000px;
+        min-height: 1300px;
         height: auto;
     }
 
@@ -2385,7 +2385,6 @@ body {
         line-height: 1.4;
     }
 
-    /* BOOK CONTROLS */
     .book-controls {
         position: relative;
 
@@ -2396,7 +2395,7 @@ body {
 
         width: 100%;
 
-        margin-top: 650px;
+        margin-top: 860px;
 
         display: flex;
 
